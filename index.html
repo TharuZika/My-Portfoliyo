@@ -1,13 +1,463 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" dir="ltr" color-scheme="auto">
 <head>
-    <meta charset="UTF-8">
-    <title>Title</title>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>
+        TharuZika
+    </title>
+    <meta
+            name="description"
+            content="I'm a full stack developer and I currently working as freelancer. I'm a Student of IJSE Undergraduate."
+    />
+    <!-- <link rel="stylesheet" href="./index.css"> -->
+    <link
+            rel="shortcut icon"
+            href="assets/images/favicon.ico"
+            type="image/x-icon"
+    />
+    <style>
+        @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap");
+
+        :root {
+            --color-background: #fff;
+            --color-on-background: rgb(14, 14, 14);
+        }
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --color-background: #0e0e0e;
+                --color-on-background: #bcc3ff;
+            }
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html,
+        body {
+            block-size: 100%;
+            margin: 0;
+            font-size: 1rem;
+            font-family: "Inter", sans-serif;
+            font-weight: 400;
+            color: var(--color-on-background);
+            overflow-x: hidden;
+        }
+
+        @media (prefers-reduced-motion: no-preference) {
+            :where(html) {
+                scroll-behavior: smooth;
+            }
+        }
+
+        @media (prefers-reduced-motion: no-preference) {
+            :focus-visible {
+                transition: outline-offset 145ms cubic-bezier(0.25, 0, 0.4, 1);
+            }
+            :where(:not(:active)):focus-visible {
+                transition-duration: 0.25s;
+            }
+        }
+
+        :where(:not(:active)):focus-visible {
+            outline-offset: 5px;
+        }
+
+        :where(body) {
+            min-block-size: 100vh;
+            background-color: var(--color-background);
+        }
+
+        a {
+            color: var(--color-on-background);
+            text-decoration: none;
+        }
+
+        button {
+            border: none;
+            cursor: pointer;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4 {
+            margin-block: 1.5rem;
+        }
+        p {
+            margin-block: 1rem;
+        }
+
+        /**************************/
+        body {
+            max-inline-size: 100vw;
+            background-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS0yQXkF9Fts73EvqVBMOsz4pRrxMhcQ85pVMNY8gLmHuRs-THuLmzKcFntXLbeQCudvTU&usqp=CAU);
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-attachment: fixed;
+            overflow-x: hidden;
+            z-index: -9;
+        }
+        @media (prefers-color-scheme: dark) {
+            body {
+                background-image: url(https://images.unsplash.com/photo-1478760329108-5c3ed9d495a0?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxleHBsb3JlLWZlZWR8MXx8fGVufDB8fHx8&w=1000&q=80);
+            }
+        }
+        .page {
+            block-size: 100%;
+            inline-size: 100%;
+            background-color: rgba(255, 255, 255, 0.85);
+            z-index: -9;
+        }
+        @media (prefers-color-scheme: dark) {
+            .page {
+                background-color: rgba(0, 0, 0, 0.85);
+            }
+        }
+        .top-bar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            min-block-size: 4rem;
+            padding-inline: clamp(1.375rem, 1.2rem + 0.89vw, 2rem);
+        }
+        .logo a.logoooo {
+            font-size: 2rem;
+            font-weight: 600;
+        }
+        .top-bar-nav-link {
+            font-weight: 500;
+            padding-block: 1rem;
+            padding-inline: clamp(0.75rem, 2vw, 1.25rem);
+        }
+        .top-bar-nav-link:hover {
+            background-color: rgba(15, 15, 15, 0.15);
+        }
+        .icon-button {
+            inline-size: 48px;
+            block-size: 48px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            background-color: rgba(156, 143, 143, 0.479);
+        }
+        .icon-button svg {
+            inline-size: 28px;
+            block-size: 28px;
+            fill: var(--color-on-background);
+            stroke: var(--color-on-background);
+        }
+        .navigation-drawer {
+            position: absolute;
+            visibility: hidden;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            inline-size: 100%;
+            block-size: 100%;
+            background-color: var(--color-background);
+            z-index: 999;
+            transform: translateX(100%);
+            transition: all 0.3s;
+        }
+        @media (min-width: 1024px) {
+            .navigation-drawer {
+                display: none;
+            }
+            #mobile-menu-open-btn {
+                display: none;
+            }
+        }
+        .navigation-drawer.open {
+            transform: translateX(0);
+            visibility: visible;
+        }
+        #mobile-menu-close-btn {
+            position: absolute;
+            top: 0.5rem;
+            right: 1rem;
+        }
+        .primary-navigation {
+            display: none;
+        }
+        @media (min-width: 1024px) {
+            .primary-navigation {
+                display: block;
+            }
+        }
+        .primary-navigation-mobile {
+            display: flex;
+            flex-direction: column;
+            text-align: center;
+        }
+        main {
+            block-size: 100%;
+        }
+        .page-section {
+            block-size: 90vh;
+            padding-block: clamp(2rem, 5vh, 6rem);
+            position: relative;
+        }
+        @media (min-width: 1366px) {
+            .page-section {
+                padding-block: clamp(4rem, 10vh, 6rem);
+                display: flex;
+                align-items: center;
+            }
+        }
+        .wrapper {
+            margin-inline: auto;
+            padding-inline: clamp(1.375rem, 1.2rem + 0.89vw, 4rem);
+            position: relative;
+            max-inline-size: 85rem;
+            inline-size: 100%;
+        }
+        @media (min-width: 768px) {
+            .wrapper {
+                padding-inline: clamp(1.375rem, 2rem + 2.5vw, 6rem);
+            }
+        }
+        .content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 3rem;
+            inline-size: 100%;
+            z-index: 2;
+        }
+        @media (min-width: 1024px) {
+            .content {
+                flex-direction: row;
+                justify-content: space-between;
+            }
+        }
+        .image {
+            padding-inline: 2rem;
+        }
+        .image img {
+            border-radius: 50%;
+            inline-size: 100%;
+            block-size: 100%;
+            object-fit: cover;
+        }
+        .info {
+            text-align: center;
+        }
+        @media (min-width: 1024px) {
+            .info {
+                text-align: start;
+            }
+        }
+        .heading {
+            font-size: 2.5rem;
+            color: #495bff;
+        }
+        .sub-heading {
+            font-size: 1.2rem;
+            letter-spacing: 1.5px;
+            color: var(--color-on-background);
+        }
+        .pic-image {
+            inline-size: 100%;
+            block-size: 100%;
+            position: absolute;
+            bottom: -12rem;
+            left: 0;
+            z-index: 1;
+        }
+    </style>
 </head>
 <body>
-<h1 align="center">Hello World</h1>
-<h2 align="center">Internet Technologies</h2>
-<h3>Tharushika Dilakshan</h3>
-<h3>GDSE60</h3>
+<div class="top-bar wrapper">
+    <div class="logo"><a href="./" class="logoooo">TharuZika</a></div>
+    <nav class="primary-navigation">
+        <a href="#" class="top-bar-nav-link">Home</a>
+        <a href="#" class="top-bar-nav-link">About me</a>
+        <a href="#" class="top-bar-nav-link">My skills</a>
+        <a href="#" class="top-bar-nav-link">My certificates</a>
+        <a href="#" class="top-bar-nav-link">My projects</a>
+        <a href="#" class="top-bar-nav-link">Contact me</a>
+    </nav>
+    <button
+            id="mobile-menu-open-btn"
+            class="mobile-menu-open-btn icon-button"
+            onclick="openMenu()"
+            type="button"
+            aria-label="Open Menu"
+            aria-expanded="false"
+    >
+        <svg
+                aria-hidden="true"
+                xmlns="http://www.w3.org/2000/svg"
+                class="ionicon"
+                viewBox="0 0 512 512"
+        >
+            <title>Menu</title>
+            <path
+                    fill="none"
+                    stroke=""
+                    stroke-linecap="round"
+                    stroke-miterlimit="10"
+                    stroke-width="48"
+                    d="M88 152h336M88 256h336M88 360h336"
+            />
+        </svg>
+    </button>
+</div>
+<div id="navDrawer" class="navigation-drawer" aria-hidden="true">
+    <nav class="primary-navigation-mobile">
+        <a href="#" class="top-bar-nav-link">Home</a>
+        <a href="#" class="top-bar-nav-link">About me</a>
+        <a href="#" class="top-bar-nav-link">My skills</a>
+        <a href="#" class="top-bar-nav-link">My certificates</a>
+        <a href="#" class="top-bar-nav-link">My projects</a>
+        <a href="#" class="top-bar-nav-link">Contact me</a>
+    </nav>
+    <button
+            id="mobile-menu-close-btn"
+            class="icon-button"
+            type="button"
+            onclick="closeMenu()"
+            aria-label="Close Menu"
+    >
+        <svg
+                aria-hidden="true"
+                xmlns="http://www.w3.org/2000/svg"
+                class="ionicon"
+                viewBox="0 0 512 512"
+        >
+            <title>Close</title>
+            <path
+                    d="M289.94 256l95-95A24 24 0 00351 127l-95 95-95-95a24 24 0 00-34 34l95 95-95 95a24 24 0 1034 34l95-95 95 95a24 24 0 0034-34z"
+            />
+        </svg>
+    </button>
+</div>
+<main>
+    <div class="page-section">
+        <div class="wrapper">
+            <div class="content">
+                <div class="info">
+                    <h1 class="heading">I'm Tharushika Dilakshan</h1>
+                    <p class="sub-heading">Full Stack Developer</p>
+                    <p class="sub-heading">Web Designer</p>
+                    <p class="sub-heading">Backend Developer</p>
+                </div>
+                <div class="image">
+                    <img
+                            src="https://avatars.githubusercontent.com/u/101235785?v=4"
+                            alt="A picture of Tharushika Dilakshan"
+                    />
+                </div>
+            </div>
+        </div>
+
+        <div class="pic-image" style="display: none">
+            <svg
+                    width="100%"
+                    height="100%"
+                    viewBox="0 0 1920 590"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+            >
+                <rect
+                        opacity="0.38"
+                        x="949"
+                        y="353.553"
+                        width="500"
+                        height="500"
+                        transform="rotate(-45 949 353.553)"
+                        fill="#020E7A"
+                />
+                <rect
+                        opacity="0.38"
+                        x="452"
+                        y="353.553"
+                        width="500"
+                        height="500"
+                        transform="rotate(-45 452 353.553)"
+                        fill="#6B7CB9"
+                />
+                <rect
+                        opacity="0.38"
+                        x="705"
+                        y="353.553"
+                        width="500"
+                        height="500"
+                        transform="rotate(-45 705 353.553)"
+                        fill="#3D4ABD"
+                />
+                <g filter="url(#filter0_d_0_1)">
+                    <path
+                            d="M-381.174 571.835C-395.787 572.055 -410.58 572.262 -425.556 572.455C-467.022 565.797 -487.041 551.055 -381.174 571.835C927.17 552.142 790.546 425.187 1207.21 293.807C1456.22 215.292 1732.51 208.991 1942.83 228.032C1993.96 230.837 2041.51 236.438 2082.36 245.601C2129.89 253.444 2170.75 262.347 2203 271.336L2082.36 245.601C2040.57 238.706 1993.62 232.63 1942.83 228.032C1703.67 214.911 1385.91 262.952 1306.6 293.807C1216.62 328.815 720.257 538.153 487.719 572.455C202.047 598.422 -271.781 593.309 -381.174 571.835Z"
+                            fill="#0066FF"
+                    />
+                </g>
+                <defs>
+                    <filter
+                            id="filter0_d_0_1"
+                            x="-462"
+                            y="219"
+                            width="2710"
+                            height="427"
+                            filterUnits="userSpaceOnUse"
+                            color-interpolation-filters="sRGB"
+                    >
+                        <feFlood flood-opacity="0" result="BackgroundImageFix" />
+                        <feColorMatrix
+                                in="SourceAlpha"
+                                type="matrix"
+                                values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
+                                result="hardAlpha"
+                        />
+                        <feOffset dx="21" dy="32" />
+                        <feGaussianBlur stdDeviation="12" />
+                        <feComposite in2="hardAlpha" operator="out" />
+                        <feColorMatrix
+                                type="matrix"
+                                values="0 0 0 0 0 0 0 0 0 0.64 0 0 0 0 1 0 0 0 0.41 0"
+                        />
+                        <feBlend
+                                mode="normal"
+                                in2="BackgroundImageFix"
+                                result="effect1_dropShadow_0_1"
+                        />
+                        <feBlend
+                                mode="normal"
+                                in="SourceGraphic"
+                                in2="effect1_dropShadow_0_1"
+                                result="shape"
+                        />
+                    </filter>
+                </defs>
+            </svg>
+        </div>
+    </div>
+</main>
+<script>
+    function openMenu() {
+        var navDrawer = document.getElementById("navDrawer");
+        navDrawer.classList.add("open");
+        navDrawer.setAttribute("aria-hidden", "false");
+        var menuOpenBtn = document.getElementById("mobile-menu-open-btn");
+        menuOpenBtn.setAttribute("aria-expanded", "true");
+    }
+    function closeMenu() {
+        var navDrawer = document.getElementById("navDrawer");
+        navDrawer.classList.remove("open");
+        navDrawer.setAttribute("aria-hidden", "true");
+        var menuOpenBtn = document.getElementById("mobile-menu-open-btn");
+        menuOpenBtn.setAttribute("aria-expanded", "false");
+    }
+</script>
 </body>
 </html>
