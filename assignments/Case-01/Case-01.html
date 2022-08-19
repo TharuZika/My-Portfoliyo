@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Case 01</title>
+  <link rel="stylesheet" href="assets/css/normalize.css">
+
+  <style>
+    main{
+      height: 100vh;
+      width: 100vw;
+      position: relative;
+    }
+    main>section{
+      height: 50vh;
+      width: 50vw;
+      position: absolute;
+    }
+
+    main>section:nth-child(1){
+      background-color: red;
+      left: 0;
+      top: 0;
+
+    }
+
+    main>section:nth-child(2){
+      background-color: green;
+      right: 0;
+      top: 0;
+    }
+
+    main>section:nth-child(3){
+      background-color: orange;
+      left: 0;
+      bottom: 0;
+
+    }
+
+    main>section:nth-child(4){
+      background-color: deeppink;
+      right: 0;
+      bottom: 0;
+    }
+
+
+    main>div:first-of-type{
+      position: absolute;
+      width: 230px;
+      height: 230px;
+      background-color: white;
+      right: 0;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      margin: auto;
+    }
+
+    main>div:first-of-type>div{
+      width: 60%;
+      height: 60%;
+      border-radius: 100%;
+      background-color: red;
+      position: absolute;
+      right: 0;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      margin: auto;
+    }
+
+    main>div:nth-child(6), main>div:nth-child(7), main>div:nth-child(8), main>div:nth-child(9) {
+      width: 180px;
+      height: 180px;
+      background-color: white;
+      position: absolute;
+    }
+
+    main>div:nth-child(6){
+      top: 0;
+      left: 0;
+      border-bottom-right-radius: 100%;
+    }
+
+    main>div:nth-child(7){
+      top: 0;
+      right: 0;
+      border-bottom-left-radius: 100%;
+    }
+
+    main>div:nth-child(8){
+      bottom: 0;
+      left: 0;
+      border-top-right-radius: 100%;
+    }
+
+    main>div:nth-child(9){
+      bottom: 0;
+      right: 0;
+      border-top-left-radius: 100%;
+    }
+
+    main>div:nth-child(10), div:nth-child(11){
+      width: 230px;
+      height: 115px;
+      background-color:  white;
+      right: 0;
+      left: 0;
+      margin: auto;
+      position: absolute;
+
+    }
+    main>div:nth-child(10){
+      top: 0;
+      border-bottom-left-radius: 130px;
+      border-bottom-right-radius: 130px;
+    }
+
+    main>div:nth-child(11){
+      bottom: 0;
+      border-top-left-radius: 130px;
+      border-top-right-radius: 130px;
+    }
+
+    main>section>div{
+      position: absolute;
+      height: 250px;
+      width: 250px;
+      background-color: white;
+      border-radius: 100%;
+      right: 0;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      margin: auto;
+    }
+
+    main>section>div>div{
+      position: absolute;
+      height: 130px;
+      width: 130px;
+      background-color: red;
+      right: 0;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      margin: auto;
+    }
+
+  </style>
+
+</head>
+<body>
+<main>
+  <section>
+    <div>
+      <div></div>
+    </div>
+  </section>
+
+  <section>
+    <div>
+      <div></div>
+    </div>
+  </section>
+
+  <section>
+    <div>
+      <div></div>
+    </div>
+  </section>
+
+  <section>
+    <div>
+      <div></div>
+    </div>
+  </section>
+
+
+  <div>
+    <div>
+    </div>
+  </div>
+
+  <div></div>
+  <div></div>
+  <div></div>
+  <div></div>
+
+  <div></div>
+  <div></div>
+
+</main>
+
+</body>
+</html>
