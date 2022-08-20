@@ -2,195 +2,181 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Case 01</title>
-  <link rel="stylesheet" href="assets/css/normalize.css">
+  <title>Case 02</title>
+  <link rel="stylesheet" href="assets\css\normalize.css">
+  <meta name="viewport" content="width=device-width initial-scale=1">
+  <link type="favicon" href="assets\images\favicon.png" rel="icon">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;900&display=swap" rel="stylesheet">
 
   <style>
+
     main{
-      height: 100vh;
-      width: 100vw;
+      height: 88vh;
+      width: 99vw;
       position: relative;
     }
-    main>section{
-      height: 50vh;
-      width: 50vw;
-      position: absolute;
-    }
 
-    main>section:nth-child(1){
-      background-color: red;
-      left: 0;
-      top: 0;
-
-    }
-
-    main>section:nth-child(2){
-      background-color: green;
-      right: 0;
-      top: 0;
-    }
-
-    main>section:nth-child(3){
-      background-color: orange;
-      left: 0;
-      bottom: 0;
-
-    }
-
-    main>section:nth-child(4){
-      background-color: deeppink;
-      right: 0;
-      bottom: 0;
-    }
-
-
-    main>div:first-of-type{
-      position: absolute;
-      width: 230px;
-      height: 230px;
+    header{
       background-color: white;
-      right: 0;
-      left: 0;
-      top: 0;
-      bottom: 0;
-      margin: auto;
+      border: 1px solid black;
+      position: relative;
+      height: 75px;
+      box-shadow: 3px 2px 9px 1px black;
     }
 
-    main>div:first-of-type>div{
-      width: 60%;
-      height: 60%;
-      border-radius: 100%;
-      background-color: red;
+
+    header>img{
+      width: 190px;
+      position: relative;
+      top: 10px;
+      left: 10px;
+
+    }
+
+    header>nav{
+      position: absolute;
+      right: 40px;
+      top: 0;
+    }
+
+    header>nav>ul>li{
+      font-family: 'Raleway', sans-serif;
+      font-weight: 600;
+      font-size: 18px;
+      cursor: pointer;
+      display: inline-block;
+      padding: 10px;
+      color: rgba(46, 41 ,41, 0.96);
+    }
+
+    main>aside:nth-child(1){
+      height: 88vh;
+      width: 18vw;
+      position: absolute;
+      background-color: rebeccapurple;
+    }
+
+    main>aside:nth-child(1)>nav>ul>li{
+      font-family: 'Raleway', sans-serif;
+      font-weight: 600;
+      font-size: 18px;
+      cursor: pointer;
+      display: block;
+      padding: 10px;
+      color: rgba(255, 255, 255, 0.96);
+    }
+
+    main>aside:nth-child(2){
+      height: 88vh;
+      width: 81vw;
       position: absolute;
       right: 0;
-      left: 0;
-      top: 0;
-      bottom: 0;
-      margin: auto;
     }
 
-    main>div:nth-child(6), main>div:nth-child(7), main>div:nth-child(8), main>div:nth-child(9) {
-      width: 180px;
-      height: 180px;
-      background-color: white;
+    main>aside:nth-child(2)>section:nth-child(1){
       position: absolute;
-    }
-
-    main>div:nth-child(6){
-      top: 0;
-      left: 0;
-      border-bottom-right-radius: 100%;
-    }
-
-    main>div:nth-child(7){
-      top: 0;
-      right: 0;
-      border-bottom-left-radius: 100%;
-    }
-
-    main>div:nth-child(8){
-      bottom: 0;
-      left: 0;
-      border-top-right-radius: 100%;
-    }
-
-    main>div:nth-child(9){
-      bottom: 0;
-      right: 0;
-      border-top-left-radius: 100%;
-    }
-
-    main>div:nth-child(10), div:nth-child(11){
-      width: 230px;
-      height: 115px;
-      background-color:  white;
+      height: 370px;
+      width: 80vw;
       right: 0;
       left: 0;
       margin: auto;
+      padding: 7px;
+      border: 1px solid black ;
+    }
+
+    main>aside:nth-child(2)>section:nth-child(1)>img:nth-child(1){
+      height: 370px;
       position: absolute;
-
+      padding: 7px;
     }
-    main>div:nth-child(10){
-      top: 0;
-      border-bottom-left-radius: 130px;
-      border-bottom-right-radius: 130px;
-    }
-
-    main>div:nth-child(11){
-      bottom: 0;
-      border-top-left-radius: 130px;
-      border-top-right-radius: 130px;
-    }
-
-    main>section>div{
+    main>aside:nth-child(2)>section:nth-child(1)>img:nth-child(2){
+      height: 370px;
       position: absolute;
-      height: 250px;
-      width: 250px;
-      background-color: white;
-      border-radius: 100%;
+      padding: 7px;
       right: 0;
       left: 0;
-      top: 0;
-      bottom: 0;
       margin: auto;
     }
-
-    main>section>div>div{
+    main>aside:nth-child(2)>section:nth-child(1)>img:nth-child(3){
+      height: 370px;
       position: absolute;
-      height: 130px;
-      width: 130px;
-      background-color: red;
+      padding: 7px;
       right: 0;
-      left: 0;
-      top: 0;
+    }
+
+    main>aside:nth-child(2)>section:nth-child(2){
+      width: 80vw;
+      height: 430px;
+      position: absolute;
+      padding: 10px;
       bottom: 0;
-      margin: auto;
+    }
+    main>aside:nth-child(2)>section:nth-child(2)>p{
+      font-size: 26px;
+    }
+
+    footer{
+      position: absolute;
+      width: 99vw;
+      height: 60px;
+      background-color: darkgray;
+    }
+
+    footer>h2{
+      text-align: center;
+      color: white;
     }
 
   </style>
-
 </head>
 <body>
+<header>
+  <img src="assets\images\ijse.png" alt="IJSE LOGO">
+  <nav>
+    <ul>
+      <li>Home</li>
+      <li>Services</li>
+      <li>Contact Us</li>
+      <li>About Us</li>
+    </ul>
+  </nav>
+</header>
 <main>
-  <section>
-    <div>
-      <div></div>
-    </div>
-  </section>
+  <aside>
+    <nav>
+      <ul>
+        <li>Home</li>
+        <li>Services</li>
+        <li>Contact Us</li>
+        <li>About Us</li>
+      </ul>
+    </nav>
+  </aside>
+  <aside>
+    <section>
+      <img src="assets/images/socialmonkey-preloader.gif" alt="Monkey 1">
+      <img src="assets/images/socialmonkey-preloader.gif" alt="Monkey 2">
+      <img src="assets/images/socialmonkey-preloader.gif" alt="Monkey 3">
+    </section>
+    <section>
+      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus debitis, sequi. Aspernatur ea eius ex harum impedit ipsum minima necessitatibus! Delectus eos nobis, odio quas sequi tempora. Repellendus, soluta voluptate!</p>
+      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus debitis, sequi. Aspernatur ea eius ex harum impedit ipsum minima necessitatibus! Delectus eos nobis, odio quas sequi tempora. Repellendus, soluta voluptate!</p>
+      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus debitis, sequi. Aspernatur ea eius ex harum impedit ipsum minima necessitatibus! Delectus eos nobis, odio quas sequi tempora. Repellendus, soluta voluptate!</p>
+      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus debitis, sequi. Aspernatur ea eius ex harum impedit ipsum minima necessitatibus! Delectus eos nobis, odio quas sequi tempora. Repellendus, soluta voluptate!</p>
+      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus debitis, sequi. Aspernatur ea eius ex harum impedit ipsum minima necessitatibus! Delectus eos nobis, odio quas sequi tempora. Repellendus, soluta voluptate!</p>
+      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus debitis, sequi. Aspernatur ea eius ex harum impedit ipsum minima necessitatibus! Delectus eos nobis, odio quas sequi tempora. Repellendus, soluta voluptate!</p>
+    </section>
+  </aside>
 
-  <section>
-    <div>
-      <div></div>
-    </div>
-  </section>
-
-  <section>
-    <div>
-      <div></div>
-    </div>
-  </section>
-
-  <section>
-    <div>
-      <div></div>
-    </div>
-  </section>
-
-
-  <div>
-    <div>
-    </div>
-  </div>
-
-  <div></div>
-  <div></div>
-  <div></div>
-  <div></div>
-
-  <div></div>
-  <div></div>
 
 </main>
+
+<footer>
+  <h2>Develop By IJSE</h2>
+</footer>
 
 </body>
 </html>
