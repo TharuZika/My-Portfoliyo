@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TharuZika/About Me</title>
+
+    <meta
+          name="description"
+          content="I'm a full stack developer and I currently working as freelancer. I'm a Student of IJSE Undergraduate."
+    />
+    <!-- <link rel="stylesheet" href="./index.css"> -->
+    <link
+          rel="shortcut icon"
+          href="../assets/images/favicon.ico"
+          type="image/x-icon"
+    />
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html,
+        body {
+            block-size: 100%;
+            margin: 0;
+            font-size: 1rem;
+            font-family: "Inter", sans-serif;
+            font-weight: 400;
+            color: var(--color-on-background);
+            overflow-x: hidden;
+        }
+        .top-bar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            min-block-size: 4rem;
+            padding-inline: clamp(1.375rem, 1.2rem + 0.89vw, 2rem);
+        }
+        .logo a.logoooo {
+            font-size: 2rem;
+            font-weight: 600;
+        }
+        .top-bar-nav-link {
+            font-weight: 500;
+            padding-block: 1rem;
+            padding-inline: clamp(0.75rem, 2vw, 1.25rem);
+        }
+        .top-bar-nav-link:hover {
+            background-color: rgba(15, 15, 15, 0.15);
+        }
+    </style>
+</head>
+<body>
+<div class="top-bar wrapper">
+    <div class="logo"><a href=".." class="logoooo">TharuZika</a></div>
+    <nav class="primary-navigation">
+        <a href="../index.html" class="top-bar-nav-link">Home</a>
+        <a href="aboutMe.html" class="top-bar-nav-link">About me</a>
+        <a href="#" class="top-bar-nav-link">My skills</a>
+        <a href="#" class="top-bar-nav-link">My certificates</a>
+        <a href="#" class="top-bar-nav-link">My projects</a>
+        <a href="#" class="top-bar-nav-link">Contact me</a>
+    </nav>
+    <button
+            id="mobile-menu-open-btn"
+            class="mobile-menu-open-btn icon-button"
+            onclick="openMenu()"
+            type="button"
+            aria-label="Open Menu"
+            aria-expanded="false"
+    >
+        <svg
+                aria-hidden="true"
+                xmlns="http://www.w3.org/2000/svg"
+                class="ionicon"
+                viewBox="0 0 512 512"
+        >
+            <title>Menu</title>
+            <path
+                    fill="none"
+                    stroke=""
+                    stroke-linecap="round"
+                    stroke-miterlimit="10"
+                    stroke-width="48"
+                    d="M88 152h336M88 256h336M88 360h336"
+            />
+        </svg>
+    </button>
+</div>
+<div class="page-section">
+    <div class="wrapper">
+        <div class="content">
+            <div class="info">
+                <h1 class="heading">About Me</h1>
+                <p class="sub-heading">     I am Tharushika Dilakshan. I studied at Allsaints' College. I am currently following software engineering course at IJSE. An enthusiastic student with highly motivated and studying Software Engineering. Eager to learn new technologies and always willing to innovate the new things which can improve the existing technology. An easy going person with positive attitudes and good team working ability</p>
+            </div>
+            <div class="image">
+                <img
+                        src="https://avatars.githubusercontent.com/u/101235785?v=4"
+                        alt="A picture of Tharushika Dilakshan"
+                />
+            </div>
+        </div>
+    </div>
+
+    <div class="pic-image" style="display: none">
+        <svg
+                width="100%"
+                height="100%"
+                viewBox="0 0 1920 590"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+        >
+            <rect
+                    opacity="0.38"
+                    x="949"
+                    y="353.553"
+                    width="500"
+                    height="500"
+                    transform="rotate(-45 949 353.553)"
+                    fill="#020E7A"
+            />
+            <rect
+                    opacity="0.38"
+                    x="452"
+                    y="353.553"
+                    width="500"
+                    height="500"
+                    transform="rotate(-45 452 353.553)"
+                    fill="#6B7CB9"
+            />
+            <rect
+                    opacity="0.38"
+                    x="705"
+                    y="353.553"
+                    width="500"
+                    height="500"
+                    transform="rotate(-45 705 353.553)"
+                    fill="#3D4ABD"
+            />
+            <g filter="url(#filter0_d_0_1)">
+                <path
+                        d="M-381.174 571.835C-395.787 572.055 -410.58 572.262 -425.556 572.455C-467.022 565.797 -487.041 551.055 -381.174 571.835C927.17 552.142 790.546 425.187 1207.21 293.807C1456.22 215.292 1732.51 208.991 1942.83 228.032C1993.96 230.837 2041.51 236.438 2082.36 245.601C2129.89 253.444 2170.75 262.347 2203 271.336L2082.36 245.601C2040.57 238.706 1993.62 232.63 1942.83 228.032C1703.67 214.911 1385.91 262.952 1306.6 293.807C1216.62 328.815 720.257 538.153 487.719 572.455C202.047 598.422 -271.781 593.309 -381.174 571.835Z"
+                        fill="#0066FF"
+                />
+            </g>
+            <defs>
+                <filter
+                        id="filter0_d_0_1"
+                        x="-462"
+                        y="219"
+                        width="2710"
+                        height="427"
+                        filterUnits="userSpaceOnUse"
+                        color-interpolation-filters="sRGB"
+                >
+                    <feFlood flood-opacity="0" result="BackgroundImageFix" />
+                    <feColorMatrix
+                            in="SourceAlpha"
+                            type="matrix"
+                            values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
+                            result="hardAlpha"
+                    />
+                    <feOffset dx="21" dy="32" />
+                    <feGaussianBlur stdDeviation="12" />
+                    <feComposite in2="hardAlpha" operator="out" />
+                    <feColorMatrix
+                            type="matrix"
+                            values="0 0 0 0 0 0 0 0 0 0.64 0 0 0 0 1 0 0 0 0.41 0"
+                    />
+                    <feBlend
+                            mode="normal"
+                            in2="BackgroundImageFix"
+                            result="effect1_dropShadow_0_1"
+                    />
+                    <feBlend
+                            mode="normal"
+                            in="SourceGraphic"
+                            in2="effect1_dropShadow_0_1"
+                            result="shape"
+                    />
+                </filter>
+            </defs>
+        </svg>
+    </div>
+</div>
+
+</body>
+</html>
