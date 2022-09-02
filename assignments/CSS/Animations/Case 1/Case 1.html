@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Animation Case 1</title>
+    <meta content="width=device-width initial-scale=1" name="viewport">
+    <link rel="stylesheet" href="assets/css/normalize.css">
+    <link rel="stylesheet" href="assets/fonts/css/all.min.css">
+
+    <style>
+        section{
+            width: 400px;
+            height: 180px;
+            background-color: red;
+            border-radius: 20px;
+            animation-name: roundBounce;
+            animation-duration: 4s;
+            animation-iteration-count: infinite;
+            animation-direction: alternate;
+
+        }
+
+        @keyframes roundBounce {
+            0%{
+                background-color: red;
+                margin: 0 0 0 0;
+                transform: rotate(0deg);
+            }
+            30%{
+                background-color: green;
+                margin: 0 0 0 1470px;
+                transform: rotate(180deg);
+            }
+            50%{
+                background-color: green;
+                margin: 760px 0 0 1470px;
+                transform: rotate(360deg);
+            }
+            80%{
+                background-color: green;
+                margin: 760px 0 0 0px;
+                transform: rotate(180deg);
+            }
+            100%{
+                background-color: orangered;
+                transform: rotate(360deg);
+            }
+
+        }
+
+
+    </style>
+
+</head>
+<body>
+    <section>
+    </section>
+
+</body>
+</html>

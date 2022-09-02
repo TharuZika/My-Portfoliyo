@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Transition Case 1</title>
+    <meta content="width=device-width initial-scale=1" name="viewport">
+    <link rel="stylesheet" href="assets/css/normalize.css">
+    <link rel="stylesheet" href="assets/fonts/css/all.min.css">
+
+    <style>
+        body{
+            background-color: #0088ff;
+        }
+
+        section{
+            position: absolute;
+            right: 0;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            margin: auto;
+            height: 500px;
+            width: 500px;
+            border-radius: 100%;
+            background-color: #898989;
+            border: 23px solid white;
+            border-top: 23px solid crimson ;
+            align-items: center;
+            cursor: pointer;
+        }
+
+        h1{
+            font-family: "Arial Black";
+            color: white;
+            width: max-content;
+            height: max-content;
+            position: absolute;
+            right: 0;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            margin: auto;
+        }
+
+        section:hover{
+            transform: rotate(360deg);
+            transition: all 2s;
+        }
+
+        section:hover>h1{
+            transform: rotate(-360deg);
+            transition: all 2s;
+        }
+
+    </style>
+
+</head>
+<body>
+    <section>
+        <h1>RAWD</h1>
+    </section>
+
+</body>
+</html>
