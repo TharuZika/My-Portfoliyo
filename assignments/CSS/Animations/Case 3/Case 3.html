@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Animations Case 3</title>
+    <meta content="width=device-width initial-scale=1" name="viewport">
+    <link href="assets/css/normalize.css" rel="stylesheet">
+    <style>
+        main{
+            width: 1580px;
+            height: 880px;
+            box-shadow: 1px 3px 5px 1px #666666;
+            position: absolute;
+            left: 0;
+            right: 0;
+            top: 0;
+            bottom: 0;
+            margin: auto;
+            overflow: hidden;
+        }
+
+        section{
+            height: 100%;
+            width: 400%;
+            box-shadow: 2px 2px 2px 2px black;
+            display: flex;
+            animation-name: slider-animation;
+            animation-duration: 10s;
+            animation-iteration-count: infinite;
+            animation-direction: alternate;
+        }
+
+        div{
+            height: 100%;
+            width: 100%;
+        }
+
+        img{
+            height: 100%;
+            width: 100%;
+        }
+
+        @keyframes slider-animation {
+            0%{
+                transform: translateX(0);
+            }
+            33%{
+                transform: translateX(-25%);
+            }
+            66%{
+                transform: translateX(-50%);
+            }
+            100%{
+                transform: translateX(-75%);
+            }
+
+        }
+
+
+
+        
+    </style>
+</head>
+    <body>
+        <main>
+            <section>
+                <div>
+                    <img src="assets/img/1.jpg" alt="1">
+                </div>
+                <div>
+                    <img src="assets/img/2.png" alt="1">
+                </div>
+                <div>
+                    <img src="assets/img/3.jpg" alt="1">
+                </div>
+                <div>
+                    <img src="assets/img/4.jpg" alt="1">
+                </div>
+            </section>
+        </main>
+    </body>
+</html>
