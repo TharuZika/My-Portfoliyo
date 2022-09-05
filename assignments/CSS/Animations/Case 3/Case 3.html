@@ -27,7 +27,7 @@
             animation-name: slider-animation;
             animation-duration: 10s;
             animation-iteration-count: infinite;
-            animation-direction: alternate;
+            /*animation-direction: alternate;*/
         }
 
         div{
@@ -44,14 +44,17 @@
             0%{
                 transform: translateX(0);
             }
-            33%{
+            25%{
                 transform: translateX(-25%);
             }
-            66%{
+            50%{
                 transform: translateX(-50%);
             }
-            100%{
+            75%{
                 transform: translateX(-75%);
+            }
+            100%{
+                transform: translateX(0);
             }
 
         }
