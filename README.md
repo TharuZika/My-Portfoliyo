@@ -1,3 +1,4 @@
 # My-Portfoliyo
 
-![image](https://user-images.githubusercontent.com/101235785/185653463-e4ff1f4c-3afd-4630-ad03-5633932c8d25.png)
+![image](https://user-images.githubusercontent.com/101235785/189197170-5b1d6519-4714-42c8-beb5-196a5fdfc024.png)
+
