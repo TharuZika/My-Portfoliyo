@@ -78,6 +78,57 @@
             color: #0088ff;
         }
 
+        main{
+            width: 1580px;
+            height: 880px;
+            box-shadow: 1px 3px 5px 1px #666666;
+            position: absolute;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            margin: auto;
+            overflow: hidden;
+        }
+
+        body>main>section{
+            height: 100%;
+            width: 400%;
+            box-shadow: 2px 2px 2px 2px black;
+            display: flex;
+            animation-name: slider-animation;
+            animation-duration: 20s;
+            animation-iteration-count: infinite;
+        }
+
+        div{
+            height: 100%;
+            width: 100%;
+        }
+
+        img{
+            height: 100%;
+            width: 100%;
+        }
+
+        @keyframes slider-animation {
+            0% {
+                transform: translateX(0);
+            }
+            25% {
+                transform: translateX(-25%);
+            }
+            50% {
+                transform: translateX(-50%);
+            }
+            75% {
+                transform: translateX(-75%);
+            }
+            100%{
+                transform: translateX(0);
+            }
+
+        }
+
     </style>
 </head>
 <body>
@@ -92,6 +143,7 @@
         <a href="#">Contact me</a>
     </nav>
 </header>
+<main>
     <section>
         <div>
             <img src="images/certificate.jpg" alt="Certificate 1">
@@ -107,6 +159,7 @@
         </div>
 
     </section>
+</main>
 
 </body>
 </html>
