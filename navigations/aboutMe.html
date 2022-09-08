@@ -25,6 +25,7 @@
 
         html,
         body {
+            background-image: url("images/mainBG.jpg");
             block-size: 100%;
             margin: 0;
             font-size: 1rem;
@@ -33,161 +34,134 @@
             color: var(--color-on-background);
             overflow-x: hidden;
         }
-        .top-bar {
+
+        header{
+            display: flex;
+            height: 70px;
+            align-items: center;
+            background-color: rgba(63, 128, 186, 0.13);
+            border: 1px solid black;
+            box-shadow: 3px 2px 9px 1px black;
+        }
+
+        header>nav{
+            position: absolute;
+            right: 40px;
+            top: 20px;
+        }
+
+        header>nav>a{
+            text-decoration: none;
+            font-family: "Arial";
+            padding: 10px;
+            font-size: 20px;
+            color: #a7d9ff;
+        }
+
+        header>div{
+            height: 60px;
+            width: 60px;
+            border-radius: 100%;
+            border: 2px solid white;
+            position: absolute;
             display: flex;
             align-items: center;
-            justify-content: space-between;
-            min-block-size: 4rem;
-            padding-inline: clamp(1.375rem, 1.2rem + 0.89vw, 2rem);
+            left: 10px;
         }
-        .logo a.logoooo {
-            font-size: 2rem;
+
+        header>div>a{
+            text-decoration: none;
+            font-family: "Arial";
+            font-size: 41px;
             font-weight: 600;
+            color: #0088ff;
         }
-        .top-bar-nav-link {
-            font-weight: 500;
-            padding-block: 1rem;
-            padding-inline: clamp(0.75rem, 2vw, 1.25rem);
+
+        main>aside{
+            position: absolute;
+            padding-top: 80px;
+            padding-left: 80px;
+            width: 40vw;
         }
-        .top-bar-nav-link:hover {
-            background-color: rgba(15, 15, 15, 0.15);
+
+        main>aside>h1{
+            color: white;
+            font-size: 40px;
         }
+
+        main>aside>p{
+            padding-top: 60px;
+            color: white;
+            font-size: 1.25rem;
+        }
+
+        main>section:nth-child(3){
+            position: absolute;
+            right: 80px;
+            padding-top: 80px;
+        }
+
+        main>section:nth-child(2){
+            position: absolute;
+            display: flex;
+            align-items: center;
+            height: 60px;
+            width: 165px;
+            background-color: white;
+            box-shadow: 4px 1px 9px 1px #444444;
+            border-radius: 20px;
+            bottom: 250px;
+            left: 315px;
+            cursor: pointer;
+        }
+
+        main>section:nth-child(2)>h3 {
+            padding-left: 20px;
+            color: #0088ff;
+        }
+
+        main>section:nth-child(2):hover{
+            background-color: #0088ff;
+        }
+
+        main>section:nth-child(2):hover>h3{
+            color: #ffffff;
+        }
+
+
+
+
+
     </style>
 </head>
 <body>
-<div class="top-bar wrapper">
-    <div class="logo"><a href=".." class="logoooo">TharuZika</a></div>
-    <nav class="primary-navigation">
-        <a href="../index.html" class="top-bar-nav-link">Home</a>
-        <a href="aboutMe.html" class="top-bar-nav-link">About me</a>
-        <a href="#" class="top-bar-nav-link">My skills</a>
-        <a href="#" class="top-bar-nav-link">My certificates</a>
-        <a href="#" class="top-bar-nav-link">My projects</a>
-        <a href="#" class="top-bar-nav-link">Contact me</a>
+<header>
+    <div><a href="../index.html">TZ</a></div>
+    <nav>
+        <a href="../index.html">Home</a>
+        <a href="aboutMe.html">About me</a>
+        <a href="#">My skills</a>
+        <a href="#">My certificates</a>
+        <a href="#">My projects</a>
+        <a href="#">Contact me</a>
     </nav>
-    <button
-            id="mobile-menu-open-btn"
-            class="mobile-menu-open-btn icon-button"
-            onclick="openMenu()"
-            type="button"
-            aria-label="Open Menu"
-            aria-expanded="false"
-    >
-        <svg
-                aria-hidden="true"
-                xmlns="http://www.w3.org/2000/svg"
-                class="ionicon"
-                viewBox="0 0 512 512"
-        >
-            <title>Menu</title>
-            <path
-                    fill="none"
-                    stroke=""
-                    stroke-linecap="round"
-                    stroke-miterlimit="10"
-                    stroke-width="48"
-                    d="M88 152h336M88 256h336M88 360h336"
-            />
-        </svg>
-    </button>
-</div>
-<div class="page-section">
-    <div class="wrapper">
-        <div class="content">
-            <div class="info">
-                <h1 class="heading">About Me</h1>
-                <p class="sub-heading">     I am Tharushika Dilakshan. I studied at Allsaints' College. I am currently following software engineering course at IJSE. An enthusiastic student with highly motivated and studying Software Engineering. Eager to learn new technologies and always willing to innovate the new things which can improve the existing technology. An easy going person with positive attitudes and good team working ability</p>
-            </div>
-            <div class="image">
-                <img
-                        src="https://avatars.githubusercontent.com/u/101235785?v=4"
-                        alt="A picture of Tharushika Dilakshan"
-                />
-            </div>
-        </div>
-    </div>
+</header>
+<main>
+    <aside>
+        <h1>About <span style="color: #0088ff">Me</span></h1>
+        <p class="sub-heading">     I am Tharushika Dilakshan. I studied at Allsaints' College. I am currently following software engineering course at IJSE. An enthusiastic student with highly motivated and studying Software Engineering. Eager to learn new technologies and always willing to innovate the new things which can improve the existing technology. An easy going person with positive attitudes and good team working ability</p>
+    </aside>
 
-    <div class="pic-image" style="display: none">
-        <svg
-                width="100%"
-                height="100%"
-                viewBox="0 0 1920 590"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-        >
-            <rect
-                    opacity="0.38"
-                    x="949"
-                    y="353.553"
-                    width="500"
-                    height="500"
-                    transform="rotate(-45 949 353.553)"
-                    fill="#020E7A"
-            />
-            <rect
-                    opacity="0.38"
-                    x="452"
-                    y="353.553"
-                    width="500"
-                    height="500"
-                    transform="rotate(-45 452 353.553)"
-                    fill="#6B7CB9"
-            />
-            <rect
-                    opacity="0.38"
-                    x="705"
-                    y="353.553"
-                    width="500"
-                    height="500"
-                    transform="rotate(-45 705 353.553)"
-                    fill="#3D4ABD"
-            />
-            <g filter="url(#filter0_d_0_1)">
-                <path
-                        d="M-381.174 571.835C-395.787 572.055 -410.58 572.262 -425.556 572.455C-467.022 565.797 -487.041 551.055 -381.174 571.835C927.17 552.142 790.546 425.187 1207.21 293.807C1456.22 215.292 1732.51 208.991 1942.83 228.032C1993.96 230.837 2041.51 236.438 2082.36 245.601C2129.89 253.444 2170.75 262.347 2203 271.336L2082.36 245.601C2040.57 238.706 1993.62 232.63 1942.83 228.032C1703.67 214.911 1385.91 262.952 1306.6 293.807C1216.62 328.815 720.257 538.153 487.719 572.455C202.047 598.422 -271.781 593.309 -381.174 571.835Z"
-                        fill="#0066FF"
-                />
-            </g>
-            <defs>
-                <filter
-                        id="filter0_d_0_1"
-                        x="-462"
-                        y="219"
-                        width="2710"
-                        height="427"
-                        filterUnits="userSpaceOnUse"
-                        color-interpolation-filters="sRGB"
-                >
-                    <feFlood flood-opacity="0" result="BackgroundImageFix" />
-                    <feColorMatrix
-                            in="SourceAlpha"
-                            type="matrix"
-                            values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
-                            result="hardAlpha"
-                    />
-                    <feOffset dx="21" dy="32" />
-                    <feGaussianBlur stdDeviation="12" />
-                    <feComposite in2="hardAlpha" operator="out" />
-                    <feColorMatrix
-                            type="matrix"
-                            values="0 0 0 0 0 0 0 0 0 0.64 0 0 0 0 1 0 0 0 0.41 0"
-                    />
-                    <feBlend
-                            mode="normal"
-                            in2="BackgroundImageFix"
-                            result="effect1_dropShadow_0_1"
-                    />
-                    <feBlend
-                            mode="normal"
-                            in="SourceGraphic"
-                            in2="effect1_dropShadow_0_1"
-                            result="shape"
-                    />
-                </filter>
-            </defs>
-        </svg>
-    </div>
-</div>
+    <section>
+        <h3>Download CV</h3>
+    </section>
+
+    <section>
+        <img src="images/coding.gif" alt="image gif">
+    </section>
+
+</main>
+
 
 </body>
 </html>

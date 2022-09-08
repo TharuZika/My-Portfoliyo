@@ -1,0 +1,846 @@
+<!DOCTYPE html>
+<html lang="eng">
+<head>
+  <meta charset="UTF-8">
+  <title>Kavindu Thiwanka</title>
+
+  <base href="localhost">
+  <meta name="description" content="This is my Portfolio">
+  <meta name="author" content="Kavindu Thiwanka">
+  <meta name="owner" content="Kavindu Thiwanka">
+  <meta name="theme-color" content="black">
+
+  <link rel="stylesheet" href="assets/css/fonts/css/all.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@300&family=Oswald:wght@200&display=swap"
+        rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Arimo&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Artifika&display=swap" rel="stylesheet">
+  <style>
+
+    /*html {*/
+    /*  scroll-behavior: smooth;*/
+    /*}*/
+
+    button {
+      background-color: #FF0000;
+      border-radius: 20px;
+      border: none;
+      color: white;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      font-family: 'Oswald', sans-serif;
+    }
+
+    /*::-webkit-scrollbar {*/
+    /*  width: 0px;*/
+    /*}*/
+
+    body {
+      margin: 0;
+      width: 99vw;
+      position: relative;
+    }
+
+    header {
+      background: black;
+      box-shadow: 0px -1px 4px 1px #1c1717e8;
+      position: fixed;
+      width: 100%;
+      height: 60px;
+      z-index: 2;
+      top: 0;
+      border-bottom: 1px solid #444444;
+    }
+
+    header > nav:nth-child(2) {
+      position: absolute;
+      right: 20px;
+    }
+
+    header > nav:nth-child(1) {
+      position: absolute;
+      left: 10px;
+    }
+
+    header > :nth-child(1) > h3 > a {
+      position: relative;
+      left: 10px;
+      color: white;
+      font-size: 20px;
+      text-decoration: none;
+    }
+    header > nav:nth-child(2) > ul > li {
+      display: inline-block;
+
+    }
+
+    header > nav:nth-child(2) > ul > li > a{
+      display: inline-block;
+      padding: 10px;
+      color: white;
+      font-family: Lato;
+      font-size: 18px;
+      text-decoration: none;
+    }
+
+
+    /Main/
+    main {
+      position: relative;
+      margin-top: 60px;
+      background: #030320;
+    }
+
+    main > section:nth-child(1) {
+      display: flex;
+      flex-direction: column;
+      height: 100vh;
+      width: 100vw;
+    }
+
+    main > section:nth-child(1) > img {
+      height: 100%;
+      width: 100%;
+    }
+
+    main > section:nth-child(1) > div:nth-child(2) {
+      position: absolute;
+      top: 60px;
+      left: 70px;
+    }
+
+    main > section:nth-child(1) > div:nth-child(2) > h1 {
+      position: relative;
+      color: white;
+      font-size: 60px;
+      margin-top: 0px;
+      margin-bottom: 15px;
+      font-family: 'Chakra Petch', sans-serif;
+    }
+
+    main > section:nth-child(1) > div:nth-child(3) {
+      position: absolute;
+      top: 400px;
+      left: 70px;
+    }
+
+    /main > section:nth-child(1) > div:nth-child(3) > aside:nth-child(1) > img{/
+       /*    width: 100px;*/
+       /*    height: 60px;*/
+     /}/
+
+    main > section:nth-child(1) > div:nth-child(3) > aside:nth-child(2) {
+      position: absolute;
+      left: 0;
+      width: 500px;
+      padding-left: 20px;
+      padding-top: 20px;
+    }
+
+    main > section:nth-child(1) > div:nth-child(3) > aside > h1 {
+      position: relative;
+      color: white;
+      font-size: 30px;
+      margin-top: 0px;
+      margin-bottom: 10px;
+    }
+
+    main > section:nth-child(1) > div:nth-child(3) > aside > nav > h1 > a{
+      position: relative;
+      color: white;
+      font-size: 30px;
+      margin-top: 0px;
+      margin-bottom: 10px;
+      text-decoration: none;
+    }
+
+    main > section:nth-child(1) > div:nth-child(3) > aside > nav > h1 > a > i {
+      color: #1BF458;
+      padding-left: 5px;
+    }
+
+    main > section:nth-child(1) > div:nth-child(3) > aside > h5 {
+      position: relative;
+      color: white;
+      font-size: 15px;
+      margin-top: 0px;
+      margin-bottom: 10px;
+    }
+
+    main > section:nth-child(1) > div:nth-child(3) > aside > img {
+      height: 210px;
+      width: 300px;
+      border-radius: 20px;
+    }
+
+
+    /PROFILE/
+    main > section:nth-child(2) {
+      position: relative;
+      width: 100%;
+    }
+
+    main > section:nth-child(2) > h1 {
+      position: relative;
+      font-size: 50px;
+      color: white;
+      font-family: 'Oswald', sans-serif;
+      margin-bottom: 10px;
+      margin-left: 20px;
+      margin-top: 20px;
+    }
+
+    main > section:nth-child(2) > section > h1 {
+      position: relative;
+      font-size: 30px;
+      font-family: 'Artifika', serif;
+      color: white;
+      margin-top: 45px;
+      margin-left: 25px;
+    }
+
+    main > section:nth-child(2) > section > h2 {
+      position: relative;
+      font-size: 24px;
+      font-family: 'Arimo', serif;
+      color: white;
+      margin-top: 45px;
+      margin-left: 25px;
+    }
+
+    main > section:nth-child(2) > section > p {
+      position: relative;
+      font-size: 17px;
+      font-family: 'Arimo', sans-serif;
+      color: white;
+      margin-left: 25px;
+      line-height: 1.6;
+    }
+
+    main > section:nth-child(2) > section > section:nth-child(4) {
+      width: 600px;
+      height: 400px;
+      display: grid;
+      grid-template-rows: repeat(3, 1fr);
+      grid-template-columns: repeat(2, 1fr);
+      margin-left: 100px;
+      margin-top: 40px;
+    }
+
+    main > section:nth-child(2) > section > section:nth-child(4) > div{
+      color: white;
+      font-family: Arimo;
+      text-align: justify;
+    }
+
+    main > section:nth-child(2) > section > section:nth-child(4) > div > img{
+      width: 50px;
+      height: 50px;
+      margin-right: 30px;
+    }
+
+    main > section:nth-child(2) > nav {
+      position: absolute;
+      bottom: 60px;
+      right: 30px;
+    }
+
+    main > section:nth-child(2) > nav > h1 {
+      position: relative;
+      color: white;
+      font-family: 'Oswald', sans-serif;
+    }
+
+    main > section:nth-child(2) > nav > h1 > i {
+      color: #1BF458;
+      padding-left: 5px;
+    }
+
+
+    /SERVICE/
+    main > section:nth-child(3) {
+      position: relative;
+      width: 100%;
+    }
+
+    main > section:nth-child(3) > h1 {
+      position: relative;
+      font-size: 50px;
+      color: white;
+      font-family: 'Oswald', sans-serif;
+      margin-bottom: 10px;
+      margin-left: 20px;
+      margin-top: 20px;
+    }
+
+    main > section:nth-child(3) > dl > dt {
+      position: relative;
+      font-size: 30px;
+      text-decoration-line: underline;
+      text-decoration-thickness: 1px;
+      text-decoration-style: solid;
+      text-underline-offset: 10px;
+      color: white;
+      font-family: 'Oswald', sans-serif;
+      margin-bottom: 30px;
+      margin-left: 25px;
+      margin-top: 40px;
+    }
+
+    main > section:nth-child(3) > dl > dd {
+      position: relative;
+      font-size: 18px;
+      font-family: 'Arimo', sans-serif;
+      color: white;
+      margin-left: 25px;
+      margin-bottom: 90px;
+    }
+
+    main > section:nth-child(3) > nav {
+      position: absolute;
+      bottom: 60px;
+      right: 30px;
+    }
+
+    main > section:nth-child(3) > nav > h1 {
+      position: relative;
+      color: white;
+      font-family: 'Oswald', sans-serif;
+    }
+
+    main > section:nth-child(3) > nav > h1 > i {
+      color: #1BF458;
+      padding-left: 5px;
+    }
+
+
+    /PROJECT/
+    main > section:nth-child(4) {
+      position: relative;
+      width: 100%;
+    }
+
+    main > section:nth-child(4) > h1 {
+      position: relative;
+      font-size: 50px;
+      color: white;
+      font-family: 'Oswald', sans-serif;
+      margin-bottom: 10px;
+      margin-left: 20px;
+      margin-top: 20px;
+    }
+
+    main > section:nth-child(4) > section:nth-child(3) {
+      display: flex;
+      flex-direction: column;
+    }
+
+    main > section:nth-child(4) > section:nth-child(3) > div:nth-child(1) {
+      position: relative;
+      top: 40px;
+      margin-left: 70px;
+      height: 450px;
+      margin-right: 35px;
+    }
+
+    main > section:nth-child(4) > section:nth-child(3) > div:nth-child(1) > aside:nth-child(1) {
+      position: absolute;
+      left: 0;
+    }
+
+    main > section:nth-child(4) > section:nth-child(3) > div:nth-child(1) > aside:nth-child(2) {
+      position: absolute;
+      left: 550px;
+      padding-left: 20px;
+      padding-top: 20px;
+    }
+
+    main > section:nth-child(4) > section:nth-child(3) > div:nth-child(1) > aside > img {
+      height: 350px;
+      width: 500px;
+      border-radius: 20px;
+    }
+
+    main > section:nth-child(4) > section:nth-child(3) > div:nth-child(1) > aside > h1 {
+      position: relative;
+      font-size: 30px;
+      color: white;
+      font-family: 'Oswald', sans-serif;
+      margin-bottom: 30px;
+      margin-left: 25px;
+      margin-top: 40px;
+    }
+
+    main > section:nth-child(4) > section:nth-child(3) > div:nth-child(1) > aside > p {
+      position: relative;
+      font-size: 17px;
+      font-family: 'Arimo', sans-serif;
+      color: white;
+      margin-left: 25px;
+      margin-bottom: 90px;
+      line-height: 1.6;
+    }
+
+    main > section:nth-child(4) > section:nth-child(3) > div:nth-child(2) {
+      position: relative;
+      height: 450px;
+      margin-left: 70px;
+      margin-right: 35px;
+    }
+
+    main > section:nth-child(4) > section:nth-child(3) > div:nth-child(2) > aside:nth-child(1) {
+      position: absolute;
+      left: 0;
+    }
+
+    main > section:nth-child(4) > section:nth-child(3) > div:nth-child(2) > aside:nth-child(2) {
+      position: absolute;
+      left: 550px;
+      padding-left: 20px;
+      padding-top: 20px;
+    }
+
+    main > section:nth-child(4) > section:nth-child(3) > div:nth-child(2) > aside > img {
+      height: 350px;
+      width: 500px;
+      border-radius: 20px;
+    }
+
+    main > section:nth-child(4) > section:nth-child(3) > div:nth-child(2) > aside > h1 {
+      position: relative;
+      font-size: 30px;
+      color: white;
+      font-family: 'Oswald', sans-serif;
+      margin-bottom: 30px;
+      margin-left: 25px;
+      margin-top: 40px;
+    }
+
+    main > section:nth-child(4) > section:nth-child(3) > div:nth-child(2) > aside > p {
+      position: relative;
+      font-size: 17px;
+      font-family: 'Arimo', sans-serif;
+      color: white;
+      margin-left: 25px;
+      margin-bottom: 90px;
+      line-height: 1.6;
+    }
+
+    main > section:nth-child(4) > section:nth-child(3) > div:nth-child(3) {
+      position: relative;
+      height: 450px;
+      margin-left: 70px;
+      margin-right: 35px;
+    }
+
+    main > section:nth-child(4) > section:nth-child(3) > div:nth-child(3) > aside:nth-child(1) {
+      position: absolute;
+      left: 0;
+    }
+
+    main > section:nth-child(4) > section:nth-child(3) > div:nth-child(3) > aside:nth-child(2) {
+      position: absolute;
+      left: 550px;
+      padding-left: 20px;
+      padding-top: 20px;
+    }
+
+    main > section:nth-child(4) > section:nth-child(3) > div:nth-child(3) > aside > img {
+      height: 350px;
+      width: 500px;
+      border-radius: 20px;
+    }
+
+    main > section:nth-child(4) > section:nth-child(3) > div:nth-child(3) > aside > h1 {
+      position: relative;
+      font-size: 30px;
+      color: white;
+      font-family: 'Oswald', sans-serif;
+      margin-bottom: 30px;
+      margin-left: 25px;
+      margin-top: 40px;
+    }
+
+    main > section:nth-child(4) > section:nth-child(3) > div:nth-child(3) > aside > p {
+      position: relative;
+      font-size: 17px;
+      font-family: 'Arimo', sans-serif;
+      color: white;
+      margin-left: 25px;
+      margin-bottom: 90px;
+      line-height: 1.6;
+    }
+
+    main > section:nth-child(4) > section:nth-child(4) {
+      position: relative;
+      width: 100vw;
+      margin-bottom: 80px;
+    }
+
+    main > section:nth-child(4) > section:nth-child(4) > button {
+      width: 300px;
+      height: 40px;
+      font-size: 18px;
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      right: 0;
+      left: 0;
+      margin: auto;
+    }
+
+    main > section:nth-child(4) > section:nth-child(4) > button:hover {
+      background-color: #c40000;
+    }
+
+
+    /CONTACT/
+    main > section:nth-child(5) {
+      position: relative;
+      width: 100%;
+    }
+
+    main > section:nth-child(5) {
+      text-align: center;
+    }
+
+    main > section:nth-child(5) > h1 {
+      position: relative;
+      font-size: 35px;
+      color: white;
+      font-family: 'Oswald', sans-serif;
+      margin-bottom: 0;
+      margin-top: 40px;
+    }
+
+    main > section:nth-child(5) > h5 {
+      position: relative;
+      font-size: 12px;
+      color: white;
+      font-family: 'Arimo', sans-serif;
+      margin-top: 20px;
+      margin-bottom: 40px;
+    }
+
+    main > section:nth-child(5) > h1:nth-child(1) {
+      position: relative;
+      font-size: 50px;
+      color: white;
+      font-family: 'Oswald', sans-serif;
+      margin-bottom: 10px;
+      margin-left: 20px;
+      margin-top: 20px;
+      text-align: left;
+    }
+
+    main > section:nth-child(5) > section:nth-child(5) {
+      display: flex;
+      align-items: center;
+    }
+
+    main > section:nth-child(5) > section:nth-child(5) > div {
+      width: 100vw;
+      height: 110px;
+      margin-top: 50px;
+      margin-bottom: 50px;
+    }
+
+    main > section:nth-child(5) > section:nth-child(5) > div > h1{
+      color: white;
+      font-family: Arimo;
+      font-size: 15px;
+    }
+
+    main > section:nth-child(5) > section:nth-child(5) > div > h1 > i{
+      color: red;
+      font-size: 20px;
+    }
+
+    main > section:nth-child(5) > section:nth-child(8) > div > button {
+      width: 250px;
+      height: 40px;
+      font-size: 18px;
+      margin-bottom: 60px;
+    }
+
+    main > section:nth-child(5) > section:nth-child(8) > div > button:hover {
+      background-color: #c40000;
+    }
+
+    #txtCusID {
+      width: 70%;
+      padding: 12px 20px;
+      margin: 8px 0;
+      display: inline-block;
+      border: 1px solid #ccc;
+      border-radius: 250px;
+      box-sizing: border-box;
+      font-family: Arimo;
+    }
+
+    #txtEmail {
+      width: 70%;
+      padding: 12px 20px;
+      margin: 8px 0;
+      display: inline-block;
+      border: 1px solid #ccc;
+      border-radius: 250px;
+      box-sizing: border-box;
+      font-family: Arimo;
+    }
+
+    #txtMessage {
+      width: 70%;
+      padding: 12px 20px;
+      margin: 8px 0;
+      display: inline-block;
+      border: 1px solid #ccc;
+      border-radius: 20px;
+      box-sizing: border-box;
+      font-family: Arimo;
+    }
+
+
+    /FOOTER/
+    footer {
+      background-color: #1A1A1A;
+      position: absolute;
+      width: 100%;
+    }
+    footer > h1{
+      color: white;
+      margin-left: 25px;
+      margin-bottom: 0;
+      font-size: 40px;
+    }
+    footer > h3{
+      color: white;
+      margin-left: 25px;
+      margin-top: -3px;
+      font-size: 10px;
+      font-family: Arimo;
+    }
+    footer > div{
+      color: white;
+      margin-left: 25px;
+      margin-top: 20px;
+    }
+    footer > div > a > i{
+      color: white;
+      width: 30px;
+      height: 30px;
+    }
+    footer > div > a > i:hover{
+      color: red;
+    }
+
+  </style>
+</head>
+<body>
+<header>
+  <nav>
+    <h3 style="font-family: 'Chakra Petch', sans-serif"><a href="#">K.T</a></h3>
+  </nav>
+  <nav>
+    <ul>
+      <li><a href="copyIndex.html">Home</a></li>
+      <li><a href="#profile">Profile</a></li>
+      <li><a href="#services">Services</a></li>
+      <li><a href="#projects-section">Project</a></li>
+      <li><a href="#contact-section">Contact</a></li>
+    </ul>
+  </nav>
+</header>
+<main>
+  <header>
+    <nav>
+      <h3 style="font-family: 'Chakra Petch', sans-serif"><a href="#">K.T</a></h3>
+    </nav>
+    <nav>
+      <ul>
+        <li><a href="#home">Home</a></li>
+        <li><a href="#profile">Profile</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#projects-section">Project</a></li>
+        <li><a href="#contact-section">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+  <section id="home">
+    <img src="assets/portfolio/programmer-scanning-screen-his-smartwatch-with-smartphone-camera.jpg" alt="Logo">
+    <div>
+      <h1>Hi,</h1>
+      <h1>I'm Kavindu Thiwanka,</h1>
+      <h1>Full Stack Developer.</h1>
+    </div>
+    <div>
+      <aside>
+        <img src="assets/portfolio/1.gif" alt="Logo">
+      </aside>
+      <aside>
+        <h1>My Latest Work</h1>
+        <h5>Details about Project</h5>
+        <br>
+        <br>
+        <nav>
+          <h1><a href="#">View Project <i class="fa-solid fa-arrow-right-long"></i></a></h1>
+        </nav>
+      </aside>
+    </div>
+  </section>
+
+  <!-- Profile Section -->
+  <section id="profile">
+    <h1>PROFILE</h1>
+    <hr>
+    <section>
+      <h1>I'm a Kavindu and <span style="color: red">Software Engineer</span></h1>
+      <p>I am software engineering student in IJSE (Institute of JavaSoftware Engineering) and currently
+        completing first semester. An enthusiastic student with highly motivated and studying Software
+        Engineering at IJSE.Eager to learn new technologies and always willing to innovate the new things which
+        can improve the existing technology. An easy going person with positive attitudes and good team working
+        ability.</p>
+
+      <h2><span style="color: red">Tech</span> Stack:</h2>
+      <section>
+        <div><img src="assets/logo/java.png" alt="logo">JAVA</div>
+        <div><img src="assets/logo/js.png" alt="logo">JAVASCRIPT</div>
+        <div><img src="assets/logo/html-5.png" alt="logo">HTML</div>
+        <div><img src="assets/logo/css-3.png" alt="logo">CSS</div>
+        <div><img src="assets/logo/php.png" alt="logo">PHP</div>
+        <div><img src="assets/logo/python.png" alt="logo">PYTHON</div>
+      </section>
+
+    </section>
+    <nav>
+      <h1>CONTACT DETAILS <i class="fa-solid fa-arrow-right-long"></i></h1>
+    </nav>
+  </section>
+
+  <!-- Services Section -->
+  <section id="services">
+    <h1>SERVICE</h1>
+    <hr>
+
+    <dl>
+      <dt>Web <span style="color: red">Development</span></dt>
+      <dd>Develop any kind of web application either to conduct your business activities or to promote your
+        business.
+      </dd>
+
+      <dt>Enterprise <span style="color: red">Application</span></dt>
+      <dd>Create complex enterprise software, ensure reliable software interrogation, modernise your legacy
+        system.
+      </dd>
+
+      <dt>UI / UX <span style="color: red">Designing</span></dt>
+      <dd>I do design ui/ux for desktop applications, mobile applications,web applications.</dd>
+    </dl>
+    <nav>
+      <h1>CONTACT DETAILS <i class="fa-solid fa-arrow-right-long"></i></h1>
+    </nav>
+  </section>
+
+  <!-- Projects Section -->
+  <section id="projects-section">
+    <h1>PROJECTS</h1>
+    <hr>
+    <section>
+      <div>
+        <aside>
+          <img src="assets/portfolio/1.gif" alt="Logo">
+        </aside>
+        <aside>
+          <h1>Latest <span style="color: red">Project</span></h1>
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aspernatur fuga ipsa iusto nam odio
+            optio quisquam repellat saepe voluptatem. Dignissimos facilis impedit laboriosam nobis qui quia
+            repellendus tenetur totam, velit?</p>
+          </nav>
+        </aside>
+      </div>
+      <div>
+        <aside>
+          <img src="assets/portfolio/1.gif" alt="Logo">
+        </aside>
+        <aside>
+          <h1>Another <span style="color: red">Project</span></h1>
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aspernatur fuga ipsa iusto nam odio
+            optio quisquam repellat saepe voluptatem. Dignissimos facilis impedit laboriosam nobis qui quia
+            repellendus tenetur totam, velit?</p>
+          </nav>
+        </aside>
+      </div>
+      <div>
+        <aside>
+          <img src="assets/portfolio/1.gif" alt="Logo">
+        </aside>
+        <aside>
+          <h1>Another <span style="color: red">Project</span></h1>
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aspernatur fuga ipsa iusto nam odio
+            optio quisquam repellat saepe voluptatem. Dignissimos facilis impedit laboriosam nobis qui quia
+            repellendus tenetur totam, velit?</p>
+          </nav>
+        </aside>
+      </div>
+    </section>
+    <section>
+      <button>Check Out More Projects</button>
+    </section>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact-section">
+    <h1>CONTACT</h1>
+    <hr>
+
+    <h1>Have You Any <span style="color: red">Questions</span> ?</h1>
+    <h5>I'M AT YOUR SERVICES</h5>
+    <!-- Contact Information -->
+    <section>
+      <div>
+        <h1><i class="fa-solid fa-phone"></i><br><br>+94764669150</h1>
+      </div>
+      <div>
+        <h1><i class="fa-solid fa-envelope"></i><br><br>kavidu12thiwanka@gmail.com</h1>
+      </div>
+      <div>
+        <h1><i class="fa-solid fa-location-dot"></i><br><br>Galle , Sri Lanka</h1>
+      </div>
+    </section>
+    <h1>Send Me An <span style="color: red">Email</span></h1>
+    <h5>I'M VERY RESPONSIVE TO MESSAGE</h5>
+    <!-- Send Message -->
+    <section>
+      <div>
+        <input type="text" id="txtCusID" name="UserName" placeholder="Name" required>
+        <br>
+        <br>
+        <input type="email" id="txtEmail" name="Email" placeholder="Email" required>
+        <br>
+        <br>
+        <textarea name="MessageFromUser" id="txtMessage" cols="100" rows="10"
+                  placeholder="Message"></textarea>
+        <br>
+        <br>
+        <button>SEND MESSAGE</button>
+      </div>
+    </section>
+
+  </section>
+</main>
+
+<footer>
+  <h1 style="font-family: 'Chakra Petch', sans-serif">K.T</h1>
+  <h3>Kavindu Thiwanka</h3>
+  <div>
+    <a href="https://www.facebook.com/kavindu.thiwanka.925" target="_blank"><i class="fab fa-facebook-f"></i></a>
+    <a href="https://www.instagram.com/kavindu.thiwank0" target="_blank"><i class="fab fa-instagram"></i></a>
+    <a href="https://www.linkedin.com/in/kavindu-thiwanka-762385239" target="_blank"><i class="fab fa-linkedin"></i></a>
+    <a href="https://github.com/kavindu1thiwanka" target="_blank"><i class="fab fa-github"></i></a>
+  </div>
+</footer>
+</body>
+</html>

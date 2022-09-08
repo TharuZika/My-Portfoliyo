@@ -17,26 +17,81 @@
           type="image/x-icon"
     />
     <style>
-        body{
-            width: 1580px;
-            height: 880px;
-            position: absolute;
-            left: 0;
-            right: 0;
-            top: 0;
-            bottom: 0;
-            margin: auto;
-            overflow: hidden;
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
         }
-        section{
-            height: 100%;
-            width: 400%;
+
+        html,
+        body {
+            background-image: url("images/mainBG.jpg");
+            block-size: 100%;
+            margin: 0;
+            font-size: 1rem;
+            font-family: "Inter", sans-serif;
+            font-weight: 400;
+            color: var(--color-on-background);
+            overflow-x: hidden;
+        }
+
+        header{
+            position: relative;
             display: flex;
+            height: 70px;
+            align-items: center;
+            background-color: rgba(63, 128, 186, 0.13);
+            border: 1px solid black;
+            box-shadow: 3px 2px 9px 1px black;
+        }
+
+        header>nav{
+            position: absolute;
+            right: 40px;
+            top: 20px;
+        }
+
+        header>nav>a{
+            text-decoration: none;
+            font-family: "Arial";
+            padding: 10px;
+            font-size: 20px;
+            color: #a7d9ff;
+        }
+
+        header>div{
+            height: 60px;
+            width: 60px;
+            border-radius: 100%;
+            border: 2px solid white;
+            position: absolute;
+            display: flex;
+            align-items: center;
+            left: 10px;
+        }
+
+        header>div>a{
+            text-decoration: none;
+            font-family: "Arial";
+            font-size: 41px;
+            font-weight: 600;
+            color: #0088ff;
         }
 
     </style>
 </head>
 <body>
+<header>
+    <div><a href="../index.html">TZ</a></div>
+    <nav>
+        <a href="../index.html">Home</a>
+        <a href="aboutMe.html">About me</a>
+        <a href="#">My skills</a>
+        <a href="#">My certificates</a>
+        <a href="#">My projects</a>
+        <a href="#">Contact me</a>
+    </nav>
+</header>
     <section>
         <div>
             <img src="images/certificate.jpg" alt="Certificate 1">
