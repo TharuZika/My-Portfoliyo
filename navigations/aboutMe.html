@@ -37,11 +37,9 @@
 
         header{
             display: flex;
-            height: 70px;
             align-items: center;
-            background-color: rgba(63, 128, 186, 0.13);
-            border: 1px solid black;
-            box-shadow: 3px 2px 9px 1px black;
+            min-block-size: 4rem;
+            padding-inline: clamp(1.375rem, 1.2rem + 0.89vw, 2rem);
         }
 
         header>nav{
@@ -69,63 +67,74 @@
             left: 10px;
         }
 
-        header>div>a{
-            text-decoration: none;
-            font-family: "Arial";
-            font-size: 41px;
-            font-weight: 600;
-            color: #0088ff;
+        header>a>img{
+            height: 70px;
+            width: 70px;
+            cursor: pointer;
         }
 
-        main>aside{
-            position: absolute;
-            padding-top: 80px;
-            padding-left: 80px;
+        main{
+            display: flex;
+            flex-direction: row;
+        }
+
+        main>div:nth-child(1){
+            display: flex;
+            flex-direction: column;
+            justify-content: space-evenly;
             width: 40vw;
+            padding-top: 50px;
         }
 
-        main>aside>h1{
+        main>div:nth-child(1)>button{
+            height: 55px;
+            width: 160px;
+            font-family: "Arial Black";
+            color: #0088ff;
+            border: none;
+            border-radius: 20px;
+            background-color: white;
+            cursor: pointer;
+            font-size: 17px;
+            box-shadow: 4px 3px 6px 0px black;
+        }
+
+        main>div:nth-child(1)>button:hover{
+            color: white;
+            background-color: #0088ff;
+
+        }
+
+        main>div:nth-child(1)>h1{
             color: white;
             font-size: 40px;
         }
 
-        main>aside>p{
-            padding-top: 60px;
+        main>div:nth-child(1)>p{
             color: white;
             font-size: 1.25rem;
         }
 
-        main>section:nth-child(3){
-            position: absolute;
+        main>div:nth-child(2){
             right: 80px;
             padding-top: 80px;
         }
 
-        main>section:nth-child(2){
-            position: absolute;
-            display: flex;
-            align-items: center;
-            height: 60px;
-            width: 165px;
-            background-color: white;
-            box-shadow: 4px 1px 9px 1px #444444;
-            border-radius: 20px;
-            bottom: 250px;
-            left: 315px;
-            cursor: pointer;
+        main>div:nth-child(1)>a{
+            text-decoration: none;
+            font-size: 20px;
+            font-family: "Arial Black";
+            color: white;
+
         }
 
-        main>section:nth-child(2)>h3 {
-            padding-left: 20px;
-            color: #0088ff;
-        }
 
-        main>section:nth-child(2):hover{
-            background-color: #0088ff;
-        }
-
-        main>section:nth-child(2):hover>h3{
-            color: #ffffff;
+        .wrapper {
+            margin-inline: auto;
+            padding-inline: clamp(1.375rem, 1.2rem + 0.89vw, 4rem);
+            position: relative;
+            max-inline-size: 85rem;
+            inline-size: 100%;
         }
 
 
@@ -135,8 +144,10 @@
     </style>
 </head>
 <body>
-<header>
-    <div><a href="../index.html">TZ</a></div>
+<header class="wrapper">
+    <a href="../index.html">
+    <img src="images/tzlogo.png">
+    </a>
     <nav>
         <a href="../index.html">Home</a>
         <a href="aboutMe.html">About me</a>
@@ -146,19 +157,18 @@
         <a href="contactMe.html">Contact me</a>
     </nav>
 </header>
-<main>
-    <aside>
+<main class="wrapper">
+    <div>
         <h1>About <span style="color: #0088ff">Me</span></h1>
         <p class="sub-heading">     I am Tharushika Dilakshan. I studied at Allsaints' College. I am currently following software engineering course at IJSE. An enthusiastic student with highly motivated and studying Software Engineering. Eager to learn new technologies and always willing to innovate the new things which can improve the existing technology. An easy going person with positive attitudes and good team working ability</p>
-    </aside>
+        <button>Download CV</button>
+        <a href="contactMe.html">Click to Contact me>>></a>
+    </div>
 
-    <section>
-        <h3>Download CV</h3>
-    </section>
-
-    <section>
+    <div>
         <img src="images/coding.gif" alt="image gif">
-    </section>
+    </div>
+
 
 </main>
 
