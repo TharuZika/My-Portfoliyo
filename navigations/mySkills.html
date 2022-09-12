@@ -35,14 +35,23 @@
             overflow-x: hidden;
         }
 
-        header{
+        main{
+            height: 100%;
+        }
+
+        .wrapper {
+            margin-inline: auto;
+            padding-inline: clamp(1.375rem, 1.2rem + 0.89vw, 4rem);
             position: relative;
+            max-inline-size: 85rem;
+            inline-size: 100%;
+        }
+
+        header{
             display: flex;
-            height: 70px;
             align-items: center;
-            background-color: rgba(63, 128, 186, 0.13);
-            border: 1px solid black;
-            box-shadow: 3px 2px 9px 1px black;
+            min-block-size: 4rem;
+            padding-inline: clamp(1.375rem, 1.2rem + 0.89vw, 2rem);
         }
 
         header>nav{
@@ -54,8 +63,9 @@
         header>nav>a{
             text-decoration: none;
             font-family: "Arial";
-            padding: 10px;
-            font-size: 20px;
+            font-weight: 500;
+            padding-block: 1rem;
+            padding-inline: clamp(0.75rem, 2vw, 1.25rem);
             color: #a7d9ff;
         }
 
@@ -70,15 +80,14 @@
             left: 10px;
         }
 
-        header>div>a{
-            text-decoration: none;
-            font-family: "Arial";
-            font-size: 41px;
-            font-weight: 600;
-            color: #0088ff;
+        header>a>img{
+            margin-top: 10px;
+            height: 70px;
+            width: 70px;
+            cursor: pointer;
         }
 
-        body>section:nth-child(2){
+        body>main>section:nth-child(1){
             display: flex;
             margin-top: 50px;
             flex-direction: row;
@@ -91,38 +100,50 @@
 
 
         #java{
-            height: 220px;
-            width: 220px;
+            height: 200px;
+            width: 200px;
             background: rgba(255, 255, 255, 0.53);
         }
         .tdIcon{
-            height: 190px;
-            width: 190px;
+            height: 170px;
+            width: 170px;
             background: rgb(255, 255, 255);
         }
         .lstIcon{
-            height: 160px;
-            width: 160px;
+            height: 140px;
+            width: 140px;
         }
 
-        body>section:nth-child(3){
-            margin-top: 80px;
-            margin-left: 50px;
+        body>main>section:nth-child(2){
+            margin-top: 100px;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-around;
         }
 
-        body>section:nth-child(3)>h1{
+        body>main>section:nth-child(2)>div:nth-child(1){
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 0px 50px 0px 50px;
+           border: 3px solid #0088ff;
+            background-color: rgba(113, 113, 113, 0.47);
+            border-radius: 20px;
+        }
+
+        body>main>section:nth-child(2)>div:nth-child(1)>h1{
             color: white;
             font-size: 40px;
         }
-        body>section:nth-child(3)>p{
+        body>main>section:nth-child(2)>div:nth-child(1)>p{
             padding-top: 20px;
             color: white;
-            font-size: 30px;
+            font-size: 25px;
         }
 
-        body>section:nth-child(3)>img{
-            position: absolute;
-            right: 0;
+        body>main>section:nth-child(2)>div:nth-child(2)>img{
+            border-radius: 20px;
+            border: 2px solid #0088ff;
         }
 
 
@@ -131,8 +152,10 @@
     </style>
 </head>
 <body>
-<header>
-    <div><a href="../index.html">TZ</a></div>
+<header class="wrapper">
+    <a href="../index.html">
+        <img src="images/tzlogo.png">
+    </a>
     <nav>
         <a href="../index.html">Home</a>
         <a href="aboutMe.html">About me</a>
@@ -142,6 +165,7 @@
         <a href="contactMe.html">Contact me</a>
     </nav>
 </header>
+<main class="wrapper">
     <section>
         <img class="lstIcon" src="images/tecIcons/html.png" alt="HTML">
         <img class="tdIcon" src="images/tecIcons/js.png" alt="JavaScript">
@@ -150,16 +174,22 @@
         <img class="lstIcon" src="images/tecIcons/css-3.png" alt="Css">
     </section>
     <section>
-        <h1><span style="color: #0088ff ">My</span> Services</h1>
-        <p> >Enterprise Architecture <br>
-            >Web Development <br>
-            >Ui/Ux Designig <br>
-            >Quality Engineering <br>
-            >Commercial Software <br>
-            >Program And Project Management </p>
+        <div>
+            <h1><span style="color: #0088ff ">My</span> Services</h1>
+            <p> <span style="color: #0088ff">🔷</span>Enterprise Architecture <br>
+                <span style="color: #0088ff">🔷</span>Web Development <br>
+                <span style="color: #0088ff">🔷</span>Ui/Ux Designig <br>
+                <span style="color: #0088ff">🔷</span>Quality Engineering <br>
+                <span style="color: #0088ff">🔷</span>Commercial Software <br>
+                <span style="color: #0088ff">🔷</span>Program And Project Management </p>
+        </div>
+        <div>
+            <img src="images/SEworking.gif" alt="TharuZika">
+        </div>
 
-        <img src="images/SEworking.gif" alt="TharuZika">
+
 
     </section>
+</main>
 </body>
 </html>

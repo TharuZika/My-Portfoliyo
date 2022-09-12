@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="../assets/css/normalize.css" rel="stylesheet">
     <title>TharuZika/About Me</title>
 
     <meta
@@ -51,8 +52,9 @@
         header>nav>a{
             text-decoration: none;
             font-family: "Arial";
-            padding: 10px;
-            font-size: 20px;
+            font-weight: 500;
+            padding-block: 1rem;
+            padding-inline: clamp(0.75rem, 2vw, 1.25rem);
             color: #a7d9ff;
         }
 
@@ -68,6 +70,7 @@
         }
 
         header>a>img{
+            margin-top: 10px;
             height: 70px;
             width: 70px;
             cursor: pointer;
@@ -75,7 +78,9 @@
 
         main{
             display: flex;
+            align-items: center;
             flex-direction: row;
+            height: 100%;
         }
 
         main>div:nth-child(1){
@@ -83,10 +88,19 @@
             flex-direction: column;
             justify-content: space-evenly;
             width: 40vw;
-            padding-top: 50px;
+            padding-right: 80px;
         }
 
-        main>div:nth-child(1)>button{
+        main>div:nth-child(1)>div{
+            margin-top: 50px;
+            margin-bottom: 50px;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        main>div:nth-child(1)>div>button{
             height: 55px;
             width: 160px;
             font-family: "Arial Black";
@@ -99,7 +113,7 @@
             box-shadow: 4px 3px 6px 0px black;
         }
 
-        main>div:nth-child(1)>button:hover{
+        main>div:nth-child(1)>div>button:hover{
             color: white;
             background-color: #0088ff;
 
@@ -111,20 +125,26 @@
         }
 
         main>div:nth-child(1)>p{
+            padding-top: 50px;
             color: white;
             font-size: 1.25rem;
         }
 
-        main>div:nth-child(2){
-            right: 80px;
-            padding-top: 80px;
+        main>div:nth-child(2)>img{
+            height: 30rem;
+            right: 0;
         }
 
         main>div:nth-child(1)>a{
             text-decoration: none;
-            font-size: 20px;
-            font-family: "Arial Black";
+            font-size: 17px;
+            font-family: "Arial";
             color: white;
+
+        }
+        main>div:nth-child(1)>a:hover{
+            width: 200px;
+            color: #0088ff;
 
         }
 
@@ -161,8 +181,8 @@
     <div>
         <h1>About <span style="color: #0088ff">Me</span></h1>
         <p class="sub-heading">     I am Tharushika Dilakshan. I studied at Allsaints' College. I am currently following software engineering course at IJSE. An enthusiastic student with highly motivated and studying Software Engineering. Eager to learn new technologies and always willing to innovate the new things which can improve the existing technology. An easy going person with positive attitudes and good team working ability</p>
-        <button>Download CV</button>
-        <a href="contactMe.html">Click to Contact me>>></a>
+        <div><button>Download CV</button></div>
+        <a href="contactMe.html">Click to Contact me 👈</a>
     </div>
 
     <div>

@@ -32,17 +32,27 @@
             font-family: "Inter", sans-serif;
             font-weight: 400;
             color: var(--color-on-background);
-            overflow-x: hidden;
+        }
+
+        main{
+            display: flex;
+            align-items: center;
+            height: 100%;
+        }
+
+        .wrapper {
+            margin-inline: auto;
+            padding-inline: clamp(1.375rem, 1.2rem + 0.89vw, 4rem);
+            position: relative;
+            max-inline-size: 85rem;
+            inline-size: 100%;
         }
 
         header{
-            position: relative;
             display: flex;
-            height: 70px;
             align-items: center;
-            background-color: rgba(63, 128, 186, 0.13);
-            border: 1px solid black;
-            box-shadow: 3px 2px 9px 1px black;
+            min-block-size: 4rem;
+            padding-inline: clamp(1.375rem, 1.2rem + 0.89vw, 2rem);
         }
 
         header>nav{
@@ -54,8 +64,9 @@
         header>nav>a{
             text-decoration: none;
             font-family: "Arial";
-            padding: 10px;
-            font-size: 20px;
+            font-weight: 500;
+            padding-block: 1rem;
+            padding-inline: clamp(0.75rem, 2vw, 1.25rem);
             color: #a7d9ff;
         }
 
@@ -70,70 +81,35 @@
             left: 10px;
         }
 
-        header>div>a{
-            text-decoration: none;
-            font-family: "Arial";
-            font-size: 41px;
-            font-weight: 600;
-            color: #0088ff;
-        }
-
-        main{
-            width: 1580px;
-            height: 880px;
-            box-shadow: 1px 3px 5px 1px #666666;
-            position: absolute;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            margin: auto;
-            overflow: hidden;
+        header>a>img{
+            margin-top: 10px;
+            height: 70px;
+            width: 70px;
+            cursor: pointer;
         }
 
         body>main>section{
-            height: 100%;
-            width: 400%;
-            box-shadow: 2px 2px 2px 2px black;
+            height: auto;
+            width: 100%;
             display: flex;
-            animation-name: slider-animation;
-            animation-duration: 20s;
-            animation-iteration-count: infinite;
+            flex-direction: row;
+            justify-content: space-around;
         }
 
         div{
-            height: 100%;
-            width: 100%;
+            height: 200px;
+            width: 500px;
         }
 
-        img{
-            height: 100%;
-            width: 100%;
-        }
 
-        @keyframes slider-animation {
-            0% {
-                transform: translateX(0);
-            }
-            25% {
-                transform: translateX(-25%);
-            }
-            50% {
-                transform: translateX(-50%);
-            }
-            75% {
-                transform: translateX(-75%);
-            }
-            100%{
-                transform: translateX(0);
-            }
-
-        }
 
     </style>
 </head>
 <body>
-<header>
-    <div><a href="../index.html">TZ</a></div>
+<header class="wrapper">
+    <a href="../index.html">
+        <img src="images/tzlogo.png">
+    </a>
     <nav>
         <a href="../index.html">Home</a>
         <a href="aboutMe.html">About me</a>
@@ -143,11 +119,8 @@
         <a href="contactMe.html">Contact me</a>
     </nav>
 </header>
-<main>
+<main class="wrapper">
     <section>
-        <div>
-            <img src="images/certificate.jpg" alt="Certificate 1">
-        </div>
         <div>
             <img src="images/certificate.jpg" alt="Certificate 1">
         </div>
