@@ -37,11 +37,9 @@
 
         header{
             display: flex;
-            height: 70px;
             align-items: center;
-            background-color: rgba(63, 128, 186, 0.13);
-            border: 1px solid black;
-            box-shadow: 3px 2px 9px 1px black;
+            min-block-size: 4rem;
+            padding-inline: clamp(1.375rem, 1.2rem + 0.89vw, 2rem);
         }
 
         header>nav{
@@ -53,8 +51,9 @@
         header>nav>a{
             text-decoration: none;
             font-family: "Arial";
-            padding: 10px;
-            font-size: 20px;
+            font-weight: 500;
+            padding-block: 1rem;
+            padding-inline: clamp(0.75rem, 2vw, 1.25rem);
             color: #a7d9ff;
         }
 
@@ -69,18 +68,39 @@
             left: 10px;
         }
 
-        header>div>a{
-            text-decoration: none;
-            font-family: "Arial";
-            font-size: 41px;
-            font-weight: 600;
-            color: #0088ff;
+        header>a>img{
+            margin-top: 10px;
+            height: 70px;
+            width: 70px;
+            cursor: pointer;
         }
+        .wrapper {
+            margin-inline: auto;
+            padding-inline: clamp(1.375rem, 1.2rem + 0.89vw, 4rem);
+            position: relative;
+            max-inline-size: 85rem;
+            inline-size: 100%;
+        }
+
+        main{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-around;
+        }
+
+        main>section>h1{
+            color: white;
+            padding-bottom: 20px;
+        }
+
     </style>
 </head>
 <body>
-<header>
-    <div><a href="../index.html">TZ</a></div>
+<header class="wrapper">
+    <a href="../index.html">
+        <img src="images/tzlogo.png">
+    </a>
     <nav>
         <a href="../index.html">Home</a>
         <a href="aboutMe.html">About me</a>
@@ -90,10 +110,15 @@
         <a href="contactMe.html">Contact me</a>
     </nav>
 </header>
+<main class="wrapper">
     <section>
         <h1>Contact <span style="color: #0088ff">Me</span></h1>
+        <input type="text" placeholder="name">
+    </section>
+    <section>
         <p>Linkedin<br>Facebook<br>GitHub<br>Instagram<br>Whatsapp<br>Viber<br>Email<br>Web</p>
     </section>
+</main>
 
 </body>
 </html>

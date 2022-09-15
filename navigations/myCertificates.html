@@ -96,9 +96,38 @@
             justify-content: space-around;
         }
 
-        div{
-            height: 200px;
-            width: 500px;
+        main>section>div{
+            padding-top: 10px;
+            padding-right: 10px;
+            padding-left: 10px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            border: 2px solid #0088ff;
+            border-radius: 20px;
+            background-color: rgba(113, 113, 113, 0.47);
+            cursor: pointer;
+        }
+
+        main>section>div:hover{
+            background-color: rgba(107, 132, 158, 0.51);
+        }
+
+        main>section>div>img{
+            height: 210px;
+            width: 300px;
+            border-radius: 20px;
+        }
+
+        main>section>div>h1{
+            color: white;
+            padding-top: 10px;
+            padding-bottom: 10px;
+        }
+        main>section>div>p{
+            color: white;
+            padding-top: 10px;
+            padding-bottom: 10px;
         }
 
 
@@ -122,13 +151,19 @@
 <main class="wrapper">
     <section>
         <div>
-            <img src="images/certificate.jpg" alt="Certificate 1">
+            <img src="images/certificate.jpg" alt="Cetificate 1">
+            <h1>Certificate 1</h1>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
         </div>
         <div>
-            <img src="images/certificate.jpg" alt="Certificate 1">
+            <img src="images/certificate.jpg" alt="Cetificate 2">
+            <h1>Certificate 2</h1>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
         </div>
         <div>
-            <img src="images/certificate.jpg" alt="Certificate 1">
+            <img src="images/certificate.jpg" alt="Cetificate 3">
+            <h1>Certificate 3</h1>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
         </div>
 
     </section>

@@ -36,13 +36,10 @@
         }
 
         header{
-            position: relative;
             display: flex;
-            height: 70px;
             align-items: center;
-            background-color: rgba(63, 128, 186, 0.13);
-            border: 1px solid black;
-            box-shadow: 3px 2px 9px 1px black;
+            min-block-size: 4rem;
+            padding-inline: clamp(1.375rem, 1.2rem + 0.89vw, 2rem);
         }
 
         header>nav{
@@ -54,8 +51,9 @@
         header>nav>a{
             text-decoration: none;
             font-family: "Arial";
-            padding: 10px;
-            font-size: 20px;
+            font-weight: 500;
+            padding-block: 1rem;
+            padding-inline: clamp(0.75rem, 2vw, 1.25rem);
             color: #a7d9ff;
         }
 
@@ -70,18 +68,84 @@
             left: 10px;
         }
 
-        header>div>a{
-            text-decoration: none;
-            font-family: "Arial";
-            font-size: 41px;
-            font-weight: 600;
-            color: #0088ff;
+        header>a>img{
+            margin-top: 10px;
+            height: 70px;
+            width: 70px;
+            cursor: pointer;
         }
+        .wrapper {
+            margin-inline: auto;
+            padding-inline: clamp(1.375rem, 1.2rem + 0.89vw, 4rem);
+            position: relative;
+            max-inline-size: 85rem;
+            inline-size: 100%;
+        }
+
+        main{
+            display: flex;
+            align-items: center;
+            flex-direction: row;
+            justify-content: space-around;
+        }
+
+        main>section>img{
+            height: 300px;
+            width: 420px;
+            border-radius: 20px;
+            box-shadow: 1px 1px 7px 1px black;
+        }
+
+        main>div{
+            height: 80vh;
+            border: 1px solid rgba(0, 136, 255, 0.6);
+        }
+
+        main>section{
+            padding: 20px;
+            border-radius: 20px;
+            border: 2px solid #0088ff;
+            background-color: rgba(113, 113, 113, 0.47);
+        }
+
+        main>section:hover{
+            background-color: rgba(107, 132, 158, 0.51);
+        }
+
+        main>section>h1{
+            padding-bottom: 20px;
+            color: white;
+            width: 100%;
+            text-align: center;
+        }
+
+        main>section>p{
+            padding-top: 20px;
+            padding-bottom: 30px;
+            color: white;
+        }
+
+        main>section>button{
+            border: none;
+            border-radius: 5px;
+            padding: 3px;
+            background-color: white;
+            color: #0088ff;
+            cursor: pointer;
+        }
+        main>section>button:hover{
+            background-color: #0088ff;
+            color: white;
+            cursor: pointer;
+        }
+
     </style>
 </head>
 <body>
-<header>
-    <div><a href="../index.html">TZ</a></div>
+<header class="wrapper">
+    <a href="../index.html">
+        <img src="images/tzlogo.png">
+    </a>
     <nav>
         <a href="../index.html">Home</a>
         <a href="aboutMe.html">About me</a>
@@ -91,19 +155,24 @@
         <a href="contactMe.html">Contact me</a>
     </nav>
 </header>
+<main class="wrapper">
     <section>
-        <h1>My Projects</h1>
-        <div>
-            <img src="images/project.jpg" alt="project">
-        </div>
+        <h1><span style="color: #0088ff">My</span> Projects</h1>
+        <img src="images/project.jpg" alt="project">
+        <p>My Latest Project</p>
+        <button>View more</button>
     </section>
 
-    <section>
-        <h1>My Assignments</h1>
-        <div>
-            <img src="images/assignment.jpg" alt="assignment">
-        </div>
-    </section>
+    <div>
 
+    </div>
+
+    <section>
+        <h1><span style="color: #0088ff">My</span> Assignments</h1>
+        <img src="images/assignment.jpg" alt="assignment">
+        <p>My Latest Assignment</p>
+        <button>View more</button>
+    </section>
+</main>
 </body>
 </html>
