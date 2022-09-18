@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="assets/fonts/css/all.min.css">
     <title>TharuZika/About Me</title>
 
     <meta
@@ -84,15 +85,108 @@
 
         main{
             display: flex;
-            flex-direction: column;
+            flex-direction: row;
             align-items: center;
             justify-content: space-around;
+            height: 70%;
         }
 
-        main>section>h1{
-            color: white;
-            padding-bottom: 20px;
+        main>section{
+            width: 100%;
         }
+
+        h1{
+            margin-top: 50px;
+            font-size: 40px;
+            color: white;
+        }
+
+        h2{
+            color: white;
+            padding-bottom: 30px;
+        }
+        main>section>div>input{
+            border: none;
+            width: 100%;
+        }
+
+        main>section>div>textarea{
+            font-family: Arial ;
+            border: none;
+            width: 100%;
+        }
+
+        main>section>button{
+            background-color: white;
+            color: #0088ff;
+            border-radius: 20px;
+            font-family: "Arial Black";
+            width: 200px;
+            border: none;
+            padding: 10px;
+            box-shadow: 1px 2px 5px 1px black;
+        }
+
+        main>section>button:hover{
+            background-color: #0088ff;
+            color: white;
+        }
+
+
+        main>section>div>input:focus{
+            outline-width: 0;
+        }
+
+        main>section>div>textarea:focus{
+            outline-width: 0;
+        }
+
+        main>section>div{
+            width: 100%;
+            margin-top: 20px;
+            margin-bottom: 20px;
+            padding: 10px;
+            background-color: white;
+            border-radius: 20px;
+            box-shadow: 1px 2px 5px 1px black;
+        }
+        main>section{
+            display: block;
+        }
+
+        main>section:nth-child(3)>section>div>h3{
+            color: white;
+        }
+
+        main>section:nth-child(3)>section>div{
+            display: flex;
+            flex-direction: row;
+            margin: 10px;
+        }
+
+        main>section:nth-child(3)>section>div:hover>i{
+            color: white;
+        }
+
+        main>section:nth-child(3)>section>div>i{
+            height: 16px;
+            width: 16px;
+            color: #0088ff;
+        }
+
+        main>section>div:has(input:focus){
+            padding: 1rem;
+            background-color: #0088ff;
+        }
+
+        main>div{
+            margin-right: 80px;
+            margin-left: 80px;
+            border: 2px solid #0088ff;
+            height: 80%;
+        }
+
+
 
     </style>
 </head>
@@ -110,13 +204,56 @@
         <a href="contactMe.html">Contact me</a>
     </nav>
 </header>
+<h1 class="wrapper">Contact <span style="color: #0088ff">Me</span></h1>
 <main class="wrapper">
     <section>
-        <h1>Contact <span style="color: #0088ff">Me</span></h1>
-        <input type="text" placeholder="name">
+        <h2>Send <span style="color: #0088ff">Me</span> an Email</h2>
+        <div>
+            <input type="text" placeholder="Name">
+        </div>
+        <div>
+            <input type="email" placeholder="Email">
+        </div>
+        <div>
+            <textarea name="Message" id="msg" cols="30" rows="10" placeholder="Message"></textarea>
+        </div>
+
+        <button>Send</button>
     </section>
+    <div>
+
+    </div>
     <section>
-        <p>Linkedin<br>Facebook<br>GitHub<br>Instagram<br>Whatsapp<br>Viber<br>Email<br>Web</p>
+        <h2>More <span style="color:#0088ff">Contact</span></h2>
+        <section>
+            <div>
+                <i class="fa-sharp fa-solid fa-at"></i>
+                <h3>maxtharuz4@gmail.com</h3>
+            </div>
+            <div>
+                <i class="fa-sharp fa-solid fa-phone"></i>
+                <h3>0775080969</h3>
+            </div>
+            <div>
+                <i class="fa-sharp fa-solid fa-globe"></i>
+                <h3>www.tharuzika.com</h3>
+            </div>
+            <div>
+                <h3>TharuZika</h3>
+            </div>
+            <div>
+                <h3>TharuZika</h3>
+            </div>
+            <div>
+                <h3>Tharushika Dilalkshan</h3>
+            </div>
+            <div>
+                <h3>0775080969</h3>
+            </div>
+
+
+        </section>
+
     </section>
 </main>
 
