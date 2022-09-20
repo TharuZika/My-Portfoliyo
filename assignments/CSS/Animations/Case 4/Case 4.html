@@ -11,29 +11,93 @@
             height: 99vh;
             width: 99vw;
             background: url("assets/images/sky.jpg");
+            overflow-x: hidden;
         }
 
-        div>img{
+        #road{
+            width: 500%;
+            height: 200px;
+            position: absolute;
+            bottom: 0;
+            z-index: 1;
+            animation: cityRun 5s linear infinite;
+        }
 
-            width: 101%;
+
+
+
+        #city{
+            width: 500%;
+            height: 280px;
+            position: absolute;
+            bottom: 170px;
+            background-image: url("assets/images/city.png");
+            background-repeat: repeat-x ;
+            animation: cityRun 20s linear infinite;
+        }
+
+        @keyframes cityRun {
+            100%{
+                transform: translateX(-1400px);
+            }
+        }
+
+        #car{
+            width: 580px;
+            height: 250px;
+            position: absolute;
+            bottom: 120px;
+            left: 0;
+            right: 0;
+            margin: auto;
+            z-index: 1;
+        }
+
+        .wheel{
+            position: absolute;
+            width: 120px;
+            height: 120px;
+            bottom: 120px;
+            margin: auto;
+            z-index: 1;
+            animation: wheelRun 1.5s linear infinite;
+        }
+
+        #wheel1{
+            left: 338px;
+            right: 0;
+
+        }
+        #wheel2{
+            left: 0;
+            right: 372px;
+        }
+
+
+
+        @keyframes wheelRun {
+            100%{
+                transform: rotate(360deg);
+            }
 
         }
 
     </style>
 </head>
+
 <body>
+<section class="background">
+    <img id="road" src="assets/images/road.jpg" alt="#">
+    <div id="city"></div>
+<!--    <img id="city" src="assets/images/city.png" alt="#">-->
+
+</section>
     <div>
-        <img src="assets/images/city.png" alt="#">
+        <img id="car" src="assets/images/car.png" alt="#">
     </div>
     <div>
-        <img src="assets/images/road.jpg" alt="#">
-    </div>
-    <div>
-        <img src="assets/images/car.png" alt="#">
-    </div>
-    <div>
-        <img src="assets/images/wheel.png" alt="#">
-        <img src="assets/images/wheel.png" alt="#">
+        <img class="wheel" id="wheel1" src="assets/images/wheel.png" alt="#">
+        <img class="wheel" id="wheel2" src="assets/images/wheel.png" alt="#">
     </div>
 </body>
 </html>
