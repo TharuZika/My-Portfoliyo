@@ -1,13 +1,42 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns="http://www.w3.org/1999/html">
 <head>
     <meta charset="UTF-8">
     <title>TZ POS System</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="assets/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="assets/fonts/css/all.min.css">
+
+    <style>
+        .count{
+            margin-top: 50px;
+            display: flex;
+            width: 70vw;
+            justify-content: space-around;
+            align-items: center;
+        }
+
+        .col{
+            height: 160px;
+            width: 280px;
+        }
+
+        .tble-style{
+            background: #fff;
+            height: 250px;
+        }
+
+
+    </style>
+
+
 </head>
-<body>
-<nav class="navbar navbar-expand-lg" style="background-color: #55c1ff">
+
+
+<body style="background: rgb(237,243,242)">
+
+<!--Navigation Bar-->
+<nav class="navbar navbar-expand-lg shadow p-3 mb-5" style="background-color: #55c1ff">
     <div class="container-fluid">
         
         <a class="navbar-brand" href="#">TZ POS System</a>
@@ -30,10 +59,125 @@
                 <li class="nav-item">
                     <a class="nav-link" href="orders.html">Orders</a>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="orders.html">Place Order</a>
+                </li>
             </ul>
         </div>
     </div>
 </nav>
+
+<!--Main Content-->
+<main class="container-fluid">
+<!--    Details Cards-->
+    <section>
+        <div class="mx-auto container text-center" style="margin: 0">
+            <div class="d-inline-flex row count">
+                <div class="shadow p-3 mb-5 col rounded border border-0 border-dark" style="margin: 10px; background-color: #60a9f3">
+                    <div>
+                        <h2 class="text-light fs-1 fw-bold">
+                        Items <br>
+                        <small class="fw-semibold text-muted">78</small>
+                    </h2>
+                    </div>
+                    <div>
+                        <i class="fa-solid fa-boxes-stacked text-end text-light" style="font-size: 20px"></i>
+                    </div>
+                </div>
+                <div class="shadow p-3 mb-5 col rounded border border-0 border-dark" style="margin: 10px; background-color: #ff5a5a">
+                    <div>
+                        <h2 class="text-light fs-1 fw-bold">
+                            Customers <br>
+                            <small class="fw-semibold text-muted">53</small>
+                        </h2>
+                    </div>
+                    <div>
+                        <i class="fa-solid fa-users text-light"></i>
+                    </div>
+                </div>
+                <div class=" shadow p-3 mb-5 col rounded border border-0 border-dark" style="margin: 10px; background-color: #73b87e">
+                    <h2 class="text-light fs-1 fw-bold">
+                        Orders <br>
+                        <small class="fw-semibold text-muted">165</small>
+                    </h2>
+                        <i class="fa-solid fa-cart-shopping text-light"></i>
+                </div>
+            </div>
+        </div>
+    </section>
+
+<!--    Best Customers Table-->
+    <section class="row me-5 ms-5">
+        <aside class="col border rounded-3 tble-style me-3" style="margin-top: 50px">
+        <h3>Best Customers</h3>
+        <table class="table table-bordered">
+            <thead>
+            <tr>
+                <th scope="col" class="table-danger">#</th>
+                <th scope="col" class="table-danger">Name</th>
+                <th scope="col" class="table-danger">Items Qty</th>
+                <th scope="col" class="table-danger">Value</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <th scope="row">1</th>
+                <td>Jayantha Rathna</td>
+                <td>43</td>
+                <td>RS24,258.00</td>
+            </tr>
+            <tr>
+                <th scope="row">2</th>
+                <td>Pasindu Vithanage</td>
+                <td>28</td>
+                <td>RS18,376.64</td>
+            </tr>
+            <tr>
+                <th scope="row">3</th>
+                <td>Saman Ekanayakae</td>
+                <td>14</td>
+                <td>RS12,223.56</td>
+            </tr>
+            </tbody>
+        </table>
+        </aside>
+        <aside class="col tble-style border rounded-3 ms-3"  style="margin-top: 50px">
+            <h3>Best Selling Items</h3>
+            <table class="table table-bordered">
+                <thead>
+                <tr>
+                    <th scope="col" class="table-danger">#</th>
+                    <th scope="col" class="table-danger">Item Name</th>
+                    <th scope="col" class="table-danger">Selling Qty</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <th scope="row">1</th>
+                    <td>Chicken Burger</td>
+                    <td>71</td>
+                </tr>
+                <tr>
+                    <th scope="row">2</th>
+                    <td>Chocolate Milk Shake</td>
+                    <td>50</td>
+                </tr>
+                <tr>
+                    <th scope="row">3</th>
+                    <td>Noodles</td>
+                    <td>12</td>
+                </tr>
+                </tbody>
+            </table>
+        </aside>
+    </section>
+    <section class="d-flex justify-content-end mt-lg-4 me-5">
+        <button type="button" class="d-flex justify-content-evenly btn btn-success btn-lg">
+            Place Order Here
+        </button>
+    </section>
+</main>
+
 <script src="assets/js/bootstrap.min.js"></script>
 </body>
 </html>

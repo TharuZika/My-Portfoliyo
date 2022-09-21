@@ -5,9 +5,10 @@
     <title>POS/Customers</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="assets/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="assets/fonts/css/all.min.css">
 </head>
 <body>
-<nav class="navbar navbar-expand-lg" style="background-color: #55c1ff">
+<nav class="navbar navbar-expand-lg shadow p-3 mb-5" style="background-color: #55c1ff">
     <div class="container-fluid">
 
         <a class="navbar-brand" href="#">TZ POS System</a>
@@ -30,10 +31,141 @@
                 <li class="nav-item">
                     <a class="nav-link" href="orders.html">Orders</a>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="orders.html">Place Order</a>
+                </li>
             </ul>
         </div>
     </div>
 </nav>
+
+<section class="ms-5 me-5">
+    <div>
+        <form class="d-flex" role="search">
+            <input class="form-control me-2" type="search" placeholder="Search Customers" aria-label="Search">
+            <button class="btn btn-outline-success me-2" type="submit">Search</button>
+            <button class="btn btn-success" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal"><i class="fa-solid fa-plus"></i>Add</button>
+        </form>
+    </div>
+</section>
+
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Add a Customer</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form>
+                    <div class="row">
+                        <div class="mb-3 col">
+                            <label for="cus-no" class="col-form-label">Customer No:</label>
+                            <input type="text" class="form-control" id="cus-no">
+                        </div>
+                        <div class="mb-3 col">
+                            <label for="cus-name" class="col-form-label">Customer Name:</label>
+                            <input type="text" class="form-control" id="cus-name">
+                        </div>
+                    </div>
+                    <div>
+                        <label for="address" class="col-form-label">Address:</label>
+                        <input type="text" class="form-control" id="address">
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-danger">Add Customer</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<table class="table me-5 ms-5 mt-5 table-striped">
+    <thead>
+    <tr>
+        <th scope="col">Customer No</th>
+        <th scope="col">Name</th>
+        <th scope="col">Address</th>
+        <th scope="col">Contact</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <th scope="row">CU001</th>
+        <td>John</td>
+        <td>No.23, Colombo</td>
+        <td>0703378869</td>
+    </tr>
+    <tr>
+        <th scope="row">CU002</th>
+        <td>Saman</td>
+        <td>Anuradhapura</td>
+        <td>0725355860</td>
+    </tr>
+    <tr>
+        <th scope="row">CU003</th>
+        <td>Gayan</td>
+        <td>Galle</td>
+        <td>0771458869</td>
+    </tr>
+    <tr>
+        <th scope="row">CU001</th>
+        <td>John</td>
+        <td>No.23, Colombo</td>
+        <td>0703378869</td>
+    </tr>
+    <tr>
+        <th scope="row">CU002</th>
+        <td>Saman</td>
+        <td>Anuradhapura</td>
+        <td>0725355860</td>
+    </tr>
+    <tr>
+        <th scope="row">CU003</th>
+        <td>Gayan</td>
+        <td>Galle</td>
+        <td>0771458869</td>
+    </tr>
+    <tr>
+        <th scope="row">CU001</th>
+        <td>John</td>
+        <td>No.23, Colombo</td>
+        <td>0703378869</td>
+    </tr>
+    <tr>
+        <th scope="row">CU002</th>
+        <td>Saman</td>
+        <td>Anuradhapura</td>
+        <td>0725355860</td>
+    </tr>
+    <tr>
+        <th scope="row">CU003</th>
+        <td>Gayan</td>
+        <td>Galle</td>
+        <td>0771458869</td>
+    </tr>
+    <tr>
+        <th scope="row">CU001</th>
+        <td>John</td>
+        <td>No.23, Colombo</td>
+        <td>0703378869</td>
+    </tr>
+    <tr>
+        <th scope="row">CU002</th>
+        <td>Saman</td>
+        <td>Anuradhapura</td>
+        <td>0725355860</td>
+    </tr>
+    <tr>
+        <th scope="row">CU003</th>
+        <td>Gayan</td>
+        <td>Galle</td>
+        <td>0771458869</td>
+    </tr>
+    </tbody>
+</table>
 <script src="assets/js/bootstrap.min.js"></script>
 
 </body>

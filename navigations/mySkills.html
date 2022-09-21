@@ -56,8 +56,7 @@
 
         header>nav{
             position: absolute;
-            right: 40px;
-            top: 20px;
+            right: 20px;
         }
 
         header>nav>a{
@@ -86,6 +85,7 @@
             width: 70px;
             cursor: pointer;
         }
+
 
         body>main>section:nth-child(1){
             display: flex;
@@ -144,6 +144,21 @@
         body>main>section:nth-child(2)>div:nth-child(2)>img{
             border-radius: 20px;
             border: 2px solid #0088ff;
+        }
+
+        @media all and (max-width: 768px) {
+            body>header>a>img{
+                display: none;
+            }
+
+            body>header>nav{
+                left: 0;
+                right: 0;
+                width: 100%;
+                display: flex;
+                justify-content: space-around;
+            }
+
         }
 
 

@@ -44,8 +44,7 @@
 
         header>nav{
             position: absolute;
-            right: 40px;
-            top: 20px;
+            right: 20px;
         }
 
         header>nav>a{
@@ -74,6 +73,7 @@
             width: 70px;
             cursor: pointer;
         }
+
         .wrapper {
             margin-inline: auto;
             padding-inline: clamp(1.375rem, 1.2rem + 0.89vw, 4rem);
@@ -137,6 +137,21 @@
             background-color: #0088ff;
             color: white;
             cursor: pointer;
+        }
+
+        @media all and (max-width: 768px) {
+            body>header>a>img{
+                display: none;
+            }
+
+            body>header>nav{
+                left: 0;
+                right: 0;
+                width: 100%;
+                display: flex;
+                justify-content: space-around;
+            }
+
         }
 
     </style>

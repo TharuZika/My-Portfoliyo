@@ -5,9 +5,12 @@
     <title>POS/Items</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="assets/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="assets/fonts/css/all.min.css">
 </head>
-<body>
-<nav class="navbar navbar-expand-lg" style="background-color: #55c1ff">
+<body style="background: rgb(237,243,242)">
+
+<!--Navigation Bar-->
+<nav class="navbar navbar-expand-lg shadow p-3 mb-5" style="background-color: #55c1ff">
     <div class="container-fluid">
 
         <a class="navbar-brand" href="#">TZ POS System</a>
@@ -30,10 +33,88 @@
                 <li class="nav-item">
                     <a class="nav-link" href="orders.html">Orders</a>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="orders.html">Place Order</a>
+                </li>
             </ul>
         </div>
     </div>
 </nav>
+
+<section class="ms-5 me-5">
+    <div>
+        <form class="d-flex" role="search">
+            <input class="form-control me-2" type="search" placeholder="Search Items" aria-label="Search">
+            <button class="btn btn-outline-success me-2" type="submit">Search</button>
+            <button class="btn btn-success" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal"><i class="fa-solid fa-plus"></i>Add</button>
+        </form>
+    </div>
+</section>
+
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Add an Item</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form>
+                    <div class="row">
+                    <div class="mb-3 col">
+                        <label for="item-no" class="col-form-label">Item No:</label>
+                        <input type="text" class="form-control" id="item-no">
+                    </div>
+                    <div class="mb-3 col">
+                        <label for="item-name" class="col-form-label">Item Name:</label>
+                        <input type="text" class="form-control" id="item-name">
+                    </div>
+                    </div>
+                    <div>
+                        <label for="qty" class="col-form-label">QTY:</label>
+                        <input type="text" class="form-control" id="qty">
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-danger">Add Item</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<table class="table me-5 ms-5 mt-5 table-striped">
+    <thead>
+    <tr>
+        <th scope="col">Item No</th>
+        <th scope="col">Name</th>
+        <th scope="col">QTY</th>
+        <th scope="col">Price</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <th scope="row">IT001</th>
+        <td>Noodles</td>
+        <td>23</td>
+        <td>RS850.00</td>
+    </tr>
+    <tr>
+        <th scope="row">IT002</th>
+        <td>Jacob</td>
+        <td>10</td>
+        <td>RS850.00</td>
+    </tr>
+    <tr>
+        <th scope="row">IT003</th>
+        <td>Larry</td>
+        <td>25</td>
+        <td>RS850.00</td>
+    </tr>
+    </tbody>
+</table>
+
 <script src="assets/js/bootstrap.min.js"></script>
 
 </body>
