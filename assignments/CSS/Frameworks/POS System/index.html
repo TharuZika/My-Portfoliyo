@@ -21,10 +21,6 @@
             width: 280px;
         }
 
-        .tble-style{
-            background: #fff;
-            height: 250px;
-        }
 
 
     </style>
@@ -57,10 +53,7 @@
                     <a class="nav-link" href="customers.html">Customers</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="orders.html">Orders</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="orders.html">Place Order</a>
+                    <a class="nav-link text-bg-success border-0 rounded-2" href="placeOrder.html">Place Order</a>
                 </li>
             </ul>
         </div>
@@ -107,75 +100,77 @@
     </section>
 
 <!--    Best Customers Table-->
-    <section class="row me-5 ms-5">
-        <aside class="col border rounded-3 tble-style me-3" style="margin-top: 50px">
-        <h3>Best Customers</h3>
-        <table class="table table-bordered">
-            <thead>
-            <tr>
-                <th scope="col" class="table-danger">#</th>
-                <th scope="col" class="table-danger">Name</th>
-                <th scope="col" class="table-danger">Items Qty</th>
-                <th scope="col" class="table-danger">Value</th>
-            </tr>
-            </thead>
-            <tbody>
-            <tr>
-                <th scope="row">1</th>
-                <td>Jayantha Rathna</td>
-                <td>43</td>
-                <td>RS24,258.00</td>
-            </tr>
-            <tr>
-                <th scope="row">2</th>
-                <td>Pasindu Vithanage</td>
-                <td>28</td>
-                <td>RS18,376.64</td>
-            </tr>
-            <tr>
-                <th scope="row">3</th>
-                <td>Saman Ekanayakae</td>
-                <td>14</td>
-                <td>RS12,223.56</td>
-            </tr>
-            </tbody>
-        </table>
-        </aside>
-        <aside class="col tble-style border rounded-3 ms-3"  style="margin-top: 50px">
-            <h3>Best Selling Items</h3>
-            <table class="table table-bordered">
-                <thead>
-                <tr>
-                    <th scope="col" class="table-danger">#</th>
-                    <th scope="col" class="table-danger">Item Name</th>
-                    <th scope="col" class="table-danger">Selling Qty</th>
-                </tr>
-                </thead>
-                <tbody>
-                <tr>
-                    <th scope="row">1</th>
-                    <td>Chicken Burger</td>
-                    <td>71</td>
-                </tr>
-                <tr>
-                    <th scope="row">2</th>
-                    <td>Chocolate Milk Shake</td>
-                    <td>50</td>
-                </tr>
-                <tr>
-                    <th scope="row">3</th>
-                    <td>Noodles</td>
-                    <td>12</td>
-                </tr>
-                </tbody>
-            </table>
-        </aside>
+
+    <section class="container-fluid bg-light border-0 rounded-3 shadow-sm pb-5 ">
+        <div class="row">
+            <div class="col mt-5 mb-5 ">
+                <h3>Best Customers</h3>
+                <table class="table table-bordered">
+                    <thead>
+                    <tr>
+                        <th class="table-info" scope="col">#</th>
+                        <th class="table-info" scope="col">Name</th>
+                        <th class="table-info" scope="col">Qty</th>
+                        <th class="table-info" scope="col">Value</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <th scope="row">1</th>
+                        <td>Samantha</td>
+                        <td>75</td>
+                        <td>RS12485.00</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">2</th>
+                        <td>Jayawardhana</td>
+                        <td>62</td>
+                        <td>RS10946.00</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">3</th>
+                        <td>Ediriweera</td>
+                        <td>53</td>
+                        <td>RS9480.00</td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="col mt-5 mb-5">
+                <h3>Best Selling Items</h3>
+                <table class="table table-bordered">
+                    <thead>
+                    <tr>
+                        <th class="table-info" scope="col">#</th>
+                        <th class="table-info" scope="col">Item</th>
+                        <th class="table-info" scope="col">Sold Qty</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <th scope="row">1</th>
+                        <td>Cup Cake</td>
+                        <td>68</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">2</th>
+                        <td>Donuts</td>
+                        <td>61</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">3</th>
+                        <td>Cookies</td>
+                        <td>58</td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+
     </section>
-    <section class="d-flex justify-content-end mt-lg-4 me-5">
-        <button type="button" class="d-flex justify-content-evenly btn btn-success btn-lg">
-            Place Order Here
-        </button>
-    </section>
+
+
 </main>
 
 <script src="assets/js/bootstrap.min.js"></script>

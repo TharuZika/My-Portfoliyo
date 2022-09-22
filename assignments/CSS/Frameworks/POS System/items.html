@@ -31,31 +31,95 @@
                     <a class="nav-link" href="customers.html">Customers</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="orders.html">Orders</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="orders.html">Place Order</a>
+                    <a class="nav-link text-bg-success border-0 rounded-2" href="placeOrder.html">Place Order</a>
                 </li>
             </ul>
         </div>
     </div>
 </nav>
 
-<section class="ms-5 me-5">
-    <div>
-        <form class="d-flex" role="search">
-            <input class="form-control me-2" type="search" placeholder="Search Items" aria-label="Search">
-            <button class="btn btn-outline-success me-2" type="submit">Search</button>
-            <button class="btn btn-success" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal"><i class="fa-solid fa-plus"></i>Add</button>
-        </form>
-    </div>
-</section>
+<!--main-->
+<main class="container-fluid ">
+    <section class="container-fluid row mt-4 ms-0 me-0">
+        <div class="row bg-white border rounded ms-0 me-0 shadow-sm" >
 
-<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="col-12 d-flex justify-content-between mt-3">
+                <h1 class="text-muted">Items</h1>
+            </div>
+
+            <div class="col-12">
+                <hr>
+                <div class="d-flex mb-4 justify-content-between" role="search">
+                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                    <button class="btn btn-outline-success" type="submit">Search</button>
+                </div>
+            </div>
+
+            <div class="col-12">
+                <table class="table table-bordered table-hover">
+                    <thead>
+                    <tr>
+                        <th scope="col">Item No</th>
+                        <th scope="col">Item Name</th>
+                        <th scope="col">Qty</th>
+                        <th scope="col">Price</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <th scope="row">IT001</th>
+                        <td>Chocolate Cake</td>
+                        <td>12</td>
+                        <td>RS650.00</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">IT002</th>
+                        <td>Cookies</td>
+                        <td>78</td>
+                        <td>RS255.00</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">IT003</th>
+                        <td>Brown Cake</td>
+                        <td>60</td>
+                        <td>RS875.00</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">IT004</th>
+                        <td>Cup Cake</td>
+                        <td>121</td>
+                        <td>RS55.00</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">IT005</th>
+                        <td>Donut</td>
+                        <td>36</td>
+                        <td>RS280.00</td>
+                    </tr>
+                    </tbody>
+                </table>
+                <hr>
+            </div>
+
+            <!--  Button-->
+            <div class="modal-footer col-12 mb-3">
+
+                <button class="btn btn-success me-1" type="button" data-bs-toggle="modal" data-bs-target="#addModal"><i class="fa-solid fa-plus"></i> Add</button>
+
+                <button class="btn btn-warning me-1" type="button" data-bs-toggle="modal" data-bs-target="#updateModal">Update</button>
+
+                <button class="btn btn-danger me-1" type="button" data-bs-toggle="modal" data-bs-target="#deleteModal">Delete</button>
+            </div>
+        </div>
+    </section>
+
+
+<!--Add Item MODAL-->
+<div class="modal fade" id="addModal" tabindex="-1" aria-labelledby="addModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Add an Item</h5>
+                <h5 class="modal-title" id="addModalLabel">Add an Item</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
@@ -63,16 +127,20 @@
                     <div class="row">
                     <div class="mb-3 col">
                         <label for="item-no" class="col-form-label">Item No:</label>
-                        <input type="text" class="form-control" id="item-no">
+                        <input type="text" class="form-control" placeholder="IT001" id="item-no">
                     </div>
                     <div class="mb-3 col">
                         <label for="item-name" class="col-form-label">Item Name:</label>
-                        <input type="text" class="form-control" id="item-name">
+                        <input type="text" class="form-control" placeholder="Cake" id="item-name">
                     </div>
                     </div>
                     <div>
                         <label for="qty" class="col-form-label">QTY:</label>
-                        <input type="text" class="form-control" id="qty">
+                        <input type="text" class="form-control" placeholder="100" id="qty">
+                    </div>
+                    <div>
+                        <label for="price" class="col-form-label">Price:</label>
+                        <input type="text" placeholder="RS123.00" class="form-control" id="price">
                     </div>
                 </form>
             </div>
@@ -84,36 +152,92 @@
     </div>
 </div>
 
-<table class="table me-5 ms-5 mt-5 table-striped">
-    <thead>
-    <tr>
-        <th scope="col">Item No</th>
-        <th scope="col">Name</th>
-        <th scope="col">QTY</th>
-        <th scope="col">Price</th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr>
-        <th scope="row">IT001</th>
-        <td>Noodles</td>
-        <td>23</td>
-        <td>RS850.00</td>
-    </tr>
-    <tr>
-        <th scope="row">IT002</th>
-        <td>Jacob</td>
-        <td>10</td>
-        <td>RS850.00</td>
-    </tr>
-    <tr>
-        <th scope="row">IT003</th>
-        <td>Larry</td>
-        <td>25</td>
-        <td>RS850.00</td>
-    </tr>
-    </tbody>
-</table>
+    <!--Update Item MODAL-->
+    <div class="modal fade" id="updateModal" tabindex="-1" aria-labelledby="updateModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="updateModalLabel">Update an Item</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="row">
+                            <div class="mb-3 col">
+                                <label for="uitem-no" class="col-form-label">Item No:</label>
+                                <input type="text" list="updateOptions" class="form-control" placeholder="ITS000" id="uitem-no">
+                                <datalist id="updateOptions">
+                                    <option value="ITS001">
+                                    <option value="ITS002">
+                                    <option value="ITS003">
+                                    <option value="ITS004">
+                                    <option value="ITS005">
+                                </datalist>
+                            </div>
+                            <div class="mb-3 col">
+                                <label for="uitem-name" class="col-form-label">Item Name:</label>
+                                <input type="text" class="form-control" placeholder="Cake" id="uitem-name">
+                            </div>
+                        </div>
+                        <div>
+                            <label for="uqty" class="col-form-label">QTY:</label>
+                            <input type="text" class="form-control" placeholder="100" id="uqty">
+                        </div>
+                        <div>
+                            <label for="uprice" class="col-form-label">Price:</label>
+                            <input type="text" placeholder="RS123.00" class="form-control" id="uprice">
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-danger">Update Item</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--Delete Item MODAL-->
+    <div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="deleteModalLabel">Delete an Item</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="row">
+                            <div class="mb-3 col">
+                                <label for="ditem-no" class="col-form-label">Item No:</label>
+                                <input type="text" list="deleteOptions" class="form-control" placeholder="ITS000" id="ditem-no">
+                                <datalist id="deleteOptions">
+                                    <option value="ITS001">
+                                    <option value="ITS002">
+                                    <option value="ITS003">
+                                    <option value="ITS004">
+                                    <option value="ITS005">
+                                </datalist>
+                            </div>
+                            <div class="mb-3 col">
+                                <fieldset disabled>
+                                <label for="ditem-name" class="col-form-label">Item Name:</label>
+                                <input type="text" class="form-control" placeholder="Cake" id="ditem-name">
+                                </fieldset>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-danger">Delete Item</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</main>
+
 
 <script src="assets/js/bootstrap.min.js"></script>
 

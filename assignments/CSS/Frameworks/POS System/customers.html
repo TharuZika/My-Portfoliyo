@@ -7,7 +7,8 @@
     <link href="assets/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="assets/fonts/css/all.min.css">
 </head>
-<body>
+<body style="background: rgb(237,243,242)">
+<!--Navigation Bar-->
 <nav class="navbar navbar-expand-lg shadow p-3 mb-5" style="background-color: #55c1ff">
     <div class="container-fluid">
 
@@ -23,149 +24,218 @@
                     <a class="nav-link" href="index.html">Home</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="items.html">Items</a>
+                    <a class="nav-link " href="items.html">Items</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="#">Customers</a>
+                    <a class="nav-link  active" aria-current="page" href="#">Customers</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="orders.html">Orders</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="orders.html">Place Order</a>
+                    <a class="nav-link text-bg-success border-0 rounded-2" href="placeOrder.html">Place Order</a>
                 </li>
             </ul>
         </div>
     </div>
 </nav>
 
-<section class="ms-5 me-5">
-    <div>
-        <form class="d-flex" role="search">
-            <input class="form-control me-2" type="search" placeholder="Search Customers" aria-label="Search">
-            <button class="btn btn-outline-success me-2" type="submit">Search</button>
-            <button class="btn btn-success" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal"><i class="fa-solid fa-plus"></i>Add</button>
-        </form>
-    </div>
-</section>
+<main class="container-fluid">
+    <section class="container-fluid row mt-4 ms-0 me-0">
+        <div class="row bg-white border rounded ms-0 me-0 shadow-sm">
 
-<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Add a Customer</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            <div class="col-12 d-flex justify-content-between mt-3">
+                <h1 class="text-muted">Customers</h1>
             </div>
-            <div class="modal-body">
-                <form>
-                    <div class="row">
-                        <div class="mb-3 col">
-                            <label for="cus-no" class="col-form-label">Customer No:</label>
-                            <input type="text" class="form-control" id="cus-no">
-                        </div>
-                        <div class="mb-3 col">
-                            <label for="cus-name" class="col-form-label">Customer Name:</label>
-                            <input type="text" class="form-control" id="cus-name">
-                        </div>
-                    </div>
-                    <div>
-                        <label for="address" class="col-form-label">Address:</label>
-                        <input type="text" class="form-control" id="address">
-                    </div>
-                </form>
+
+            <div class="col-12">
+                <hr>
+                <div class="d-flex mb-4 justify-content-between" role="search">
+                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                    <button class="btn btn-outline-success" type="submit">Search</button>
+                </div>
             </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-danger">Add Customer</button>
+
+            <div class="col-12">
+                <table class="table table-bordered table-hover">
+                    <thead>
+                    <tr>
+                        <th scope="col">Customer No</th>
+                        <th scope="col">Customer Name</th>
+                        <th scope="col">Address</th>
+                        <th scope="col">Contact</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <th scope="row">CT001</th>
+                        <td>Samantha</td>
+                        <td>No.12/3, Galle</td>
+                        <td>0723345871</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">CT002</th>
+                        <td>Jayawardhana</td>
+                        <td>732/C, Matara</td>
+                        <td>0728345002</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">CT003</th>
+                        <td>Ediriweera</td>
+                        <td>Panadura</td>
+                        <td>0770556889</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">CT004</th>
+                        <td>Pasindu</td>
+                        <td>Colombo</td>
+                        <td>0785493821</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">CT005</th>
+                        <td>Kumara</td>
+                        <td>Matara</td>
+                        <td>0754683147</td>
+                    </tr>
+                    </tbody>
+                </table>
+                <hr>
+            </div>
+
+            <!--  Button-->
+            <div class="modal-footer col-12 mb-3">
+
+                <button class="btn btn-success me-1" type="button" data-bs-toggle="modal" data-bs-target="#addModal"><i class="fa-solid fa-plus"></i> Add</button>
+
+                <button class="btn btn-warning me-1" type="button" data-bs-toggle="modal" data-bs-target="#updateModal">Update</button>
+
+                <button class="btn btn-danger me-1" type="button" data-bs-toggle="modal" data-bs-target="#deleteModal">Delete</button>
+            </div>
+        </div>
+    </section>
+
+
+    <!--Add Customer MODAL-->
+    <div class="modal fade" id="addModal" tabindex="-1" aria-labelledby="addModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="addModalLabel">Add a Customer</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="row">
+                            <div class="mb-3 col">
+                                <label for="cust-no" class="col-form-label">Customer No:</label>
+                                <input type="text" class="form-control" placeholder="CT001" id="cust-no">
+                            </div>
+                            <div class="mb-3 col">
+                                <label for="cust-Contact" class="col-form-label">Contact:</label>
+                                <input type="text" class="form-control" placeholder="0701234567" id="cust-Contact">
+                            </div>
+                        </div>
+                        <div>
+                            <label for="name" class="col-form-label">Customer Name:</label>
+                            <input type="text" class="form-control" placeholder="Saman" id="name">
+                        </div>
+                        <div>
+                            <label for="address" class="col-form-label">Adress:</label>
+                            <input type="text" placeholder="Galle" class="form-control" id="address">
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-success">Add Customer</button>
+                </div>
             </div>
         </div>
     </div>
-</div>
 
-<table class="table me-5 ms-5 mt-5 table-striped">
-    <thead>
-    <tr>
-        <th scope="col">Customer No</th>
-        <th scope="col">Name</th>
-        <th scope="col">Address</th>
-        <th scope="col">Contact</th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr>
-        <th scope="row">CU001</th>
-        <td>John</td>
-        <td>No.23, Colombo</td>
-        <td>0703378869</td>
-    </tr>
-    <tr>
-        <th scope="row">CU002</th>
-        <td>Saman</td>
-        <td>Anuradhapura</td>
-        <td>0725355860</td>
-    </tr>
-    <tr>
-        <th scope="row">CU003</th>
-        <td>Gayan</td>
-        <td>Galle</td>
-        <td>0771458869</td>
-    </tr>
-    <tr>
-        <th scope="row">CU001</th>
-        <td>John</td>
-        <td>No.23, Colombo</td>
-        <td>0703378869</td>
-    </tr>
-    <tr>
-        <th scope="row">CU002</th>
-        <td>Saman</td>
-        <td>Anuradhapura</td>
-        <td>0725355860</td>
-    </tr>
-    <tr>
-        <th scope="row">CU003</th>
-        <td>Gayan</td>
-        <td>Galle</td>
-        <td>0771458869</td>
-    </tr>
-    <tr>
-        <th scope="row">CU001</th>
-        <td>John</td>
-        <td>No.23, Colombo</td>
-        <td>0703378869</td>
-    </tr>
-    <tr>
-        <th scope="row">CU002</th>
-        <td>Saman</td>
-        <td>Anuradhapura</td>
-        <td>0725355860</td>
-    </tr>
-    <tr>
-        <th scope="row">CU003</th>
-        <td>Gayan</td>
-        <td>Galle</td>
-        <td>0771458869</td>
-    </tr>
-    <tr>
-        <th scope="row">CU001</th>
-        <td>John</td>
-        <td>No.23, Colombo</td>
-        <td>0703378869</td>
-    </tr>
-    <tr>
-        <th scope="row">CU002</th>
-        <td>Saman</td>
-        <td>Anuradhapura</td>
-        <td>0725355860</td>
-    </tr>
-    <tr>
-        <th scope="row">CU003</th>
-        <td>Gayan</td>
-        <td>Galle</td>
-        <td>0771458869</td>
-    </tr>
-    </tbody>
-</table>
+    <!--Update Item MODAL-->
+    <div class="modal fade" id="updateModal" tabindex="-1" aria-labelledby="updateModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="updateModalLabel">Update a Customer</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="row">
+                            <div class="mb-3 col">
+                                <label for="ucust-no" class="col-form-label">Item No:</label>
+                                <input type="text" list="updateOptions" class="form-control" placeholder="CT000" id="ucust-no">
+                                <datalist id="updateOptions">
+                                    <option value="CTS001">
+                                    <option value="CTS002">
+                                    <option value="CTS003">
+                                    <option value="CTS004">
+                                    <option value="CTS005">
+                                </datalist>
+                            </div>
+                            <div class="mb-3 col">
+                                <label for="ucust-Contact" class="col-form-label">Contact:</label>
+                                <input type="text" class="form-control" placeholder="0701234567" id="ucust-Contact">
+                            </div>
+                        </div>
+                        <div>
+                            <label for="uname" class="col-form-label">Customer Name:</label>
+                            <input type="text" class="form-control" placeholder="Saman" id="uname">
+                        </div>
+                        <div>
+                            <label for="uaddress" class="col-form-label">Adress:</label>
+                            <input type="text" placeholder="Galle" class="form-control" id="uaddress">
+                        </div>
+                    </form>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-danger">Update Item</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--Delete Item MODAL-->
+    <div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="deleteModalLabel">Delete a Customer</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="row">
+                            <div class="mb-3 col">
+                                <label for="ucust-no" class="col-form-label">Item No:</label>
+                                <input type="text" list="deleteOptions" class="form-control" placeholder="CT000" id="ucust-no">
+                                <datalist id="deleteOptions">
+                                    <option value="CTS001">
+                                    <option value="CTS002">
+                                    <option value="CTS003">
+                                    <option value="CTS004">
+                                    <option value="CTS005">
+                                </datalist>
+                            </div>
+                            <div class="mb-3 col">
+                                <fieldset disabled>
+                                    <label for="dcust-name" class="col-form-label">Customer Name:</label>
+                                    <input type="text" class="form-control" placeholder="Saman" id="dcust-name">
+                                </fieldset>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-danger">Delete Item</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</main>
 <script src="assets/js/bootstrap.min.js"></script>
 
 </body>
