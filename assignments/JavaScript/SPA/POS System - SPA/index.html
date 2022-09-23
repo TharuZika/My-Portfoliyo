@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <title>TZ POS System</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="assets/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="assets/fonts/css/all.min.css">
+
+    <style>
+        .count{
+            margin-top: 50px;
+            display: flex;
+            width: 70vw;
+            justify-content: space-around;
+            align-items: center;
+        }
+
+        .col{
+            height: 160px;
+            width: 280px;
+        }
+
+
+
+    </style>
+
+
+</head>
+
+
+<body style="background: rgb(237,243,242)">
+
+<!--Navigation Bar-->
+<nav class="navbar navbar-expand-lg shadow p-3 mb-5" style="background-color: #55c1ff">
+    <div class="container-fluid">
+        
+        <a class="navbar-brand" href="#">TZ POS System</a>
+        
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarText">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="#">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="items.html">Items</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="customers.html">Customers</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-bg-success border-0 rounded-2" href="placeOrder.html">Place Order</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<!--Main Content-->
+<main class="container-fluid">
+<!--    Details Cards-->
+    <section>
+        <div class="mx-auto container text-center" style="margin: 0">
+            <div class="d-inline-flex row count">
+                <div class="shadow p-3 mb-5 col rounded border border-0 border-dark" style="margin: 10px; background-color: #60a9f3">
+                    <div>
+                        <h2 class="text-light fs-1 fw-bold">
+                        Items <br>
+                        <small class="fw-semibold text-muted">78</small>
+                    </h2>
+                    </div>
+                    <div>
+                        <i class="fa-solid fa-boxes-stacked text-end text-light" style="font-size: 20px"></i>
+                    </div>
+                </div>
+                <div class="shadow p-3 mb-5 col rounded border border-0 border-dark" style="margin: 10px; background-color: #ff5a5a">
+                    <div>
+                        <h2 class="text-light fs-1 fw-bold">
+                            Customers <br>
+                            <small class="fw-semibold text-muted">53</small>
+                        </h2>
+                    </div>
+                    <div>
+                        <i class="fa-solid fa-users text-light"></i>
+                    </div>
+                </div>
+                <div class=" shadow p-3 mb-5 col rounded border border-0 border-dark" style="margin: 10px; background-color: #73b87e">
+                    <h2 class="text-light fs-1 fw-bold">
+                        Orders <br>
+                        <small class="fw-semibold text-muted">165</small>
+                    </h2>
+                        <i class="fa-solid fa-cart-shopping text-light"></i>
+                </div>
+            </div>
+        </div>
+    </section>
+
+<!--    Best Customers Table-->
+
+    <section class="container-fluid bg-light border-0 rounded-3 shadow-sm pb-5 ">
+        <div class="row">
+            <div class="col mt-5 mb-5 ">
+                <h3>Best Customers</h3>
+                <table class="table table-bordered">
+                    <thead>
+                    <tr>
+                        <th class="table-info" scope="col">#</th>
+                        <th class="table-info" scope="col">Name</th>
+                        <th class="table-info" scope="col">Qty</th>
+                        <th class="table-info" scope="col">Value</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <th scope="row">1</th>
+                        <td>Samantha</td>
+                        <td>75</td>
+                        <td>RS12485.00</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">2</th>
+                        <td>Jayawardhana</td>
+                        <td>62</td>
+                        <td>RS10946.00</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">3</th>
+                        <td>Ediriweera</td>
+                        <td>53</td>
+                        <td>RS9480.00</td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="col mt-5 mb-5">
+                <h3>Best Selling Items</h3>
+                <table class="table table-bordered">
+                    <thead>
+                    <tr>
+                        <th class="table-info" scope="col">#</th>
+                        <th class="table-info" scope="col">Item</th>
+                        <th class="table-info" scope="col">Sold Qty</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <th scope="row">1</th>
+                        <td>Cup Cake</td>
+                        <td>68</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">2</th>
+                        <td>Donuts</td>
+                        <td>61</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">3</th>
+                        <td>Cookies</td>
+                        <td>58</td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+
+    </section>
+
+
+</main>
+
+<script src="assets/js/bootstrap.min.js"></script>
+</body>
+</html>
