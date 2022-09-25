@@ -44,34 +44,34 @@
         <div class="collapse navbar-collapse" id="navbarText">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="#">Home</a>
+                    <a class="nav-link" id="btnHome" href="#">Home</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="items.html">Items</a>
+                    <a class="nav-link" href="#" id="btnItems">Items</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="customers.html">Customers</a>
+                    <a class="nav-link" href="#" id="btnCusotmer">Customers</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link text-bg-success border-0 rounded-2" href="placeOrder.html">Place Order</a>
+                    <a class="nav-link text-bg-success border-0 rounded-2" href="#" id="btnOrder">Place Order</a>
                 </li>
             </ul>
         </div>
     </div>
 </nav>
 
-<!--Main Content-->
-<main class="container-fluid">
-<!--    Details Cards-->
+<!--Dashboard Content Start-->
+<main id="dashboard" class="container-fluid">
+    <!--    Details Cards-->
     <section>
         <div class="mx-auto container text-center" style="margin: 0">
             <div class="d-inline-flex row count">
                 <div class="shadow p-3 mb-5 col rounded border border-0 border-dark" style="margin: 10px; background-color: #60a9f3">
                     <div>
                         <h2 class="text-light fs-1 fw-bold">
-                        Items <br>
-                        <small class="fw-semibold text-muted">78</small>
-                    </h2>
+                            Items <br>
+                            <small class="fw-semibold text-muted">78</small>
+                        </h2>
                     </div>
                     <div>
                         <i class="fa-solid fa-boxes-stacked text-end text-light" style="font-size: 20px"></i>
@@ -93,13 +93,13 @@
                         Orders <br>
                         <small class="fw-semibold text-muted">165</small>
                     </h2>
-                        <i class="fa-solid fa-cart-shopping text-light"></i>
+                    <i class="fa-solid fa-cart-shopping text-light"></i>
                 </div>
             </div>
         </div>
     </section>
 
-<!--    Best Customers Table-->
+    <!--    Best Customers Table-->
 
     <section class="container-fluid bg-light border-0 rounded-3 shadow-sm pb-5 ">
         <div class="row">
@@ -172,6 +172,582 @@
 
 
 </main>
+<!--Dashboard Content End-->
+
+<!--Items Content Start-->
+<main id="items" style="display: none" class="container-fluid ">
+    <section class="container-fluid row mt-4 ms-0 me-0">
+        <div class="row bg-white border rounded ms-0 me-0 shadow-sm" >
+
+            <div class="col-12 d-flex justify-content-between mt-3">
+                <h1 class="text-muted">Items</h1>
+            </div>
+
+            <div class="col-12">
+                <hr>
+                <div class="d-flex mb-4 justify-content-between" role="search">
+                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                    <button class="btn btn-outline-success" type="submit">Search</button>
+                </div>
+            </div>
+
+            <div class="col-12">
+                <table class="table table-bordered table-hover">
+                    <thead>
+                    <tr>
+                        <th scope="col">Item No</th>
+                        <th scope="col">Item Name</th>
+                        <th scope="col">Qty</th>
+                        <th scope="col">Price</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <th scope="row">IT001</th>
+                        <td>Chocolate Cake</td>
+                        <td>12</td>
+                        <td>RS650.00</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">IT002</th>
+                        <td>Cookies</td>
+                        <td>78</td>
+                        <td>RS255.00</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">IT003</th>
+                        <td>Brown Cake</td>
+                        <td>60</td>
+                        <td>RS875.00</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">IT004</th>
+                        <td>Cup Cake</td>
+                        <td>121</td>
+                        <td>RS55.00</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">IT005</th>
+                        <td>Donut</td>
+                        <td>36</td>
+                        <td>RS280.00</td>
+                    </tr>
+                    </tbody>
+                </table>
+                <hr>
+            </div>
+
+            <!--  Button-->
+            <div class="modal-footer col-12 mb-3">
+
+                <button class="btn btn-success me-1" type="button" data-bs-toggle="modal" data-bs-target="#addItemModal"><i class="fa-solid fa-plus"></i> Add</button>
+
+                <button class="btn btn-warning me-1" type="button" data-bs-toggle="modal" data-bs-target="#updateItemModal">Update</button>
+
+                <button class="btn btn-danger me-1" type="button" data-bs-toggle="modal" data-bs-target="#deleteItemModal">Delete</button>
+            </div>
+        </div>
+    </section>
+
+
+    <!--Add Item MODAL-->
+    <div class="modal fade" id="addItemModal" tabindex="-1" aria-labelledby="addItemModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="addItemModalLabel">Add an Item</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="row">
+                            <div class="mb-3 col">
+                                <label for="item-no" class="col-form-label">Item No:</label>
+                                <input type="text" class="form-control" placeholder="IT001" id="item-no">
+                            </div>
+                            <div class="mb-3 col">
+                                <label for="item-name" class="col-form-label">Item Name:</label>
+                                <input type="text" class="form-control" placeholder="Cake" id="item-name">
+                            </div>
+                        </div>
+                        <div>
+                            <label for="qty" class="col-form-label">QTY:</label>
+                            <input type="text" class="form-control" placeholder="100" id="qty">
+                        </div>
+                        <div>
+                            <label for="price" class="col-form-label">Price:</label>
+                            <input type="text" placeholder="RS123.00" class="form-control" id="price">
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-danger">Add Item</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--Update Item MODAL-->
+    <div class="modal fade" id="updateItemModal" tabindex="-1" aria-labelledby="updateItemModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="updateItemModalLabel">Update an Item</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="row">
+                            <div class="mb-3 col">
+                                <label for="uitem-no" class="col-form-label">Item No:</label>
+                                <input type="text" list="updateItemOptions" class="form-control" placeholder="ITS000" id="uitem-no">
+                                <datalist id="updateItemOptions">
+                                    <option value="ITS001">
+                                    <option value="ITS002">
+                                    <option value="ITS003">
+                                    <option value="ITS004">
+                                    <option value="ITS005">
+                                </datalist>
+                            </div>
+                            <div class="mb-3 col">
+                                <label for="uitem-name" class="col-form-label">Item Name:</label>
+                                <input type="text" class="form-control" placeholder="Cake" id="uitem-name">
+                            </div>
+                        </div>
+                        <div>
+                            <label for="uqty" class="col-form-label">QTY:</label>
+                            <input type="text" class="form-control" placeholder="100" id="uqty">
+                        </div>
+                        <div>
+                            <label for="uprice" class="col-form-label">Price:</label>
+                            <input type="text" placeholder="RS123.00" class="form-control" id="uprice">
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-danger">Update Item</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--Delete Item MODAL-->
+    <div class="modal fade" id="deleteItemModal" tabindex="-1" aria-labelledby="deleteItemModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="deleteItemModalLabel">Delete an Item</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="row">
+                            <div class="mb-3 col">
+                                <label for="ditem-no" class="col-form-label">Item No:</label>
+                                <input type="text" list="deleteItemOptions" class="form-control" placeholder="ITS000" id="ditem-no">
+                                <datalist id="deleteItemOptions">
+                                    <option value="ITS001">
+                                    <option value="ITS002">
+                                    <option value="ITS003">
+                                    <option value="ITS004">
+                                    <option value="ITS005">
+                                </datalist>
+                            </div>
+                            <div class="mb-3 col">
+                                <fieldset disabled>
+                                    <label for="ditem-name" class="col-form-label">Item Name:</label>
+                                    <input type="text" class="form-control" placeholder="Cake" id="ditem-name">
+                                </fieldset>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-danger">Delete Item</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</main>
+<!--Items Content End-->
+
+<!--Customer Content Start-->
+<main id="customer" style="display: none" class="container-fluid">
+    <section class="container-fluid row mt-4 ms-0 me-0">
+        <div class="row bg-white border rounded ms-0 me-0 shadow-sm">
+
+            <div class="col-12 d-flex justify-content-between mt-3">
+                <h1 class="text-muted">Customers</h1>
+            </div>
+
+            <div class="col-12">
+                <hr>
+                <div class="d-flex mb-4 justify-content-between" role="search">
+                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                    <button class="btn btn-outline-success" type="submit">Search</button>
+                </div>
+            </div>
+
+            <div class="col-12">
+                <table class="table table-bordered table-hover">
+                    <thead>
+                    <tr>
+                        <th scope="col">Customer No</th>
+                        <th scope="col">Customer Name</th>
+                        <th scope="col">Address</th>
+                        <th scope="col">Contact</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <th scope="row">CT001</th>
+                        <td>Samantha</td>
+                        <td>No.12/3, Galle</td>
+                        <td>0723345871</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">CT002</th>
+                        <td>Jayawardhana</td>
+                        <td>732/C, Matara</td>
+                        <td>0728345002</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">CT003</th>
+                        <td>Ediriweera</td>
+                        <td>Panadura</td>
+                        <td>0770556889</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">CT004</th>
+                        <td>Pasindu</td>
+                        <td>Colombo</td>
+                        <td>0785493821</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">CT005</th>
+                        <td>Kumara</td>
+                        <td>Matara</td>
+                        <td>0754683147</td>
+                    </tr>
+                    </tbody>
+                </table>
+                <hr>
+            </div>
+
+            <!--  Button-->
+            <div class="modal-footer col-12 mb-3">
+
+                <button class="btn btn-success me-1" type="button" data-bs-toggle="modal" data-bs-target="#addModal"><i class="fa-solid fa-plus"></i> Add</button>
+
+                <button class="btn btn-warning me-1" type="button" data-bs-toggle="modal" data-bs-target="#updateModal">Update</button>
+
+                <button class="btn btn-danger me-1" type="button" data-bs-toggle="modal" data-bs-target="#deleteModal">Delete</button>
+            </div>
+        </div>
+    </section>
+
+
+    <!--Add Customer MODAL-->
+    <div class="modal fade" id="addModal" tabindex="-1" aria-labelledby="addModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="addModalLabel">Add a Customer</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="row">
+                            <div class="mb-3 col">
+                                <label for="cust-no" class="col-form-label">Customer No:</label>
+                                <input type="text" class="form-control" placeholder="CT001" id="cust-no">
+                            </div>
+                            <div class="mb-3 col">
+                                <label for="cust-Contact" class="col-form-label">Contact:</label>
+                                <input type="text" class="form-control" placeholder="0701234567" id="cust-Contact">
+                            </div>
+                        </div>
+                        <div>
+                            <label for="name" class="col-form-label">Customer Name:</label>
+                            <input type="text" class="form-control" placeholder="Saman" id="name">
+                        </div>
+                        <div>
+                            <label for="address" class="col-form-label">Adress:</label>
+                            <input type="text" placeholder="Galle" class="form-control" id="address">
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-success">Add Customer</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--Update Item MODAL-->
+    <div class="modal fade" id="updateModal" tabindex="-1" aria-labelledby="updateModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="updateModalLabel">Update a Customer</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="row">
+                            <div class="mb-3 col">
+                                <label for="ucust-no" class="col-form-label">Item No:</label>
+                                <input type="text" list="updateOptions" class="form-control" placeholder="CT000" id="ucust-no">
+                                <datalist id="updateOptions">
+                                    <option value="CTS001">
+                                    <option value="CTS002">
+                                    <option value="CTS003">
+                                    <option value="CTS004">
+                                    <option value="CTS005">
+                                </datalist>
+                            </div>
+                            <div class="mb-3 col">
+                                <label for="ucust-Contact" class="col-form-label">Contact:</label>
+                                <input type="text" class="form-control" placeholder="0701234567" id="ucust-Contact">
+                            </div>
+                        </div>
+                        <div>
+                            <label for="uname" class="col-form-label">Customer Name:</label>
+                            <input type="text" class="form-control" placeholder="Saman" id="uname">
+                        </div>
+                        <div>
+                            <label for="uaddress" class="col-form-label">Adress:</label>
+                            <input type="text" placeholder="Galle" class="form-control" id="uaddress">
+                        </div>
+                    </form>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-danger">Update Item</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--Delete Item MODAL-->
+    <div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="deleteModalLabel">Delete a Customer</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="row">
+                            <div class="mb-3 col">
+                                <label for="dcust-no" class="col-form-label">Item No:</label>
+                                <input type="text" list="deleteOptions" class="form-control" placeholder="CT000" id="dcust-no">
+                                <datalist id="deleteOptions">
+                                    <option value="CTS001">
+                                    <option value="CTS002">
+                                    <option value="CTS003">
+                                    <option value="CTS004">
+                                    <option value="CTS005">
+                                </datalist>
+                            </div>
+                            <div class="mb-3 col">
+                                <fieldset disabled>
+                                    <label for="dcust-name" class="col-form-label">Customer Name:</label>
+                                    <input type="text" class="form-control" placeholder="Saman" id="dcust-name">
+                                </fieldset>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-danger">Delete Item</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</main>
+<!--Customer Content End-->
+
+<!--Place Order Content Start-->
+<main id="order" style="display: none" class="container-fluid ">
+    <section class="container-fluid row mt-4 ms-0 me-0">
+        <div class="row bg-white border rounded ms-0 me-0 shadow-sm">
+
+            <div class="col-12 d-flex justify-content-between mt-3">
+                <h1 class="text-muted">Place Order</h1>
+                <div class="col-2">
+                    <div class="form-group">
+                        <input class="form-control" id="txtOrderID" type="text" placeholder="Order Id">
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-12">
+                <hr>
+                <form>
+                    <div class="row">
+                        <div class="col-2">
+                            <div class="form-group">
+                                <label>Item No:</label>
+                                <input class="form-control" id="txtitemID" type="text">
+                                <span class="control-error"
+                                      id="itemId-invalid-error"></span>
+                            </div>
+                        </div>
+                        <div class="col-7">
+                            <div class="form-group">
+                                <label>Item Name:</label>
+                                <input class="form-control" type="text" disabled>
+                            </div>
+                        </div>
+                        <div class="col-2">
+                            <div class="form-group">
+                                <label>Qty:</label>
+                                <input class="form-control" id="txtQty" min="1" type="number">
+                                <span class="control-error" id="order-qty-empty-error"></span>
+                            </div>
+                        </div>
+                        <div class="col-1 mt-4">
+                            <div class="form-group ms-auto">
+                                <button class="btn btn-outline-success" type="button"><i class="fa-solid fa-plus"></i></button>
+                            </div>
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="row">
+                        <div class="col-3">
+                            <div class="form-group">
+                                <label for="orderCustomerID">Customer ID</label>
+                                <input class="form-control" id="orderCustomerID">
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="form-group">
+                                <label>Name :</label>
+                                <input class="form-control" id="orderCustomerName" type="text">
+                            </div>
+                        </div>
+                        <div class="col-3">
+                            <div class="form-group">
+                                <label>Date:</label>
+                                <input class="form-control" id="orderDate" type="date">
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+
+            <div class="col-12 mt-2">
+                <hr>
+                <table class="table table-bordered table-hover">
+                    <thead>
+                    <tr>
+                        <th scope="col">Item No</th>
+                        <th scope="col">Item Name</th>
+                        <th scope="col">Qty</th>
+                        <th scope="col">Price</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <th scope="row">IT001</th>
+                        <td>Chocolate Cake</td>
+                        <td>1</td>
+                        <td>RS650.00</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">IT002</th>
+                        <td>Cookies</td>
+                        <td>3</td>
+                        <td>RS255.00</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">IT003</th>
+                        <td>Brown Cake</td>
+                        <td>6</td>
+                        <td>RS875.00</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">IT004</th>
+                        <td>Cup Cake</td>
+                        <td>1</td>
+                        <td>RS55.00</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">IT005</th>
+                        <td>Donut</td>
+                        <td>3</td>
+                        <td>RS280.00</td>
+                    </tr>
+                    </tbody>
+                </table>
+                <div class="col-2 ms-auto">
+                    <div class="form-group">
+                        <label>Discount:</label>
+                        <input  class="form-control border-success" id="discount" type="text">
+                    </div>
+                </div>
+
+                <hr>
+            </div>
+
+            <!--  Footer-->
+            <div class="modal-footer col-12 mb-3">
+                <div class="col ms-5">
+                    <h4 class="row">Total: 7560.00/=</h4>
+                    <h3 class="row text-danger">SubTotal: 7560.00/=</h3>
+                </div>
+
+                <button class="btn btn-danger btn-lg me-4">Purchase</button>
+            </div>
+        </div>
+    </section>
+
+</main>
+<!--Place Order Content End-->
+
+<script src="assets/js/jquery-3.6.1.min.js"></script>
+
+<script>
+    $("#btnHome").click(function () {
+        $("#dashboard").css('display' , 'block');
+        $("#items").css('display', 'none');
+        $("#customer").css('display', 'none');
+        $("#order").css('display', 'none');
+    });
+
+    $("#btnItems").click(function () {
+        $("#dashboard").css('display' , 'none');
+        $("#items").css('display', 'block');
+        $("#customer").css('display', 'none');
+        $("#order").css('display', 'none');
+    });
+
+    $("#btnCusotmer").click(function () {
+        $("#dashboard").css('display' , 'none');
+        $("#items").css('display', 'none');
+        $("#customer").css('display', 'block');
+        $("#order").css('display', 'none');
+    });
+
+    $("#btnOrder").click(function () {
+        $("#dashboard").css('display' , 'none');
+        $("#items").css('display', 'none');
+        $("#customer").css('display', 'none');
+        $("#order").css('display', 'block');
+    });
+
+</script>
+
 
 <script src="assets/js/bootstrap.min.js"></script>
 </body>
