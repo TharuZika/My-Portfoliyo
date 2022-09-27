@@ -1,10 +1,99 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns="http://www.w3.org/1999/html">
 <head>
     <meta charset="UTF-8">
     <title>Calculator</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="assets/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="assets/fonts/css/all.min.css">
+
+    <style>
+
+        body{
+            background-image: url('assets/image/bg.png');
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-attachment: fixed;
+        }
+
+        .calc {
+            transform: translate(-50%, -50%);
+            width: 400px;
+        }
+
+        .screen {
+            width: 100%;
+            height: 90px;
+            color: #fff;
+            text-align: right;
+            padding-right: 20px;
+            padding-left: 10px;
+        }
+
+        .buttonsArea {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            grid-gap: 20px;
+            padding: 20px;
+        }
+
+        #eq{
+            height: 100%;
+            grid-area: 2 / 4 / 5 ;
+        }
+
+        #clr{
+            width: 100%;
+            grid-area: 5 / 3 / 5 / 5;
+        }
+
+
+    </style>
+
 </head>
 <body>
+
+<main class="container ">
+        <div class="bg-dark bg-opacity-10 shadow-lg calc card border-0 rounded-3 position-absolute top-50 start-50 translate-middle mt-1">
+            <input type="text" id="screen" class="fs-1 screen z-depth-1 bg-dark border-0 rounded-3" disabled />
+            <div class="buttonsArea border-0 rounded-3" style="background: #334950" >
+                <button type="button" id="sum" class="calBtn shadow-sm fs-3 btn btn-warning" value="+">+</button>
+                <button type="button" id="min" class="calBtn shadow-sm fs-3 btn btn-warning" value="-">-</button>
+                <button type="button" id="mul" class="calBtn shadow-sm fs-3 btn btn-warning" value="*">&times;</button>
+                <button type="button" id="div" class="calBtn shadow-sm fs-3 btn btn-warning" value="/">&divide;</button>
+                <button type="button" id="cal7" class="calBtn shadow-sm fs-3 btn btn-light" value="7">7</button>
+                <button type="button" id="cal8" class="calBtn shadow-sm fs-3 btn btn-light " value="8">8</button>
+                <button type="button" id="cal9" class="calBtn shadow-sm fs-3 btn btn-light " value="9">9</button>
+                <button type="button" id="cal4" class="calBtn  shadow-sm fs-3 btn btn-light " value="4">4</button>
+                <button type="button" id="cal5" class="calBtn shadow-sm fs-3 btn btn-light " value="5">5</button>
+                <button type="button" id="cal6" class="calBtn shadow-sm fs-3 btn btn-light " value="6">6</button>
+                <button type="button" id="cal1" class="calBtn shadow-sm fs-3 btn btn-light " value="1">1</button>
+                <button type="button" id="cal2" class="calBtn shadow-sm fs-3 btn btn-light " value="5">2</button>
+                <button type="button" id="cal3" class="calBtn shadow-sm fs-3 btn btn-light " value="3">3</button>
+                <button type="button" class="calBtn shadow-sm fs-3 btn btn-secondary " value="." >.</button>
+                <button type="button" id="cal0" class="calBtn shadow-sm fs-3 btn btn-light " value="0">0</button>
+                <button type="button" id="clr" class="calBtn shadow-sm fs-3 btn btn-danger" value="+">C</button>
+                <button type="button" id="eq" class="shadow-sm fs-3 btn btn-success" value="=">=</button>
+            </div>
+    </div>
+</main>
+<script src="assets/js/bootstrap.min.js"></script>
+<script src="assets/js/jquery-3.6.1.min.js"></script>
+
+<script>
+$(document).ready(function () {
+    $('.calBtn').click(function () {
+        $('#screen').val($('#screen').val() + $(this).val());
+    });
+    $('#clr').click(function () {
+        $('#screen').val('');
+    });
+    $('#eq').click(function () {
+        $('#screen').val(eval($('#screen').val()));
+    });
+});
+</script>
 
 </body>
 </html>
