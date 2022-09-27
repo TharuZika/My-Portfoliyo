@@ -152,6 +152,15 @@
                 justify-content: space-around;
             }
 
+            #contain{
+                display: flex;
+                flex-direction: column;
+            }
+
+            #contain>div{
+                display: none;
+            }
+
         }
 
     </style>
@@ -170,7 +179,7 @@
         <a href="contactMe.html">Contact me</a>
     </nav>
 </header>
-<main class="wrapper">
+<main class="wrapper" id="contain">
     <section>
         <h1><span style="color: #0088ff">My</span> Projects</h1>
         <img src="images/project.jpg" alt="project">

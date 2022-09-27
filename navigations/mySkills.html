@@ -159,6 +159,58 @@
                 justify-content: space-around;
             }
 
+            #java{
+                height: 70px;
+                width: 70px;
+                background: rgba(255, 255, 255, 0.53);
+            }
+            .tdIcon{
+                height: 70px;
+                width: 70px;
+                background: rgb(255, 255, 255);
+            }
+            .lstIcon{
+                height: 70px;
+                width: 70px;
+            }
+
+            main>section>img{
+                height: 70px;
+                width: 70px;
+            }
+
+            #contain{
+                display: flex;
+                flex-direction: column;
+                justify-content: space-around;
+                margin: auto;
+            }
+
+            #contain>div:nth-child(1){
+                width: 100%;
+                padding: 20px;
+            }
+
+            #contain>div:nth-child(2){
+                display: none;
+            }
+
+
+
+        }
+
+        @media all and (max-width: 425px) {
+            header > nav > a {
+                font-size: 10px;
+            }
+
+            #contain>div:nth-child(1)>h1{
+                font-size: 28px;
+            }
+
+            #contain>div:nth-child(1)>p{
+                font-size: 20px;
+            }
         }
 
 
@@ -188,7 +240,7 @@
         <img class="tdIcon" src="images/tecIcons/mysql.png" alt="MySQL">
         <img class="lstIcon" src="images/tecIcons/css-3.png" alt="Css">
     </section>
-    <section>
+    <section id="contain">
         <div>
             <h1><span style="color: #0088ff ">My</span> Services</h1>
             <p> <span style="color: #0088ff">🔷</span>Enterprise Architecture <br>
