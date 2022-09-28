@@ -89,7 +89,7 @@
             justify-content: space-around;
         }
 
-        main>section>img{
+        main>section>a>img{
             height: 300px;
             width: 420px;
             border-radius: 20px;
@@ -125,7 +125,8 @@
             color: white;
         }
 
-        main>section>button{
+        main>section>a:nth-child(4){
+            text-decoration: none;
             border: none;
             border-radius: 5px;
             padding: 3px;
@@ -133,7 +134,7 @@
             color: #0088ff;
             cursor: pointer;
         }
-        main>section>button:hover{
+        main>section>a:nth-child(4):hover{
             background-color: #0088ff;
             color: white;
             cursor: pointer;
@@ -182,9 +183,11 @@
 <main class="wrapper" id="contain">
     <section>
         <h1><span style="color: #0088ff">My</span> Projects</h1>
-        <img src="images/project.jpg" alt="project">
+        <a href="#" target="_blank">
+        <img src="images/ChattApp.png" alt="project">
+        </a>
         <p>My Latest Project</p>
-        <button>View more</button>
+        <a href="../projects/projects.html " target="_blank">View more</a>
     </section>
 
     <div>
@@ -193,9 +196,11 @@
 
     <section>
         <h1><span style="color: #0088ff">My</span> Assignments</h1>
-        <img src="images/assignment.jpg" alt="assignment">
+        <a href="../assignments/JavaScript/Calculator/index.html" target="_blank">
+        <img src="images/calculator.png" alt="assignment">
+        </a>
         <p>My Latest Assignment</p>
-        <button>View more</button>
+        <a href="../assignments/assignments.html" target="_blank">View more</a>
     </section>
 </main>
 </body>
