@@ -1,6 +1,7 @@
 # My-Portfoliyo
 
-![image](https://user-images.githubusercontent.com/101235785/189197170-5b1d6519-4714-42c8-beb5-196a5fdfc024.png)
+![image](https://user-images.githubusercontent.com/101235785/192846111-da9febb1-ef43-4f54-9966-6d735389ca16.png)
+
 <br>
 <br>
 <br>
