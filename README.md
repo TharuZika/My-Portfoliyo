@@ -1,6 +1,5 @@
 # My-Portfoliyo
-
-![Desktop_2022_10_04_-_22_36_47_01_AdobeExpress](https://user-images.githubusercontent.com/101235785/193883118-178e38ea-3b21-469c-b5f7-d8b6cfc50dfe.gif)
+![Desktop_2022_10_04_-_22_36_47_01_AdobeExpress (1)](https://user-images.githubusercontent.com/101235785/193883654-256dcefe-867c-455d-9a73-80423ba44b7a.gif)
 
 <br>
 <br>
