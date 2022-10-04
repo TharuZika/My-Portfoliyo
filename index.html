@@ -268,12 +268,51 @@
         .heading {
             font-size: 2.5rem;
             color: #0088ff;
+            display:inline-block;
+            overflow:hidden;
+            white-space:nowrap;
         }
+
+
         .sub-heading {
+            display: block;
             font-size: 1.2rem;
             letter-spacing: 1.5px;
             color: var(--color-on-background);
+            animation: spin_words 10s infinite;
         }
+
+        .words{
+            overflow: hidden;
+        }
+
+        @keyframes spin_words {
+            10%{
+                transform: translateY(-112%);
+            }
+            25%{
+                transform: translateY(-100%);
+            }
+            35%{
+                transform: translateY(-212%);
+            }
+            50%{
+                transform: translateY(-200%);
+            }
+            60%{
+                transform: translateY(-312%);
+            }
+            75%{
+                transform: translateY(-300%);
+            }
+            85%{
+                transform: translateY(-412%);
+            }
+            100%{
+                transform: translateY(-400%);
+            }
+        }
+
         .pic-image {
             inline-size: 100%;
             block-size: 100%;
@@ -295,6 +334,47 @@
             width: 70px;
             cursor: pointer;
         }
+
+        #im{
+            animation: showup 10s infinite;
+        }
+
+        #name{
+            width:0px;
+            animation: reveal 10s infinite;
+        }
+
+        #name span{
+            margin-left:-355px;
+            animation: slidein 10s infinite;
+        }
+
+        @keyframes showup {
+            0% {opacity:0;}
+            20% {opacity:1;}
+            80% {opacity:1;}
+            100% {opacity:0;}
+        }
+
+        @keyframes slidein {
+            0% { margin-left:-800px; }
+            20% { margin-left:-800px; }
+            35% { margin-left:0px; }
+            100% { margin-left:0px; }
+        }
+
+        @keyframes reveal {
+            0% {opacity:0;width:0px;}
+            20% {opacity:1;width:0px;}
+            30% {width:500px;}
+            80% {opacity:1;}
+            100% {opacity:0;width:500px;}
+        }
+
+        #welcome{
+            margin: 20px;
+        }
+
 
     </style>
 </head>
@@ -371,10 +451,14 @@
         <div class="wrapper">
             <div class="content">
                 <div class="info">
-                    <h1 class="heading"><span style="color: white">I'm</span> Tharushika Dilakshan</h1>
-                    <p class="sub-heading">Full Stack Developer</p>
-                    <p class="sub-heading">Web Designer</p>
-                    <p class="sub-heading">Backend Developer</p>
+                    <h1 id="welcome">Hello!</h1>
+                    <h1 id="im" class="heading">I'm</h1>
+                    <h1 id="name" class="heading"><span style="color: white">Tharushika Dilakshan</span></h1>
+                    <div class="words">
+                        <span class="sub-heading">Full Stack Developer</span>
+                        <span class="sub-heading">Web Designer</span>
+                        <span class="sub-heading">Backend Developer</span>
+                    </div>
                 </div>
                 <div class="image">
                     <img
