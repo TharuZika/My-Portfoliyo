@@ -201,36 +201,7 @@
                         <th scope="col">Price</th>
                     </tr>
                     </thead>
-                    <tbody>
-                    <tr>
-                        <th scope="row">IT001</th>
-                        <td>Chocolate Cake</td>
-                        <td>12</td>
-                        <td>RS650.00</td>
-                    </tr>
-                    <tr>
-                        <th scope="row">IT002</th>
-                        <td>Cookies</td>
-                        <td>78</td>
-                        <td>RS255.00</td>
-                    </tr>
-                    <tr>
-                        <th scope="row">IT003</th>
-                        <td>Brown Cake</td>
-                        <td>60</td>
-                        <td>RS875.00</td>
-                    </tr>
-                    <tr>
-                        <th scope="row">IT004</th>
-                        <td>Cup Cake</td>
-                        <td>121</td>
-                        <td>RS55.00</td>
-                    </tr>
-                    <tr>
-                        <th scope="row">IT005</th>
-                        <td>Donut</td>
-                        <td>36</td>
-                        <td>RS280.00</td>
+                    <tbody id="tblItems">
                     </tr>
                     </tbody>
                 </table>
@@ -282,7 +253,7 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-danger">Add Item</button>
+                    <button type="button" class="btn btn-danger" id="btnAddItems">Add Item</button>
                 </div>
             </div>
         </div>
@@ -301,14 +272,7 @@
                         <div class="row">
                             <div class="mb-3 col">
                                 <label for="uitem-no" class="col-form-label">Item No:</label>
-                                <input type="text" list="updateItemOptions" class="form-control" placeholder="ITS000" id="uitem-no">
-                                <datalist id="updateItemOptions">
-                                    <option value="ITS001">
-                                    <option value="ITS002">
-                                    <option value="ITS003">
-                                    <option value="ITS004">
-                                    <option value="ITS005">
-                                </datalist>
+                                <input type="text" class="form-control" placeholder="I000" id="uitem-no">
                             </div>
                             <div class="mb-3 col">
                                 <label for="uitem-name" class="col-form-label">Item Name:</label>
@@ -327,7 +291,7 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-danger">Update Item</button>
+                    <button type="button" class="btn btn-danger" id="btnItemUpdate">Update Item</button>
                 </div>
             </div>
         </div>
@@ -366,7 +330,7 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-danger">Delete Item</button>
+                    <button type="button" class="btn btn-danger" id="btnItemDelete">Delete Item</button>
                 </div>
             </div>
         </div>
@@ -403,36 +367,7 @@
                     </tr>
                     </thead>
                     <tbody id="tblCustomer">
-                    <tr>
-                        <th scope="row">CT001</th>
-                        <td>Samantha</td>
-                        <td>No.12/3, Galle</td>
-                        <td>0723345871</td>
-                    </tr>
-                    <tr>
-                        <th scope="row">CT002</th>
-                        <td>Jayawardhana</td>
-                        <td>732/C, Matara</td>
-                        <td>0728345002</td>
-                    </tr>
-                    <tr>
-                        <th scope="row">CT003</th>
-                        <td>Ediriweera</td>
-                        <td>Panadura</td>
-                        <td>0770556889</td>
-                    </tr>
-                    <tr>
-                        <th scope="row">CT004</th>
-                        <td>Pasindu</td>
-                        <td>Colombo</td>
-                        <td>0785493821</td>
-                    </tr>
-                    <tr>
-                        <th scope="row">CT005</th>
-                        <td>Kumara</td>
-                        <td>Matara</td>
-                        <td>0754683147</td>
-                    </tr>
+
                     </tbody>
                 </table>
                 <hr>
@@ -445,7 +380,7 @@
 
                 <button class="btn btn-warning me-1" type="button" data-bs-toggle="modal" data-bs-target="#updateModal" id="btnCusUpdate">Update</button>
 
-                <button class="btn btn-danger me-1" type="button" data-bs-toggle="modal" data-bs-target="#deleteModal" id="btnCusDelete">Delete</button>
+                <button class="btn btn-danger me-1" type="button" data-bs-toggle="modal" data-bs-target="#deleteModal">Delete</button>
             </div>
         </div>
     </section>
@@ -502,7 +437,7 @@
                         <div class="row">
                             <div class="mb-3 col">
                                 <label for="ucust-no" class="col-form-label">Customer No:</label>
-                                <input type="text" list="updateOptions" class="form-control" placeholder="CT000" id="ucust-no">
+                                <input type="text" list="updateOptions" class="form-control" placeholder="C000" id="ucust-no">
                                 <datalist id="updateOptions">
 
                                 </datalist>
@@ -544,14 +479,7 @@
                         <div class="row">
                             <div class="mb-3 col">
                                 <label for="dcust-no" class="col-form-label">Item No:</label>
-                                <input type="text" list="deleteOptions" class="form-control" placeholder="CT000" id="dcust-no">
-                                <datalist id="deleteOptions">
-                                    <option value="CTS001">
-                                    <option value="CTS002">
-                                    <option value="CTS003">
-                                    <option value="CTS004">
-                                    <option value="CTS005">
-                                </datalist>
+                                <input type="text" class="form-control" placeholder="C000" id="dcust-no">
                             </div>
                             <div class="mb-3 col">
                                 <fieldset disabled>
@@ -564,7 +492,7 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-danger">Delete Item</button>
+                    <button type="button" class="btn btn-danger" id="btnCusDelete">Delete Customer</button>
                 </div>
             </div>
         </div>
@@ -744,7 +672,7 @@
     });
 
 
-    // customer funtion
+    // customer function
     var customers = [];
     $("#btnAddCustomer").click(function () {
         let customerID = $("#cNo").val();
@@ -752,18 +680,34 @@
         let customerAddress = $("#cAddress").val();
         let customerContact = $("#cContact").val();
 
-        var customerObject = {
-            id: customerID,
-            name: customerName,
-            address: customerAddress,
-            salary: customerContact
+        let customer = searchCustomer(customerID);
+        if (customer != null) {
+            alert("Customer already Exist!");
+        }else {
+            var customerObject = {
+                id: customerID,
+                name: customerName,
+                address: customerAddress,
+                contact: customerContact
+            }
+
+            customers.push(customerObject);
+            alert("Customer added Successfully!")
+            loadAllCustomers();
+            setCustTextfieldValues("", "", "", "");
         }
 
-        customers.push(customerObject);
 
-        loadAllCustomers();
+
 
     });
+
+    function setCustTextfieldValues(id, name, address, contact){
+        $("#cNo").val(id);
+        $("#cName").val(name);
+        $("#cAddress").val(address);
+        $("#cContact").val(contact);
+    }
 
     function loadAllCustomers() {
         //remove all the table body content before adding data
@@ -778,7 +722,7 @@
             // var row= "<tr><td>"+customer.id+"</td><td>"+customer.name+"</td><td>"+customer.address+"</td><td>"+customer.salary+"</td></tr>";
 
             // Using String Literals to do the same thing as above
-            var row = `<tr><td>${customer.id}</td><td>${customer.name}</td><td>${customer.address}</td><td>${customer.salary}</td></tr>`;
+            var row = `<tr><td>${customer.id}</td><td>${customer.name}</td><td>${customer.address}</td><td>${customer.contact}</td></tr>`;
 
             //then add it to the table body of customer table
             $("#tblCustomer").append(row);
@@ -791,10 +735,10 @@
             let typedId = $("#ucust-no").val();
             let customer = searchCustomer(typedId);
             if (customer != null) {
-                setTextfieldValues(customer.id, customer.name, customer.address, customer.contact);
+                setUpCustTextfieldValues(customer.id, customer.name, customer.address, customer.contact);
             } else {
-                alert("There is no cusotmer available for that " + typedId);
-                setTextfieldValues("", "", "", "");
+                alert("Can't find " + typedId);
+                setUpCustTextfieldValues("", "", "", "");
             }
         }
     })
@@ -804,14 +748,14 @@
         let response = updateCustomer(customerID);
         if (response) {
             alert("Customer Updated Successfully");
-            setTextfieldValues("", "", "", "");
+            setUpCustTextfieldValues("", "", "", "");
         } else {
-            alert("Update Failed..!");
+            alert("Check Customer No..!");
 
         }
     });
 
-    function setTextfieldValues(id, name, address, contact) {
+    function setUpCustTextfieldValues(id, name, address, contact) {
         $("#ucust-no").val(id);
         $("#uname").val(name);
         $("#uaddress").val(address);
@@ -842,6 +786,202 @@
         return null;
     }
 
+    // Delete Customer
+    $("#dcust-no").on('keyup' , function (event){
+        if (event.code == "Enter"){
+            let typedId = $("#dcust-no").val();
+            let customer = searchCustomer(typedId);
+            if (customer != null) {
+                $("#dcust-name").val(customer.name)
+            } else {
+                alert("Can't find " + typedId);
+            }
+        }
+    })
+
+    $("#btnCusDelete").click(function () {
+        let deleteID = $("#dcust-no").val();
+        let deleteName = $("#dcust-name").val();
+
+        let option = confirm("Do you really want to delete customer :" + deleteName);
+        if (option){
+            if (deleteCustomer(deleteID)) {
+                alert("Customer Successfully Deleted..");
+                $("#dcust-no").val(" ");
+                $("#dcust-name").val(" ");
+            } else {
+                alert("Press Enter after type Customer No to search customer before delete!");
+            }
+        }
+    });
+
+    function deleteCustomer(customerID) {
+        let customer = searchCustomer(customerID);
+        if (customer != null) {
+            let indexNumber = customers.indexOf(customer);
+            customers.splice(indexNumber, 1);
+            loadAllCustomers();
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    // Item function
+    var items = [];
+    $("#btnAddItems").click(function () {
+        let itemID = $("#item-no").val();
+        let itemName = $("#item-name").val();
+        let itemQty = $("#qty").val();
+        let itemPrice = $("#price").val();
+
+        let item = searchCustomer(itemID);
+        if (item != null) {
+            alert("Item already Exist!");
+        }else {
+            var itemObject = {
+                id: itemID,
+                name: itemName,
+                qty: itemQty,
+                price: itemPrice
+            }
+
+            items.push(itemObject);
+            alert("Item added Successfully!")
+            loadAllItems();
+            setItemsTextfieldValues("", "", "", "");
+        }
+
+
+
+
+    });
+
+    function setItemsTextfieldValues(id, name, qty, price){
+        $("#item-name").val(id);
+        $("#item-name").val(name);
+        $("#qty").val(qty);
+        $("#price").val(price);
+    }
+
+    function loadAllItems() {
+        //remove all the table body content before adding data
+        $("#tblItems").empty();
+
+
+        // get all customer records from the array
+        for (var item of items) {
+            // console.log(customer);// customer object
+
+            // add those data to the table row
+            // var row= "<tr><td>"+customer.id+"</td><td>"+customer.name+"</td><td>"+customer.address+"</td><td>"+customer.salary+"</td></tr>";
+
+            // Using String Literals to do the same thing as above
+            var row = `<tr><td>${item.id}</td><td>${item.name}</td><td>${item.qty}</td><td>${item.price}</td></tr>`;
+
+            //then add it to the table body of customer table
+            $("#tblItems").append(row);
+        }
+    }
+
+    // Update itmes
+    $("#uitem-no").on('keyup' , function (event) {
+        if (event.code == "Enter"){
+            let typedId = $("#uitem-no").val();
+            let item = searchItem(typedId);
+            if (item != null) {
+                setUpItemTextfieldValues(item.id, item.name, item.qty, item.price);
+            } else {
+                alert("Can't find " + typedId);
+                setUpCustTextfieldValues("", "", "", "");
+            }
+        }
+    })
+
+    $("#btnItemUpdate").click(function () {
+        let itemID = $("#uitem-no").val();
+        let response = updateItem(itemID);
+        if (response) {
+            alert("Item Updated Successfully");
+            setUpItemTextfieldValues("", "", "", "");
+        } else {
+            alert("Check Item No..!");
+
+        }
+    });
+
+    function setUpItemTextfieldValues(id, name, qty, price) {
+        $("#uitem-no").val(id);
+        $("#uitem-name").val(name);
+        $("#uqty").val(qty);
+        $("#uprice").val(price);
+    }
+
+    function updateItem(itemID) {
+        let item = searchItem(itemID);
+        if (item != null) {
+            item.id = $("#uitem-no").val();
+            item.name = $("#uitem-name").val();
+            item.qty = $("#uqty").val();
+            item.price = $("#uprice").val();
+            loadAllItems();
+            return true;
+        } else {
+            return false;
+        }
+
+    }
+
+    function searchItem(itemID) {
+        for (let item of items) {
+            if (item.id == itemID) {
+                return item;
+            }
+        }
+        return null;
+    }
+
+    // Delete Customer
+    $("#ditem-no").on('keyup' , function (event){
+        if (event.code == "Enter"){
+            let typedId = $("#ditem-no").val();
+            let item = searchItem(typedId);
+            if (item != null) {
+                $("#ditem-name").val(item.name)
+            } else {
+                alert("Can't find " + typedId);
+            }
+        }
+    })
+
+    $("#btnItemDelete").click(function () {
+        let deleteID = $("#ditem-no").val();
+        let deleteName = $("#ditem-name").val();
+
+
+            if (deleteItem(deleteID)) {
+                let option = confirm("Do you really want to delete " + deleteName);
+                if (option) {
+                    alert(deleteName + " Successfully Deleted..");
+                    $("#ditem-no").val(" ");
+                    $("#ditem-name").val(" ");
+                } else {
+                    alert("Press Enter after insert Item No to search Item before delete!");
+                }
+            }
+    });
+
+    function deleteItem(itemID) {
+        let item = searchItem(itemID);
+        if (item != null) {
+            let indexNumber = items.indexOf(item);
+            items.splice(indexNumber, 1);
+            loadAllItems();
+            return true;
+        } else {
+            return false;
+        }
+    }
 
 </script>
 
