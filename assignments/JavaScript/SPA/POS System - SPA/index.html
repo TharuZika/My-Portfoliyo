@@ -402,7 +402,7 @@
                         <th scope="col">Contact</th>
                     </tr>
                     </thead>
-                    <tbody>
+                    <tbody id="tblCustomer">
                     <tr>
                         <th scope="row">CT001</th>
                         <td>Samantha</td>
@@ -443,9 +443,9 @@
 
                 <button class="btn btn-success me-1" type="button" data-bs-toggle="modal" data-bs-target="#addModal"><i class="fa-solid fa-plus"></i> Add</button>
 
-                <button class="btn btn-warning me-1" type="button" data-bs-toggle="modal" data-bs-target="#updateModal">Update</button>
+                <button class="btn btn-warning me-1" type="button" data-bs-toggle="modal" data-bs-target="#updateModal" id="btnCusUpdate">Update</button>
 
-                <button class="btn btn-danger me-1" type="button" data-bs-toggle="modal" data-bs-target="#deleteModal">Delete</button>
+                <button class="btn btn-danger me-1" type="button" data-bs-toggle="modal" data-bs-target="#deleteModal" id="btnCusDelete">Delete</button>
             </div>
         </div>
     </section>
@@ -463,33 +463,33 @@
                     <form>
                         <div class="row">
                             <div class="mb-3 col">
-                                <label for="cust-no" class="col-form-label">Customer No:</label>
-                                <input type="text" class="form-control" placeholder="CT001" id="cust-no">
+                                <label for="cNo" class="col-form-label">Customer No:</label>
+                                <input type="text" class="form-control" placeholder="CT001" id="cNo">
                             </div>
                             <div class="mb-3 col">
-                                <label for="cust-Contact" class="col-form-label">Contact:</label>
-                                <input type="text" class="form-control" placeholder="0701234567" id="cust-Contact">
+                                <label for="cContact" class="col-form-label">Contact:</label>
+                                <input type="text" class="form-control" placeholder="0701234567" id="cContact">
                             </div>
                         </div>
                         <div>
-                            <label for="name" class="col-form-label">Customer Name:</label>
-                            <input type="text" class="form-control" placeholder="Saman" id="name">
+                            <label for="cName" class="col-form-label">Customer Name:</label>
+                            <input type="text" class="form-control" placeholder="Saman" id="cName">
                         </div>
                         <div>
-                            <label for="address" class="col-form-label">Adress:</label>
-                            <input type="text" placeholder="Galle" class="form-control" id="address">
+                            <label for="cAddress" class="col-form-label">Adress:</label>
+                            <input type="text" placeholder="Galle" class="form-control" id="cAddress">
                         </div>
                     </form>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-success">Add Customer</button>
+                    <button type="button" class="btn btn-success" id="btnAddCustomer">Add Customer</button>
                 </div>
             </div>
         </div>
     </div>
 
-    <!--Update Item MODAL-->
+    <!--Update Customer MODAL-->
     <div class="modal fade" id="updateModal" tabindex="-1" aria-labelledby="updateModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
@@ -501,14 +501,10 @@
                     <form>
                         <div class="row">
                             <div class="mb-3 col">
-                                <label for="ucust-no" class="col-form-label">Item No:</label>
+                                <label for="ucust-no" class="col-form-label">Customer No:</label>
                                 <input type="text" list="updateOptions" class="form-control" placeholder="CT000" id="ucust-no">
                                 <datalist id="updateOptions">
-                                    <option value="CTS001">
-                                    <option value="CTS002">
-                                    <option value="CTS003">
-                                    <option value="CTS004">
-                                    <option value="CTS005">
+
                                 </datalist>
                             </div>
                             <div class="mb-3 col">
@@ -529,13 +525,13 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-danger">Update Item</button>
+                    <button type="button" class="btn btn-danger" id="btnCUpdate">Update Customer</button>
                 </div>
             </div>
         </div>
     </div>
 
-    <!--Delete Item MODAL-->
+    <!--Delete Customer MODAL-->
     <div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
@@ -746,6 +742,106 @@
         $("#customer").css('display', 'none');
         $("#order").css('display', 'block');
     });
+
+
+    // customer funtion
+    var customers = [];
+    $("#btnAddCustomer").click(function () {
+        let customerID = $("#cNo").val();
+        let customerName = $("#cName").val();
+        let customerAddress = $("#cAddress").val();
+        let customerContact = $("#cContact").val();
+
+        var customerObject = {
+            id: customerID,
+            name: customerName,
+            address: customerAddress,
+            salary: customerContact
+        }
+
+        customers.push(customerObject);
+
+        loadAllCustomers();
+
+    });
+
+    function loadAllCustomers() {
+        //remove all the table body content before adding data
+        $("#tblCustomer").empty();
+
+
+        // get all customer records from the array
+        for (var customer of customers) {
+            // console.log(customer);// customer object
+
+            // add those data to the table row
+            // var row= "<tr><td>"+customer.id+"</td><td>"+customer.name+"</td><td>"+customer.address+"</td><td>"+customer.salary+"</td></tr>";
+
+            // Using String Literals to do the same thing as above
+            var row = `<tr><td>${customer.id}</td><td>${customer.name}</td><td>${customer.address}</td><td>${customer.salary}</td></tr>`;
+
+            //then add it to the table body of customer table
+            $("#tblCustomer").append(row);
+        }
+    }
+
+    // Update Customers
+    $("#ucust-no").on('keyup' , function (event) {
+        if (event.code == "Enter"){
+            let typedId = $("#ucust-no").val();
+            let customer = searchCustomer(typedId);
+            if (customer != null) {
+                setTextfieldValues(customer.id, customer.name, customer.address, customer.contact);
+            } else {
+                alert("There is no cusotmer available for that " + typedId);
+                setTextfieldValues("", "", "", "");
+            }
+        }
+    })
+
+    $("#btnCUpdate").click(function () {
+        let customerID = $("#ucust-no").val();
+        let response = updateCustomer(customerID);
+        if (response) {
+            alert("Customer Updated Successfully");
+            setTextfieldValues("", "", "", "");
+        } else {
+            alert("Update Failed..!");
+
+        }
+    });
+
+    function setTextfieldValues(id, name, address, contact) {
+        $("#ucust-no").val(id);
+        $("#uname").val(name);
+        $("#uaddress").val(address);
+        $("#ucust-Contact").val(contact);
+    }
+
+    function updateCustomer(customerID) {
+        let customer = searchCustomer(customerID);
+        if (customer != null) {
+            customer.id = $("#ucust-no").val();
+            customer.name = $("#uname").val();
+            customer.address = $("#uaddress").val();
+            customer.contact = $("#ucust-Contact").val();
+            loadAllCustomers();
+            return true;
+        } else {
+            return false;
+        }
+
+    }
+
+    function searchCustomer(cusID) {
+        for (let customer of customers) {
+            if (customer.id == cusID) {
+                return customer;
+            }
+        }
+        return null;
+    }
+
 
 </script>
 
