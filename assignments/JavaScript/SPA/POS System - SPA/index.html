@@ -530,19 +530,19 @@
                         <div class="col-7">
                             <div class="form-group">
                                 <label>Item Name:</label>
-                                <input class="form-control" type="text" disabled>
+                                <input class="form-control" type="text" id="txtitemName" disabled>
                             </div>
                         </div>
                         <div class="col-2">
                             <div class="form-group">
                                 <label>Qty:</label>
-                                <input class="form-control" id="txtQty" min="1" type="number">
+                                <input class="form-control" id="txtQty" min="1" value="1" type="number">
                                 <span class="control-error" id="order-qty-empty-error"></span>
                             </div>
                         </div>
                         <div class="col-1 mt-4">
                             <div class="form-group ms-auto">
-                                <button class="btn btn-outline-success" type="button"><i class="fa-solid fa-plus"></i></button>
+                                <button id="btnAddtoCart" class="btn btn-outline-success" type="button"><i class="fa-solid fa-plus"></i></button>
                             </div>
                         </div>
                     </div>
@@ -581,7 +581,7 @@
                         <th scope="col">Price</th>
                     </tr>
                     </thead>
-                    <tbody>
+                    <tbody id="tblCart">
                     <tr>
                         <th scope="row">IT001</th>
                         <td>Chocolate Cake</td>
@@ -896,7 +896,7 @@
                 setUpCustTextfieldValues("", "", "", "");
             }
         }
-    })
+    });
 
     $("#btnItemUpdate").click(function () {
         let itemID = $("#uitem-no").val();
@@ -982,6 +982,53 @@
             return false;
         }
     }
+
+
+    // Place order function
+    var cart = [];
+    $("#txtitemID").on('keyup' , function (event) {
+        if (event.code == "Enter"){
+            let typedId = $("#txtitemID").val();
+            let item = searchItem(typedId);
+            if (item != null) {
+                $("#txtitemName").val(item.name);
+            } else {
+                alert("Can't find " + typedId);
+            }
+        }
+    });
+
+    $("#btnAddtoCart").click(function () {
+        let typedId = $("#txtitemID").val();
+        let qty = $("#txtQty").val();
+        let item = searchItem(typedId);
+        if (item != null) {
+            let price = item.price * qty;
+            let itemName = item.name;
+
+            var cartObject = {
+                id: typedId,
+                name: itemName,
+                qty: qty,
+                TotPrice: price
+            }
+
+            cart.push(cartObject);
+            alert("Item added yo cart!")
+            loadAllCart();
+
+        }
+    });
+
+    function loadAllCart(){
+        $("#tblCart").empty();
+
+        for (var cartItem of cart) {
+            var row = `<tr><td>${cartItem.id}</td><td>${cartItem.name}</td><td>${cartItem.qty}</td><td>${cartItem.Totprice}</td></tr>`;
+            $("#tblCart").append(row);
+        }
+    }
+
 
 </script>
 
