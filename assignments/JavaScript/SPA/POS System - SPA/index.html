@@ -527,7 +527,7 @@
                                       id="itemId-invalid-error"></span>
                             </div>
                         </div>
-                        <div class="col-7">
+                        <div class="col-5">
                             <div class="form-group">
                                 <label>Item Name:</label>
                                 <input class="form-control" type="text" id="txtitemName" disabled>
@@ -535,8 +535,22 @@
                         </div>
                         <div class="col-2">
                             <div class="form-group">
+                                <label>Unit Price:</label>
+                                <input class="form-control" id="txtUnitPrice" type="text" disabled>
+                                <span class="control-error" id="order-unit-price"></span>
+                            </div>
+                        </div>
+                        <div class="col-1">
+                            <div class="form-group">
+                                <label>Qty In the shop:</label>
+                                <input class="form-control" id="txtShopQty" value="0" type="number" disabled>
+                                <span class="control-error" id="order-shop-qty-empty-error"></span>
+                            </div>
+                        </div>
+                        <div class="col-1">
+                            <div class="form-group">
                                 <label>Qty:</label>
-                                <input class="form-control" id="txtQty" min="1" value="1" type="number">
+                                <input class="form-control" id="txtQty" value="1" type="number">
                                 <span class="control-error" id="order-qty-empty-error"></span>
                             </div>
                         </div>
@@ -551,13 +565,13 @@
                         <div class="col-3">
                             <div class="form-group">
                                 <label for="orderCustomerID">Customer ID</label>
-                                <input class="form-control" id="orderCustomerID">
+                                <input class="form-control" id="orderCustomerID" type="text">
                             </div>
                         </div>
                         <div class="col-6">
                             <div class="form-group">
                                 <label>Name :</label>
-                                <input class="form-control" id="orderCustomerName" type="text">
+                                <input class="form-control" id="orderCustomerName" type="text" disabled>
                             </div>
                         </div>
                         <div class="col-3">
@@ -627,8 +641,8 @@
             <!--  Footer-->
             <div class="modal-footer col-12 mb-3">
                 <div class="col ms-5">
-                    <h4 class="row">Total: 7560.00/=</h4>
-                    <h3 class="row text-danger">SubTotal: 7560.00/=</h3>
+                    <h4 id="lblTotal" class="row">Total: 0.00/=</h4>
+                    <h3 id="lblSubTotal" class="row text-danger">SubTotal: 0.00/=</h3>
                 </div>
 
                 <button class="btn btn-danger btn-lg me-4">Purchase</button>
@@ -641,396 +655,11 @@
 
 <script src="assets/js/bootstrap.min.js"></script>
 <script src="assets/js/jquery-3.6.1.min.js"></script>
-
-<script>
-    $("#btnHome").click(function () {
-        $("#dashboard").css('display' , 'block');
-        $("#items").css('display', 'none');
-        $("#customer").css('display', 'none');
-        $("#order").css('display', 'none');
-    });
-
-    $("#btnItems").click(function () {
-        $("#dashboard").css('display' , 'none');
-        $("#items").css('display', 'block');
-        $("#customer").css('display', 'none');
-        $("#order").css('display', 'none');
-    });
-
-    $("#btnCusotmer").click(function () {
-        $("#dashboard").css('display' , 'none');
-        $("#items").css('display', 'none');
-        $("#customer").css('display', 'block');
-        $("#order").css('display', 'none');
-    });
-
-    $("#btnOrder").click(function () {
-        $("#dashboard").css('display' , 'none');
-        $("#items").css('display', 'none');
-        $("#customer").css('display', 'none');
-        $("#order").css('display', 'block');
-    });
-
-
-    // customer function
-    var customers = [];
-    $("#btnAddCustomer").click(function () {
-        let customerID = $("#cNo").val();
-        let customerName = $("#cName").val();
-        let customerAddress = $("#cAddress").val();
-        let customerContact = $("#cContact").val();
-
-        let customer = searchCustomer(customerID);
-        if (customer != null) {
-            alert("Customer already Exist!");
-        }else {
-            var customerObject = {
-                id: customerID,
-                name: customerName,
-                address: customerAddress,
-                contact: customerContact
-            }
-
-            customers.push(customerObject);
-            alert("Customer added Successfully!")
-            loadAllCustomers();
-            setCustTextfieldValues("", "", "", "");
-        }
-
-
-
-
-    });
-
-    function setCustTextfieldValues(id, name, address, contact){
-        $("#cNo").val(id);
-        $("#cName").val(name);
-        $("#cAddress").val(address);
-        $("#cContact").val(contact);
-    }
-
-    function loadAllCustomers() {
-        //remove all the table body content before adding data
-        $("#tblCustomer").empty();
-
-
-        // get all customer records from the array
-        for (var customer of customers) {
-            // console.log(customer);// customer object
-
-            // add those data to the table row
-            // var row= "<tr><td>"+customer.id+"</td><td>"+customer.name+"</td><td>"+customer.address+"</td><td>"+customer.salary+"</td></tr>";
-
-            // Using String Literals to do the same thing as above
-            var row = `<tr><td>${customer.id}</td><td>${customer.name}</td><td>${customer.address}</td><td>${customer.contact}</td></tr>`;
-
-            //then add it to the table body of customer table
-            $("#tblCustomer").append(row);
-        }
-    }
-
-    // Update Customers
-    $("#ucust-no").on('keyup' , function (event) {
-        if (event.code == "Enter"){
-            let typedId = $("#ucust-no").val();
-            let customer = searchCustomer(typedId);
-            if (customer != null) {
-                setUpCustTextfieldValues(customer.id, customer.name, customer.address, customer.contact);
-            } else {
-                alert("Can't find " + typedId);
-                setUpCustTextfieldValues("", "", "", "");
-            }
-        }
-    })
-
-    $("#btnCUpdate").click(function () {
-        let customerID = $("#ucust-no").val();
-        let response = updateCustomer(customerID);
-        if (response) {
-            alert("Customer Updated Successfully");
-            setUpCustTextfieldValues("", "", "", "");
-        } else {
-            alert("Check Customer No..!");
-
-        }
-    });
-
-    function setUpCustTextfieldValues(id, name, address, contact) {
-        $("#ucust-no").val(id);
-        $("#uname").val(name);
-        $("#uaddress").val(address);
-        $("#ucust-Contact").val(contact);
-    }
-
-    function updateCustomer(customerID) {
-        let customer = searchCustomer(customerID);
-        if (customer != null) {
-            customer.id = $("#ucust-no").val();
-            customer.name = $("#uname").val();
-            customer.address = $("#uaddress").val();
-            customer.contact = $("#ucust-Contact").val();
-            loadAllCustomers();
-            return true;
-        } else {
-            return false;
-        }
-
-    }
-
-    function searchCustomer(cusID) {
-        for (let customer of customers) {
-            if (customer.id == cusID) {
-                return customer;
-            }
-        }
-        return null;
-    }
-
-    // Delete Customer
-    $("#dcust-no").on('keyup' , function (event){
-        if (event.code == "Enter"){
-            let typedId = $("#dcust-no").val();
-            let customer = searchCustomer(typedId);
-            if (customer != null) {
-                $("#dcust-name").val(customer.name)
-            } else {
-                alert("Can't find " + typedId);
-            }
-        }
-    })
-
-    $("#btnCusDelete").click(function () {
-        let deleteID = $("#dcust-no").val();
-        let deleteName = $("#dcust-name").val();
-
-        let option = confirm("Do you really want to delete customer :" + deleteName);
-        if (option){
-            if (deleteCustomer(deleteID)) {
-                alert("Customer Successfully Deleted..");
-                $("#dcust-no").val(" ");
-                $("#dcust-name").val(" ");
-            } else {
-                alert("Press Enter after type Customer No to search customer before delete!");
-            }
-        }
-    });
-
-    function deleteCustomer(customerID) {
-        let customer = searchCustomer(customerID);
-        if (customer != null) {
-            let indexNumber = customers.indexOf(customer);
-            customers.splice(indexNumber, 1);
-            loadAllCustomers();
-            return true;
-        } else {
-            return false;
-        }
-    }
-
-    // Item function
-    var items = [];
-    $("#btnAddItems").click(function () {
-        let itemID = $("#item-no").val();
-        let itemName = $("#item-name").val();
-        let itemQty = $("#qty").val();
-        let itemPrice = $("#price").val();
-
-        let item = searchCustomer(itemID);
-        if (item != null) {
-            alert("Item already Exist!");
-        }else {
-            var itemObject = {
-                id: itemID,
-                name: itemName,
-                qty: itemQty,
-                price: itemPrice
-            }
-
-            items.push(itemObject);
-            alert("Item added Successfully!")
-            loadAllItems();
-            setItemsTextfieldValues("", "", "", "");
-        }
-
-
-
-
-    });
-
-    function setItemsTextfieldValues(id, name, qty, price){
-        $("#item-name").val(id);
-        $("#item-name").val(name);
-        $("#qty").val(qty);
-        $("#price").val(price);
-    }
-
-    function loadAllItems() {
-        //remove all the table body content before adding data
-        $("#tblItems").empty();
-
-
-        // get all customer records from the array
-        for (var item of items) {
-            // console.log(customer);// customer object
-
-            // add those data to the table row
-            // var row= "<tr><td>"+customer.id+"</td><td>"+customer.name+"</td><td>"+customer.address+"</td><td>"+customer.salary+"</td></tr>";
-
-            // Using String Literals to do the same thing as above
-            var row = `<tr><td>${item.id}</td><td>${item.name}</td><td>${item.qty}</td><td>${item.price}</td></tr>`;
-
-            //then add it to the table body of customer table
-            $("#tblItems").append(row);
-        }
-    }
-
-    // Update itmes
-    $("#uitem-no").on('keyup' , function (event) {
-        if (event.code == "Enter"){
-            let typedId = $("#uitem-no").val();
-            let item = searchItem(typedId);
-            if (item != null) {
-                setUpItemTextfieldValues(item.id, item.name, item.qty, item.price);
-            } else {
-                alert("Can't find " + typedId);
-                setUpCustTextfieldValues("", "", "", "");
-            }
-        }
-    });
-
-    $("#btnItemUpdate").click(function () {
-        let itemID = $("#uitem-no").val();
-        let response = updateItem(itemID);
-        if (response) {
-            alert("Item Updated Successfully");
-            setUpItemTextfieldValues("", "", "", "");
-        } else {
-            alert("Check Item No..!");
-
-        }
-    });
-
-    function setUpItemTextfieldValues(id, name, qty, price) {
-        $("#uitem-no").val(id);
-        $("#uitem-name").val(name);
-        $("#uqty").val(qty);
-        $("#uprice").val(price);
-    }
-
-    function updateItem(itemID) {
-        let item = searchItem(itemID);
-        if (item != null) {
-            item.id = $("#uitem-no").val();
-            item.name = $("#uitem-name").val();
-            item.qty = $("#uqty").val();
-            item.price = $("#uprice").val();
-            loadAllItems();
-            return true;
-        } else {
-            return false;
-        }
-
-    }
-
-    function searchItem(itemID) {
-        for (let item of items) {
-            if (item.id == itemID) {
-                return item;
-            }
-        }
-        return null;
-    }
-
-    // Delete Customer
-    $("#ditem-no").on('keyup' , function (event){
-        if (event.code == "Enter"){
-            let typedId = $("#ditem-no").val();
-            let item = searchItem(typedId);
-            if (item != null) {
-                $("#ditem-name").val(item.name)
-            } else {
-                alert("Can't find " + typedId);
-            }
-        }
-    })
-
-    $("#btnItemDelete").click(function () {
-        let deleteID = $("#ditem-no").val();
-        let deleteName = $("#ditem-name").val();
-
-
-            if (deleteItem(deleteID)) {
-                let option = confirm("Do you really want to delete " + deleteName);
-                if (option) {
-                    alert(deleteName + " Successfully Deleted..");
-                    $("#ditem-no").val(" ");
-                    $("#ditem-name").val(" ");
-                } else {
-                    alert("Press Enter after insert Item No to search Item before delete!");
-                }
-            }
-    });
-
-    function deleteItem(itemID) {
-        let item = searchItem(itemID);
-        if (item != null) {
-            let indexNumber = items.indexOf(item);
-            items.splice(indexNumber, 1);
-            loadAllItems();
-            return true;
-        } else {
-            return false;
-        }
-    }
-
-
-    // Place order function
-    var cart = [];
-    $("#txtitemID").on('keyup' , function (event) {
-        if (event.code == "Enter"){
-            let typedId = $("#txtitemID").val();
-            let item = searchItem(typedId);
-            if (item != null) {
-                $("#txtitemName").val(item.name);
-            } else {
-                alert("Can't find " + typedId);
-            }
-        }
-    });
-
-    $("#btnAddtoCart").click(function () {
-        let typedId = $("#txtitemID").val();
-        let qty = $("#txtQty").val();
-        let item = searchItem(typedId);
-        if (item != null) {
-            let price = item.price * qty;
-            let itemName = item.name;
-
-            var cartObject = {
-                id: typedId,
-                name: itemName,
-                qty: qty,
-                TotPrice: price
-            }
-
-            cart.push(cartObject);
-            alert("Item added yo cart!")
-            loadAllCart();
-
-        }
-    });
-
-    function loadAllCart(){
-        $("#tblCart").empty();
-
-        for (var cartItem of cart) {
-            var row = `<tr><td>${cartItem.id}</td><td>${cartItem.name}</td><td>${cartItem.qty}</td><td>${cartItem.Totprice}</td></tr>`;
-            $("#tblCart").append(row);
-        }
-    }
-
-
-</script>
+<script src="db/DB.js"></script>
+<script src="controller/ItemController.js"></script>
+<script src="controller/CustomerController.js"></script>
+<script src="controller/PlaceOrderController.js"></script>
+<script src="controller/IndexController.js"></script>
 
 </body>
 </html>
