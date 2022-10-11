@@ -253,7 +253,7 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-danger" id="btnAddItems">Add Item</button>
+                    <button type="button" class="btn btn-danger" id="btnAddItems" disabled>Add Item</button>
                 </div>
             </div>
         </div>
@@ -272,7 +272,10 @@
                         <div class="row">
                             <div class="mb-3 col">
                                 <label for="uitem-no" class="col-form-label">Item No:</label>
-                                <input type="text" class="form-control" placeholder="I000" id="uitem-no">
+                                <input type="text" class="form-control" list="updateItemOption" placeholder="I000" id="uitem-no">
+                                <datalist id="updateItemOption">
+
+                                </datalist>
                             </div>
                             <div class="mb-3 col">
                                 <label for="uitem-name" class="col-form-label">Item Name:</label>
@@ -291,7 +294,7 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-danger" id="btnItemUpdate">Update Item</button>
+                    <button type="button" class="btn btn-danger" id="btnItemUpdate" disabled>Update Item</button>
                 </div>
             </div>
         </div>
@@ -312,11 +315,7 @@
                                 <label for="ditem-no" class="col-form-label">Item No:</label>
                                 <input type="text" list="deleteItemOptions" class="form-control" placeholder="ITS000" id="ditem-no">
                                 <datalist id="deleteItemOptions">
-                                    <option value="ITS001">
-                                    <option value="ITS002">
-                                    <option value="ITS003">
-                                    <option value="ITS004">
-                                    <option value="ITS005">
+
                                 </datalist>
                             </div>
                             <div class="mb-3 col">
@@ -521,35 +520,35 @@
                     <div class="row">
                         <div class="col-2">
                             <div class="form-group">
-                                <label>Item No:</label>
-                                <input class="form-control" id="txtitemID" type="text">
-                                <span class="control-error"
-                                      id="itemId-invalid-error"></span>
+                                <label class="form-label" for="txtitemID">Item No:</label>
+                                <input  class="form-control" id="txtitemID" type="text">
+                                <span class="control-error" id="order-item-id"></span>
                             </div>
                         </div>
                         <div class="col-5">
                             <div class="form-group">
-                                <label>Item Name:</label>
+                                <label class="form-label" for="txtitemName">Item Name:</label>
                                 <input class="form-control" type="text" id="txtitemName" disabled>
+                                <span class="control-error" id="order-item-name"></span>
                             </div>
                         </div>
                         <div class="col-2">
                             <div class="form-group">
-                                <label>Unit Price:</label>
+                                <label class="form-label" for="txtUnitPrice">Unit Price:</label>
                                 <input class="form-control" id="txtUnitPrice" type="text" disabled>
                                 <span class="control-error" id="order-unit-price"></span>
                             </div>
                         </div>
                         <div class="col-1">
                             <div class="form-group">
-                                <label>Qty In the shop:</label>
+                                <label class="form-label" for="txtShopQty">Qty In the shop:</label>
                                 <input class="form-control" id="txtShopQty" value="0" type="number" disabled>
                                 <span class="control-error" id="order-shop-qty-empty-error"></span>
                             </div>
                         </div>
                         <div class="col-1">
                             <div class="form-group">
-                                <label>Qty:</label>
+                                <label class="form-label" for="txtQty">Qty:</label>
                                 <input class="form-control" id="txtQty" value="1" type="number">
                                 <span class="control-error" id="order-qty-empty-error"></span>
                             </div>
@@ -596,36 +595,6 @@
                     </tr>
                     </thead>
                     <tbody id="tblCart">
-                    <tr>
-                        <th scope="row">IT001</th>
-                        <td>Chocolate Cake</td>
-                        <td>1</td>
-                        <td>RS650.00</td>
-                    </tr>
-                    <tr>
-                        <th scope="row">IT002</th>
-                        <td>Cookies</td>
-                        <td>3</td>
-                        <td>RS255.00</td>
-                    </tr>
-                    <tr>
-                        <th scope="row">IT003</th>
-                        <td>Brown Cake</td>
-                        <td>6</td>
-                        <td>RS875.00</td>
-                    </tr>
-                    <tr>
-                        <th scope="row">IT004</th>
-                        <td>Cup Cake</td>
-                        <td>1</td>
-                        <td>RS55.00</td>
-                    </tr>
-                    <tr>
-                        <th scope="row">IT005</th>
-                        <td>Donut</td>
-                        <td>3</td>
-                        <td>RS280.00</td>
-                    </tr>
                     </tbody>
                 </table>
                 <div class="col-2 ms-auto">
@@ -644,8 +613,11 @@
                     <h4 id="lblTotal" class="row">Total: 0.00/=</h4>
                     <h3 id="lblSubTotal" class="row text-danger">SubTotal: 0.00/=</h3>
                 </div>
-
-                <button class="btn btn-danger btn-lg me-4">Purchase</button>
+                <div class="form-group me-4 m-lg-4">
+                    <input class="form-control" type="text" id="txtCash" placeholder="Cash">
+                    <span class="control-error" ></span>
+                </div>
+                <button class="btn btn-danger btn-lg me-4" id="btnPurchase" disabled>Purchase</button>
             </div>
         </div>
     </section>

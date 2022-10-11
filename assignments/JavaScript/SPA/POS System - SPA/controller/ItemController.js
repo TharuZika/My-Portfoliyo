@@ -18,15 +18,23 @@ $("#btnAddItems").click(function () {
         }
 
         items.push(itemObject);
-        alert("Item added Successfully!")
         loadAllItems();
+        addItemstoManage();
+        alert("Item added Successfully!")
         setItemsTextfieldValues("", "", "", "");
     }
 
-
-
-
 });
+
+function addItemstoManage(){
+    $("#deleteItemOptions").empty();
+    $("#updateItemOption").empty();
+    for (let item of items) {
+        var data = "<option>"+item.id+"</option>"
+        $("#deleteItemOptions").append(data);
+        $("#updateItemOption").append(data);
+    }
+}
 
 function setItemsTextfieldValues(id, name, qty, price){
     $("#item-name").val(id);
@@ -57,16 +65,15 @@ function loadAllItems() {
 
 // Update itmes
 $("#uitem-no").on('keyup' , function (event) {
-    if (event.code == "Enter"){
         let typedId = $("#uitem-no").val();
         let item = searchItem(typedId);
         if (item != null) {
             setUpItemTextfieldValues(item.id, item.name, item.qty, item.price);
-        } else {
-            alert("Can't find " + typedId);
-            setUpCustTextfieldValues("", "", "", "");
+        }else {
+            $("#uitem-name").val("");
+            $("#uqty").val("");
+            $("#uprice").val("");
         }
-    }
 });
 
 $("#btnItemUpdate").click(function () {
@@ -114,16 +121,14 @@ function searchItem(itemID) {
 
 // Delete Customer
 $("#ditem-no").on('keyup' , function (event){
-    if (event.code == "Enter"){
         let typedId = $("#ditem-no").val();
         let item = searchItem(typedId);
         if (item != null) {
             $("#ditem-name").val(item.name)
-        } else {
-            alert("Can't find " + typedId);
+    }else {
+            $("#ditem-name").val("")
         }
-    }
-})
+});
 
 $("#btnItemDelete").click(function () {
     let deleteID = $("#ditem-no").val();
@@ -153,3 +158,120 @@ function deleteItem(itemID) {
         return false;
     }
 }
+
+// Validation process
+
+const itemIDRegEx = /^(I)[0-9]{3}$/;
+const itemNameRegEx = /^[A-z ]{2,20}$/;
+const itemQrtRegEx = /^[0-9]{1,}$/;
+const itemPriceRegEx = /^[0-9]{1,}[.]?[0-9]{1,2}$/;
+
+let itemValidations = [];
+itemValidations.push({
+    reg: itemIDRegEx,
+    field: $('#item-no'),
+    error: 'Item ID Pattern is Wrong : I000',
+    cato: "add"
+});
+itemValidations.push({
+    reg: itemNameRegEx,
+    field: $('#item-name'),
+    error: 'Item Name Pattern is Wrong : A-z 5-20',
+    cato: "add"
+});
+itemValidations.push({
+    reg: itemQrtRegEx,
+    field: $('#qty'),
+    error: 'Item Quantity Pattern is Wrong : 0-9',
+    cato: "add"
+});
+itemValidations.push({
+    reg: itemPriceRegEx,
+    field: $('#price'),
+    error: 'Item Price Pattern is Wrong : 100 or 100.00',
+    cato: "add"
+});
+itemValidations.push({
+    reg: itemIDRegEx,
+    field: $('#uitem-no'),
+    error: 'Item ID Pattern is Wrong : I000',
+    cato: "update"
+});
+itemValidations.push({
+    reg: itemNameRegEx,
+    field: $('#uitem-name'),
+    error: 'Item Name Pattern is Wrong : A-z 5-20',
+    cato: "update"
+});
+itemValidations.push({
+    reg: itemQrtRegEx,
+    field: $('#uqty'),
+    error: 'Item Quantity Pattern is Wrong : 0-9',
+    cato: "update"
+});
+itemValidations.push({
+    reg: itemPriceRegEx,
+    field: $('#uprice'),
+    error: 'Item Price Pattern is Wrong : 100 or 100.00',
+    cato: "update"
+});
+
+function defaultAllTextItem() {
+    for (let validation of itemValidations) {
+        validation.field.css("border", "1px solid #ced4da");
+        validation.field.parent().children('span').text("");
+    }
+
+}
+
+function defaultTextItem(txtField, error) {
+    txtField.css("border", "1px solid #ced4da");
+    txtField.parent().children('span').text(error);
+}
+
+function checkItemInput(regex, txtField) {
+    let inputVal = txtField.val();
+    return regex.test(inputVal) ? true : false;
+}
+
+function btnStateItem(txtType, stat) {
+    if (txtType == "add") {
+        if (stat == "success") {
+            $('#btnAddItems').attr('disabled', false);
+        } else if (stat == "fail") {
+            $('#btnAddItems').attr('disabled', true);
+        }
+    } else if (txtType == "update") {
+        if (stat == "success") {
+            $('#btnItemUpdate').attr('disabled', false);
+        } else if (stat == "fail") {
+            $('#btnItemUpdate').attr('disabled', true);
+        }
+    }
+}
+
+function checkItemValidity() {
+    for (let validation of itemValidations) {
+        if (checkItemInput(validation.reg, validation.field)) {
+            if (validation.field.val().length <= 0) {
+                defaultTextItem(validation.field, "");
+            } else {
+                validation.field.css('border', '2px solid green');
+                validation.field.parent().children('span').text("");
+                btnStateItem(validation.cato, "success");
+            }
+        } else {
+            if (validation.field.val().length <= 0) {
+                defaultTextItem(validation.field, "");
+            } else {
+                validation.field.css('border', '2px solid red');
+                validation.field.parent().children('span').text(validation.error);
+                btnStateItem(validation.cato, "fail");
+            }
+        }
+    }
+}
+
+$("#item-no,#item-name,#qty,#price,#uitem-no,#uitem-name,#uqty,#uprice").on('keyup', function (event) {
+    checkItemValidity();
+});

@@ -1,8 +1,7 @@
 
 // Place order function
 
-$("#txtitemID").on('keyup' , function (event) {
-    if (event.code == "Enter"){
+$("#txtitemID").on('keyup' , function () {
         let typedId = $("#txtitemID").val();
         let item = searchItem(typedId);
         if (item != null) {
@@ -11,10 +10,16 @@ $("#txtitemID").on('keyup' , function (event) {
             $("#txtShopQty").val(item.qty);
 
         } else {
-            alert("Can't find " + typedId);
+            $("#txtitemName").val("");
+            $("#txtUnitPrice").val("");
+            $("#txtShopQty").val("");
         }
-    }
 });
+
+
+$("#txtCash").on('keyup' , function () {
+    $("#btnPurchase").attr('disabled' , false)
+})
 
 $("#btnAddtoCart").click(function () {
     let typedId = $("#txtitemID").val();
@@ -38,7 +43,8 @@ $("#btnAddtoCart").click(function () {
 
         let total =0;
         for (var order of cart){
-            total = total + order.price;
+            total = total + order.TotPrice;
+
         }
 
         $("#lblTotal").text("Total: " + total + "/=");
@@ -70,14 +76,12 @@ function qtyChange() {
 
 }
 
-$("#orderCustomerID").on('keyup' , function (event) {
-    if (event.code == "Enter"){
+$("#orderCustomerID").on('keyup' , function () {
         let typedId = $("#orderCustomerID").val();
         let customer = searchCustomer(typedId);
         if (customer != null) {
             $("#orderCustomerName").val(customer.name);
         } else {
-            alert("Can't find " + typedId);
+            $("#orderCustomerName").val("");
         }
-    }
 });
