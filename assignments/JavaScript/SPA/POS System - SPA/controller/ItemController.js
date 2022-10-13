@@ -44,23 +44,12 @@ function setItemsTextfieldValues(id, name, qty, price){
 }
 
 function loadAllItems() {
-    //remove all the table body content before adding data
     $("#tblItems").empty();
-
-
-    // get all customer records from the array
     for (var item of items) {
-        // console.log(customer);// customer object
-
-        // add those data to the table row
-        // var row= "<tr><td>"+customer.id+"</td><td>"+customer.name+"</td><td>"+customer.address+"</td><td>"+customer.salary+"</td></tr>";
-
-        // Using String Literals to do the same thing as above
         var row = `<tr><td>${item.id}</td><td>${item.name}</td><td>${item.qty}</td><td>${item.price}</td></tr>`;
-
-        //then add it to the table body of customer table
         $("#tblItems").append(row);
     }
+    itemsCard();
 }
 
 // Update itmes
@@ -150,6 +139,7 @@ $("#btnItemDelete").click(function () {
 function deleteItem(itemID) {
     let item = searchItem(itemID);
     if (item != null) {
+
         let indexNumber = items.indexOf(item);
         items.splice(indexNumber, 1);
         loadAllItems();

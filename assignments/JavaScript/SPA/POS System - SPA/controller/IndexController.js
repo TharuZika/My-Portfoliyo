@@ -36,4 +36,17 @@ function loadAllOrderHistory() {
         var row = `<tr><td>${ord.oderId}</td><td>${ord.orderQty}</td><td>${ord.oderValue}</td><td>${ord.oderCustomer}</td><td>${ord.oderDate}</td></tr>`;
         $('#tblOrderHistory').append(row);
     }
+    ordersCard();
+}
+
+function ordersCard(){
+    $("#cdOrdersCount").text(order.length);
+}
+
+function itemsCard() {
+    $("#cdItemsCount").text(items.length);
+}
+
+function customersCard() {
+    $("#cdCustCount").text(customers.length);
 }

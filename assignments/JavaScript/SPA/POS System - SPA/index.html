@@ -70,7 +70,7 @@
                     <div>
                         <h2 class="text-light fs-1 fw-bold">
                             Items <br>
-                            <small class="fw-semibold text-muted">78</small>
+                            <h2 id="cdItemsCount" class="fw-semibold text-muted">0</h2>
                         </h2>
                     </div>
                     <div>
@@ -81,7 +81,7 @@
                     <div>
                         <h2 class="text-light fs-1 fw-bold">
                             Customers <br>
-                            <small class="fw-semibold text-muted">53</small>
+                            <h2 id="cdCustCount" class="fw-semibold text-muted">0</h2>
                         </h2>
                     </div>
                     <div>
@@ -91,7 +91,7 @@
                 <div class=" shadow p-3 mb-5 col rounded border border-0 border-dark" style="margin: 10px; background-color: #73b87e">
                     <h2 class="text-light fs-1 fw-bold">
                         Orders <br>
-                        <small class="fw-semibold text-muted">165</small>
+                        <h2 id="cdOrdersCount" class="fw-semibold text-muted">0</h2>
                     </h2>
                     <i class="fa-solid fa-cart-shopping text-light"></i>
                 </div>
@@ -108,10 +108,9 @@
                 <table class="table table-bordered">
                     <thead>
                     <tr>
-                        <th class="table-info" scope="col">Order ID</th>
-                        <th class="table-info" scope="col">Name</th>
-                        <th class="table-info" scope="col">Qty</th>
-                        <th class="table-info" scope="col">Value</th>
+                        <th class="table-info" scope="col">OrderID</th>
+                        <th class="table-info" scope="col">ItemQty</th>
+                        <th class="table-info" scope="col">BillValue</th>
                         <th class="table-info" scope="col">Customer</th>
                         <th class="table-info" scope="col">Date</th>
                     </tr>
@@ -556,8 +555,8 @@
                 </table>
                 <div class="col-2 ms-auto">
                     <div class="form-group">
-                        <label class="form-label" for="txtDiscount">Discount:</label>
-                        <input  class="form-control border-success" id="txtDiscount" type="text">
+                        <label class="form-label" for="txtDiscount" >Discount:</label>
+                        <input  class="form-control border-success" id="txtDiscount" type="number">
                     </div>
                 </div>
 
@@ -568,20 +567,20 @@
             <div class="modal-footer col-12 mb-3">
                 <div class="col ms-5">
                     <div class="row">
-                        <h4 class="text-bg-primary text-light col-sm-1">Total:</h4>
-                        <h4 class="col-sm-1" id="lblTotal">0.00/=</h4>
+                        <h4 class="text-muted" id="lblTotal">Total: 0.00/=</h4>
                     </div>
                     <div class="row">
-                        <h4 class="text-bg-danger col-sm-1">SubTotal: </h4>
-                        <h3 class="text-danger col-sm-1" id="lblSubTotal">0.00/=</h3>
+                        <h3 class="text-danger " id="lblSubTotal">SubTotal: 0.00/=</h3>
                     </div>
-
+                    <h3 class="text-success" id="lblBalance">Balance: 0.00/=</h3>
                 </div>
                 <div class="form-group me-4 m-lg-4">
                     <input class="form-control" type="text" id="txtCash" placeholder="Cash">
                     <span class="control-error" ></span>
                 </div>
-                <button class="btn btn-danger btn-lg me-4" id="btnPurchase" disabled>Purchase</button>
+                <div class="row">
+                    <button class="btn btn-danger btn-lg me-4" id="btnPurchase" disabled>Purchase</button>
+                </div>
             </div>
         </div>
     </section>

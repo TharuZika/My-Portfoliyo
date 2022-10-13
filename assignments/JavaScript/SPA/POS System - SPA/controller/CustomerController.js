@@ -35,23 +35,12 @@ function setCustTextfieldValues(id, name, address, contact){
 }
 
 function loadAllCustomers() {
-    //remove all the table body content before adding data
     $("#tblCustomer").empty();
-
-
-    // get all customer records from the array
     for (var customer of customers) {
-        // console.log(customer);// customer object
-
-        // add those data to the table row
-        // var row= "<tr><td>"+customer.id+"</td><td>"+customer.name+"</td><td>"+customer.address+"</td><td>"+customer.salary+"</td></tr>";
-
-        // Using String Literals to do the same thing as above
         var row = `<tr><td>${customer.id}</td><td>${customer.name}</td><td>${customer.address}</td><td>${customer.contact}</td></tr>`;
-
-        //then add it to the table body of customer table
         $("#tblCustomer").append(row);
     }
+    customersCard();
 }
 
 // Update Customers

@@ -19,37 +19,46 @@ $("#txtitemID").on('keyup' , function () {
 
 $("#txtCash").on('keyup' , function () {
     $("#btnPurchase").attr('disabled' , false)
+    let cash = parseInt($("#txtCash").val());
+    let balance = cash - sTotal;
+    $("#lblBalance").text("Balance: "+balance+"/=");
 })
+
+let total=0;
+let sTotal=0;
+let balance=0;
 
 $("#btnAddtoCart").click(function () {
     let typedId = $("#txtitemID").val();
     let qty = $("#txtQty").val();
+
     let item = searchItem(typedId);
     if (item != null) {
         let itemName = item.name;
         let price = item.price * qty;
 
-
-        var cartObject = {
-            id: typedId,
-            name: itemName,
-            qty: qty,
-            TotPrice: price
+        if (cart.length == 0){
+            var cartObject = {
+                id: typedId,
+                name: itemName,
+                qty: qty,
+                TotPrice: price
+            }
+            cart.push(cartObject);
+        }else {
+            for (var ct of cart){
+                if (ct.id == typedId){
+                    ct.qty = parseInt(ct.qty) + parseInt(qty);
+                    ct.TotPrice = ct.qty * item.price;
+                    break;
+                }
+            }
         }
 
-        cart.push(cartObject);
         alert("Item added to cart !")
         loadAllCart();
         qtyChange();
-
-        let total =0;
-        for (var order of cart){
-            total = total + order.TotPrice;
-
-        }
-
-        $("#lblTotal").text(total + "/=");
-        $("#lblSubTotal").text(total + "/=");
+        totalCal();
 
     }else {
         alert("Select Item First !")
@@ -57,15 +66,23 @@ $("#btnAddtoCart").click(function () {
 
 });
 
-$("#txtDiscount").on('keyup' , function () {
-    let total =0;
-    for (var cartItem of cart){
-        total = total + cartItem.TotPrice;
+function totalCal() {
+    for (var order of cart){
+        total = total + order.TotPrice;
     }
-        total = total - parseInt($("#txtDiscount").val());
-        $("#lblSubTotal").val(total);
+
+    $("#lblTotal").text("Total: "+total+"/=");
+    $("#lblSubTotal").text("SubTotal: "+total+"/=");
+}
+
+
+$("#txtDiscount").on('keyup' , function () {
+    let discount = $("#txtDiscount").val();
+    sTotal = parseInt(total) - parseInt(total) * parseInt(discount)/100;
+    $("#lblSubTotal").text("Total: "+sTotal+"/=");
 
 })
+
 
 function loadAllCart(){
     $("#tblCart").empty();
@@ -117,14 +134,13 @@ function generateOrderID() {
 $("#btnPurchase").click(function () {
     let odID = $("#txtOrderID").val();
     let odQty = cart.length;
-    let odValue = odQty * $("#txtUnitPrice").val();
     let odCusName = $("#orderCustomerName").val();
     let odDate = $("#orderDate").val();
 
     var orderObject = {
         oderId: odID,
         orderQty: odQty,
-        oderValue: odValue,
+        oderValue: sTotal,
         oderCustomer: odCusName,
         oderDate: odDate
     }
@@ -134,16 +150,18 @@ $("#btnPurchase").click(function () {
     loadAllOrderHistory();
     generateOrderID();
     clearText();
+    cart = [];
 });
 
 function clearText() {
     $("#tblCart").empty();
-    $("#txtOrderID").valueOf("");
-    $("#txtitemName").valueOf("");
-    $("#txtQty").valueOf("");
-    $("#orderCustomerName").valueOf("");
-    $("#txtUnitPrice").valueOf("");
+    $("#txtitemName").val("");
+    $("#txtQty").val("");
+    $("#orderCustomerName").val("");
+    $("#txtUnitPrice").val("");
 
-    $("#lblSubTotal").text("0.00/=");
-    $("#lblTotal").text("0.00/=");
+    $("#lblSubTotal").text("Total: 0.00/=");
+    $("#lblTotal").text("SubTotal: 0.00/=");
+    $("#lblBalance").text("Balance: 0.00/=");
+
 }
