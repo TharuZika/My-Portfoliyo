@@ -26,8 +26,9 @@ $("#btnAddtoCart").click(function () {
     let qty = $("#txtQty").val();
     let item = searchItem(typedId);
     if (item != null) {
-        let price = item.price * qty;
         let itemName = item.name;
+        let price = item.price * qty;
+
 
         var cartObject = {
             id: typedId,
@@ -47,13 +48,24 @@ $("#btnAddtoCart").click(function () {
 
         }
 
-        $("#lblTotal").text("Total: " + total + "/=");
+        $("#lblTotal").text(total + "/=");
+        $("#lblSubTotal").text(total + "/=");
 
     }else {
         alert("Select Item First !")
     }
 
 });
+
+$("#txtDiscount").on('keyup' , function () {
+    let total =0;
+    for (var cartItem of cart){
+        total = total + cartItem.TotPrice;
+    }
+        total = total - parseInt($("#txtDiscount").val());
+        $("#lblSubTotal").val(total);
+
+})
 
 function loadAllCart(){
     $("#tblCart").empty();
@@ -84,4 +96,54 @@ $("#orderCustomerID").on('keyup' , function () {
         } else {
             $("#orderCustomerName").val("");
         }
+
 });
+
+function generateOrderID() {
+    if (order.length === 0){
+        $('#txtOrderID').val("OD001");
+    }else {
+        let odCount = order.length + 1;
+        if (odCount < 10){
+            $('#txtOrderID').val("OD00"+ odCount);
+        }else if (odCount < 100){
+            $('#txtOrderID').val("OD0"+ odCount);
+        }else if (odCount < 100000){
+            $('#txtOrderID').val("OD"+ odCount);
+        }
+    }
+}
+
+$("#btnPurchase").click(function () {
+    let odID = $("#txtOrderID").val();
+    let odQty = cart.length;
+    let odValue = odQty * $("#txtUnitPrice").val();
+    let odCusName = $("#orderCustomerName").val();
+    let odDate = $("#orderDate").val();
+
+    var orderObject = {
+        oderId: odID,
+        orderQty: odQty,
+        oderValue: odValue,
+        oderCustomer: odCusName,
+        oderDate: odDate
+    }
+
+    order.push(orderObject);
+
+    loadAllOrderHistory();
+    generateOrderID();
+    clearText();
+});
+
+function clearText() {
+    $("#tblCart").empty();
+    $("#txtOrderID").valueOf("");
+    $("#txtitemName").valueOf("");
+    $("#txtQty").valueOf("");
+    $("#orderCustomerName").valueOf("");
+    $("#txtUnitPrice").valueOf("");
+
+    $("#lblSubTotal").text("0.00/=");
+    $("#lblTotal").text("0.00/=");
+}

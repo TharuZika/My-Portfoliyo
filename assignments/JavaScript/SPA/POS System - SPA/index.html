@@ -99,69 +99,25 @@
         </div>
     </section>
 
-    <!--    Best Customers Table-->
+    <!--    Order History Table-->
 
     <section class="container-fluid bg-light border-0 rounded-3 shadow-sm pb-5 ">
         <div class="row">
             <div class="col mt-5 mb-5 ">
-                <h3>Best Customers</h3>
+                <h3>Order History</h3>
                 <table class="table table-bordered">
                     <thead>
                     <tr>
-                        <th class="table-info" scope="col">#</th>
+                        <th class="table-info" scope="col">Order ID</th>
                         <th class="table-info" scope="col">Name</th>
                         <th class="table-info" scope="col">Qty</th>
                         <th class="table-info" scope="col">Value</th>
+                        <th class="table-info" scope="col">Customer</th>
+                        <th class="table-info" scope="col">Date</th>
                     </tr>
                     </thead>
-                    <tbody>
-                    <tr>
-                        <th scope="row">1</th>
-                        <td>Samantha</td>
-                        <td>75</td>
-                        <td>RS12485.00</td>
-                    </tr>
-                    <tr>
-                        <th scope="row">2</th>
-                        <td>Jayawardhana</td>
-                        <td>62</td>
-                        <td>RS10946.00</td>
-                    </tr>
-                    <tr>
-                        <th scope="row">3</th>
-                        <td>Ediriweera</td>
-                        <td>53</td>
-                        <td>RS9480.00</td>
-                    </tr>
-                    </tbody>
-                </table>
-            </div>
-            <div class="col mt-5 mb-5">
-                <h3>Best Selling Items</h3>
-                <table class="table table-bordered">
-                    <thead>
-                    <tr>
-                        <th class="table-info" scope="col">#</th>
-                        <th class="table-info" scope="col">Item</th>
-                        <th class="table-info" scope="col">Sold Qty</th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    <tr>
-                        <th scope="row">1</th>
-                        <td>Cup Cake</td>
-                        <td>68</td>
-                    </tr>
-                    <tr>
-                        <th scope="row">2</th>
-                        <td>Donuts</td>
-                        <td>61</td>
-                    </tr>
-                    <tr>
-                        <th scope="row">3</th>
-                        <td>Cookies</td>
-                        <td>58</td>
-                    </tr>
+                    <tbody id="tblOrderHistory">
+
                     </tbody>
                 </table>
             </div>
@@ -509,7 +465,8 @@
                 <h1 class="text-muted">Place Order</h1>
                 <div class="col-2">
                     <div class="form-group">
-                        <input class="form-control" id="txtOrderID" type="text" placeholder="Order Id">
+                        <label class="form-label" for="txtOrderID">OrderID:</label>
+                        <input class="form-control" id="txtOrderID" type="text" placeholder="Order Id" disabled>
                     </div>
                 </div>
             </div>
@@ -541,7 +498,7 @@
                         </div>
                         <div class="col-1">
                             <div class="form-group">
-                                <label class="form-label" for="txtShopQty">Qty In the shop:</label>
+                                <label class="form-label" for="txtShopQty">QITS:</label>
                                 <input class="form-control" id="txtShopQty" value="0" type="number" disabled>
                                 <span class="control-error" id="order-shop-qty-empty-error"></span>
                             </div>
@@ -555,7 +512,7 @@
                         </div>
                         <div class="col-1 mt-4">
                             <div class="form-group ms-auto">
-                                <button id="btnAddtoCart" class="btn btn-outline-success" type="button"><i class="fa-solid fa-plus"></i></button>
+                                <button id="btnAddtoCart" class="mt-2 btn btn-outline-success form-control" type="button"><i class="fa-solid fa-plus"></i></button>
                             </div>
                         </div>
                     </div>
@@ -563,19 +520,19 @@
                     <div class="row">
                         <div class="col-3">
                             <div class="form-group">
-                                <label for="orderCustomerID">Customer ID</label>
+                                <label class="form-label" for="orderCustomerID">Customer ID</label>
                                 <input class="form-control" id="orderCustomerID" type="text">
                             </div>
                         </div>
                         <div class="col-6">
                             <div class="form-group">
-                                <label>Name :</label>
+                                <label class="form-label" for="orderCustomerName">Name</label>
                                 <input class="form-control" id="orderCustomerName" type="text" disabled>
                             </div>
                         </div>
                         <div class="col-3">
                             <div class="form-group">
-                                <label>Date:</label>
+                                <label class="form-label" for="orderDate">Date:</label>
                                 <input class="form-control" id="orderDate" type="date">
                             </div>
                         </div>
@@ -599,8 +556,8 @@
                 </table>
                 <div class="col-2 ms-auto">
                     <div class="form-group">
-                        <label>Discount:</label>
-                        <input  class="form-control border-success" id="discount" type="text">
+                        <label class="form-label" for="txtDiscount">Discount:</label>
+                        <input  class="form-control border-success" id="txtDiscount" type="text">
                     </div>
                 </div>
 
@@ -610,8 +567,15 @@
             <!--  Footer-->
             <div class="modal-footer col-12 mb-3">
                 <div class="col ms-5">
-                    <h4 id="lblTotal" class="row">Total: 0.00/=</h4>
-                    <h3 id="lblSubTotal" class="row text-danger">SubTotal: 0.00/=</h3>
+                    <div class="row">
+                        <h4 class="text-bg-primary text-light col-sm-1">Total:</h4>
+                        <h4 class="col-sm-1" id="lblTotal">0.00/=</h4>
+                    </div>
+                    <div class="row">
+                        <h4 class="text-bg-danger col-sm-1">SubTotal: </h4>
+                        <h3 class="text-danger col-sm-1" id="lblSubTotal">0.00/=</h3>
+                    </div>
+
                 </div>
                 <div class="form-group me-4 m-lg-4">
                     <input class="form-control" type="text" id="txtCash" placeholder="Cash">
