@@ -21,11 +21,32 @@ $("#btnAddCustomer").click(function () {
 
         setCustTextfieldValues("", "", "", "");
     }
-
-
-
-
 });
+
+function addCustomer() {
+    let customerID = $("#cNo").val();
+    let customerName = $("#cName").val();
+    let customerAddress = $("#cAddress").val();
+    let customerContact = $("#cContact").val();
+
+    let customer = searchCustomer(customerID);
+    if (customer != null) {
+        alert("Customer already Exist!");
+    }else {
+        var customerObject = {
+            id: customerID,
+            name: customerName,
+            address: customerAddress,
+            contact: customerContact
+        }
+
+        customers.push(customerObject);
+        alert("Customer added Successfully!")
+        loadAllCustomers();
+
+        setCustTextfieldValues("", "", "", "");
+    }
+}
 
 function setCustTextfieldValues(id, name, address, contact){
     $("#cNo").val(id);
@@ -263,5 +284,39 @@ $("#cNo,#cName,#cAddress,#cContact,#ucust-no,#ucust-Contact,#uname,#uaddress").o
     checkCustomerValidity();
 });
 
+$("#cNo,#cName,#cAddress,#cContact,#ucust-no,#ucust-Contact,#uname,#uaddress").on('keydown', function (event) {
+    if (event.code == "Tab"){
+        event.preventDefault();
+    }
+});
+
+$("#cNo").on('keydown', function (event) {
+    if (event.key == "Enter"){
+        $("#cContact").focus();
+    }
+});
+
+$("#cContact").on('keydown', function (event) {
+    if (event.key == "Enter"){
+        $("#cName").focus();
+    }
+});
+
+$("#cName").on('keydown', function (event) {
+    if (event.key == "Enter"){
+        $("#cAddress").focus();
+    }
+});
+
+$("#cAddress").on('keydown', function (event) {
+    if (event.key == "Enter"){
+        let res = confirm("Do you want to add this customer.?");
+        if (res){
+            addCustomer();
+        }else {
+            $("#cAddress").focus();
+        }
+    }
+});
 
 

@@ -23,8 +23,32 @@ $("#btnAddItems").click(function () {
         alert("Item added Successfully!")
         setItemsTextfieldValues("", "", "", "");
     }
-
 });
+
+function addItem() {
+    let itemID = $("#item-no").val();
+    let itemName = $("#item-name").val();
+    let itemQty = $("#qty").val();
+    let itemPrice = $("#price").val();
+
+    let item = searchCustomer(itemID);
+    if (item != null) {
+        alert("Item already Exist!");
+    }else {
+        var itemObject = {
+            id: itemID,
+            name: itemName,
+            qty: itemQty,
+            price: itemPrice
+        }
+
+        items.push(itemObject);
+        loadAllItems();
+        addItemstoManage();
+        alert("Item added Successfully!")
+        setItemsTextfieldValues("", "", "", "");
+    }
+}
 
 function addItemstoManage(){
     $("#deleteItemOptions").empty();
@@ -271,4 +295,40 @@ function checkItemValidity() {
 
 $("#item-no,#item-name,#qty,#price,#uitem-no,#uitem-name,#uqty,#uprice").on('keyup', function (event) {
     checkItemValidity();
+});
+
+$("#item-no,#item-name,#qty,#price,#uitem-no,#uitem-name,#uqty,#uprice").on('keydown', function (event) {
+   if (event.code == "Tab"){
+       event.preventDefault();
+   }
+});
+
+$("#item-no").on('keydown', function (event) {
+    if (event.key == "Enter"){
+        $("#item-name").focus();
+    }
+});
+
+$("#item-name").on('keydown', function (event) {
+    if (event.key == "Enter"){
+        $("#qty").focus();
+    }
+});
+
+$("#qty").on('keydown', function (event) {
+    if (event.key == "Enter"){
+        $("#price").focus();
+    }
+});
+
+$("#price").on('keydown', function (event) {
+    if (event.key == "Enter"){
+        let res = confirm("Do you want to add this Item.?");
+        if (res){
+            addItem();
+            $("#item-no").focus();
+        }else {
+            $("#price").focus();
+        }
+    }
 });
