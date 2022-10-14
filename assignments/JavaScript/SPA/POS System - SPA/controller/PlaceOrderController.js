@@ -18,7 +18,7 @@ $("#txtitemID").on('keyup' , function () {
 
 
 $("#txtCash").on('keyup' , function () {
-    $("#btnPurchase").attr('disabled' , false)
+    $("#btnPurchase").attr('disabled' , false);
     let cash = parseInt($("#txtCash").val());
     let balance = cash - sTotal;
     $("#lblBalance").text("Balance: "+balance+"/=");
@@ -29,6 +29,8 @@ let sTotal=0;
 let balance=0;
 
 $("#btnAddtoCart").click(function () {
+    total = 0;
+    sTotal = 0;
     let typedId = $("#txtitemID").val();
     let qty = $("#txtQty").val();
 
@@ -46,10 +48,24 @@ $("#btnAddtoCart").click(function () {
             }
             cart.push(cartObject);
         }else {
+            let validCount = 0;
             for (var ct of cart){
                 if (ct.id == typedId){
                     ct.qty = parseInt(ct.qty) + parseInt(qty);
                     ct.TotPrice = ct.qty * item.price;
+                    validCount = 1;
+                    break;
+                }
+            }
+            for (var ct of cart){
+                if (validCount == 0){
+                    var cartObject = {
+                        id: typedId,
+                        name: itemName,
+                        qty: qty,
+                        TotPrice: price
+                    }
+                    cart.push(cartObject);
                     break;
                 }
             }
@@ -61,7 +77,7 @@ $("#btnAddtoCart").click(function () {
         totalCal();
 
     }else {
-        alert("Select Item First !")
+        alert("Can't find this item !")
     }
 
 });
@@ -73,13 +89,14 @@ function totalCal() {
 
     $("#lblTotal").text("Total: "+total+"/=");
     $("#lblSubTotal").text("SubTotal: "+total+"/=");
+
 }
 
 
 $("#txtDiscount").on('keyup' , function () {
     let discount = $("#txtDiscount").val();
     sTotal = parseInt(total) - parseInt(total) * parseInt(discount)/100;
-    $("#lblSubTotal").text("Total: "+sTotal+"/=");
+    $("#lblSubTotal").text("SubTotal: "+sTotal+"/=");
 
 })
 
@@ -133,9 +150,13 @@ function generateOrderID() {
 
 $("#btnPurchase").click(function () {
     let odID = $("#txtOrderID").val();
-    let odQty = cart.length;
+    let odQty = 0;
     let odCusName = $("#orderCustomerName").val();
     let odDate = $("#orderDate").val();
+
+    for (var ct of cart){
+        odQty = parseInt(odQty) + parseInt(ct.qty);
+    }
 
     var orderObject = {
         oderId: odID,
@@ -147,6 +168,8 @@ $("#btnPurchase").click(function () {
 
     order.push(orderObject);
 
+    alert("Order Purchase Successfully !")
+
     loadAllOrderHistory();
     generateOrderID();
     clearText();
@@ -156,12 +179,21 @@ $("#btnPurchase").click(function () {
 function clearText() {
     $("#tblCart").empty();
     $("#txtitemName").val("");
-    $("#txtQty").val("");
+    $("#txtitemID").val("");
+    $("#txtQty").val("1");
     $("#orderCustomerName").val("");
+    $("#orderCustomerID").val("");
     $("#txtUnitPrice").val("");
+    $("#txtDiscount").val("");
+    $("#txtCash").val("");
+    $("#txtShopQty").val("0")
+
+
 
     $("#lblSubTotal").text("Total: 0.00/=");
     $("#lblTotal").text("SubTotal: 0.00/=");
     $("#lblBalance").text("Balance: 0.00/=");
+
+    $("#btnPurchase").attr('disabled' , true)
 
 }

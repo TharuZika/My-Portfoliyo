@@ -36,16 +36,20 @@ function setCustTextfieldValues(id, name, address, contact){
 
 function loadAllCustomers() {
     $("#tblCustomer").empty();
+    $("#ucust-no").empty();
+    $("#dcust-no").empty();
     for (var customer of customers) {
         var row = `<tr><td>${customer.id}</td><td>${customer.name}</td><td>${customer.address}</td><td>${customer.contact}</td></tr>`;
+        var cmbData = `<option>${customer.id}</option>`
         $("#tblCustomer").append(row);
+        $("#ucust-no").append(cmbData);
+        $("#dcust-no").append(cmbData);
     }
     customersCard();
 }
 
 // Update Customers
-$("#ucust-no").on('keyup' , function (event) {
-    if (event.code == "Enter"){
+$("#ucust-no").on('click' , function () {
         let typedId = $("#ucust-no").val();
         let customer = searchCustomer(typedId);
         if (customer != null) {
@@ -54,7 +58,6 @@ $("#ucust-no").on('keyup' , function (event) {
             alert("Can't find " + typedId);
             setUpCustTextfieldValues("", "", "", "");
         }
-    }
 })
 
 $("#btnCUpdate").click(function () {
@@ -101,8 +104,7 @@ function searchCustomer(cusID) {
 }
 
 // Delete Customer
-$("#dcust-no").on('keyup' , function (event){
-    if (event.code == "Enter"){
+$("#dcust-no").on('click' , function (){
         let typedId = $("#dcust-no").val();
         let customer = searchCustomer(typedId);
         if (customer != null) {
@@ -110,7 +112,6 @@ $("#dcust-no").on('keyup' , function (event){
         } else {
             alert("Can't find " + typedId);
         }
-    }
 })
 
 $("#btnCusDelete").click(function () {
@@ -152,49 +153,49 @@ let customerValidations = [];
 customerValidations.push({
     reg: customerIDRegEx,
     field: $('#cNo'),
-    error: 'Customer ID Pattern is Wrong : C000',
+    error: 'Customer ID Pattern is Wrong [C000]',
     cato: "add"
 });
 customerValidations.push({
     reg: customerNameRegEx,
     field: $('#cName'),
-    error: 'Customer Name Pattern is Wrong : A-z 5-20',
+    error: 'Minimum 5 Letters [A-z]',
     cato: "add"
 });
 customerValidations.push({
     reg: customerAddrRegEx,
     field: $('#cAddress'),
-    error: 'Customer Address Pattern is Wrong : 0-9',
+    error: 'Check the Address [A-z 0-9 /,.]',
     cato: "add"
 });
 customerValidations.push({
     reg: customerContRegEx,
     field: $('#cContact'),
-    error: 'Customer Contact Pattern is Wrong : 100 or 100.00',
+    error: 'Enter Valid Contact Number [0701234567]',
     cato: "add"
 });
 customerValidations.push({
     reg: customerIDRegEx,
     field: $('#ucust-no'),
-    error: 'Customer ID Pattern is Wrong : C000',
+    error: 'Customer ID Pattern is Wrong [C000]',
     cato: "update"
 });
 customerValidations.push({
     reg: customerNameRegEx,
     field: $('#uname'),
-    error: 'Customer Name Pattern is Wrong : A-z 5-20',
+    error: 'Minimum 5 Letters [A-z]',
     cato: "update"
 });
 customerValidations.push({
     reg: customerAddrRegEx,
     field: $('#uaddress'),
-    error: 'Customer Address Pattern is Wrong : 0-9',
+    error: 'Check the Address [A-z 0-9 /,.]',
     cato: "update"
 });
 customerValidations.push({
     reg: customerContRegEx,
     field: $('#ucust-Contact'),
-    error: 'Customer Contact Pattern is Wrong : 100 or 100.00',
+    error: 'Enter Valid Contact Number [0701234567]',
     cato: "update"
 });
 
@@ -216,14 +217,14 @@ function checkCustomerInput(regex, txtField) {
     return regex.test(inputVal) ? true : false;
 }
 
-function btnStateCustomer(txtType, stat) {
-    if (txtType == "add") {
+function btnValidCustomer(modalType, stat) {
+    if (modalType == "add") {
         if (stat == "success") {
             $('#btnAddCustomer').attr('disabled', false);
         } else if (stat == "fail") {
             $('#btnAddCustomer').attr('disabled', true);
         }
-    } else if (txtType == "update") {
+    } else if (modalType == "update") {
         if (stat == "success") {
             $('#btnCusUpdate').attr('disabled', false);
         } else if (stat == "fail") {
@@ -240,7 +241,7 @@ function checkCustomerValidity() {
             } else {
                 validation.field.css('border', '2px solid green');
                 validation.field.parent().children('span').text("");
-                btnStateCustomer(validation.cato, "success");
+                btnValidCustomer(validation.cato, "success");
             }
         } else {
             if (validation.field.val().length <= 0) {
@@ -248,7 +249,7 @@ function checkCustomerValidity() {
             } else {
                 validation.field.css('border', '2px solid red');
                 validation.field.parent().children('span').text(validation.error);
-                btnStateCustomer(validation.cato, "fail");
+                btnValidCustomer(validation.cato, "fail");
             }
         }
     }

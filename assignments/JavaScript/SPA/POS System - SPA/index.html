@@ -21,6 +21,11 @@
             width: 280px;
         }
 
+        .control-error{
+            font-size: 13px;
+            color: #b80000;
+        }
+
 
 
     </style>
@@ -354,19 +359,23 @@
                             <div class="mb-3 col">
                                 <label for="cNo" class="col-form-label">Customer No:</label>
                                 <input type="text" class="form-control" placeholder="CT001" id="cNo">
+                                <span class="control-error"></span>
                             </div>
                             <div class="mb-3 col">
                                 <label for="cContact" class="col-form-label">Contact:</label>
                                 <input type="text" class="form-control" placeholder="0701234567" id="cContact">
+                                <span class="control-error"></span>
                             </div>
                         </div>
                         <div>
                             <label for="cName" class="col-form-label">Customer Name:</label>
                             <input type="text" class="form-control" placeholder="Saman" id="cName">
+                            <span class="control-error"></span>
                         </div>
                         <div>
                             <label for="cAddress" class="col-form-label">Adress:</label>
                             <input type="text" placeholder="Galle" class="form-control" id="cAddress">
+                            <span class="control-error"></span>
                         </div>
                     </form>
                 </div>
@@ -391,23 +400,23 @@
                         <div class="row">
                             <div class="mb-3 col">
                                 <label for="ucust-no" class="col-form-label">Customer No:</label>
-                                <input type="text" list="updateOptions" class="form-control" placeholder="C000" id="ucust-no">
-                                <datalist id="updateOptions">
-
-                                </datalist>
+                                <select type="text" class="form-control" id="ucust-no"></select>
                             </div>
                             <div class="mb-3 col">
                                 <label for="ucust-Contact" class="col-form-label">Contact:</label>
-                                <input type="text" class="form-control" placeholder="0701234567" id="ucust-Contact">
+                                <input type="text" class="form-control" id="ucust-Contact">
+                                <span class="control-error"></span>
                             </div>
                         </div>
                         <div>
                             <label for="uname" class="col-form-label">Customer Name:</label>
-                            <input type="text" class="form-control" placeholder="Saman" id="uname">
+                            <input type="text" class="form-control"  id="uname">
+                            <span class="control-error"></span>
                         </div>
                         <div>
                             <label for="uaddress" class="col-form-label">Adress:</label>
-                            <input type="text" placeholder="Galle" class="form-control" id="uaddress">
+                            <input type="text" class="form-control" id="uaddress">
+                            <span class="control-error"></span>
                         </div>
                     </form>
                     </form>
@@ -433,7 +442,7 @@
                         <div class="row">
                             <div class="mb-3 col">
                                 <label for="dcust-no" class="col-form-label">Item No:</label>
-                                <input type="text" class="form-control" placeholder="C000" id="dcust-no">
+                                <select type="text" class="form-control"  id="dcust-no"></select>
                             </div>
                             <div class="mb-3 col">
                                 <fieldset disabled>
