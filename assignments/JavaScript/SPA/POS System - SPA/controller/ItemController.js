@@ -45,15 +45,22 @@ function setItemsTextfieldValues(id, name, qty, price){
 
 function loadAllItems() {
     $("#tblItems").empty();
+    $("#uitem-no").empty();
+    $("#ditem-no").empty();
+    $("#txtitemID").empty();
     for (var item of items) {
         var row = `<tr><td>${item.id}</td><td>${item.name}</td><td>${item.qty}</td><td>${item.price}</td></tr>`;
+        var itemD = `<option>${item.id}</option>>`
         $("#tblItems").append(row);
+        $("#uitem-no").append(itemD);
+        $("#ditem-no").append(itemD);
+        $("#txtitemID").append(itemD);
     }
     itemsCard();
 }
 
 // Update itmes
-$("#uitem-no").on('keyup' , function (event) {
+$("#uitem-no").on('click' , function () {
         let typedId = $("#uitem-no").val();
         let item = searchItem(typedId);
         if (item != null) {
@@ -109,7 +116,7 @@ function searchItem(itemID) {
 }
 
 // Delete Customer
-$("#ditem-no").on('keyup' , function (event){
+$("#ditem-no").on('click' , function (){
         let typedId = $("#ditem-no").val();
         let item = searchItem(typedId);
         if (item != null) {

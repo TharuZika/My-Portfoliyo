@@ -194,20 +194,24 @@
                         <div class="row">
                             <div class="mb-3 col">
                                 <label for="item-no" class="col-form-label">Item No:</label>
-                                <input type="text" class="form-control" placeholder="IT001" id="item-no">
+                                <input type="text" class="form-control" id="item-no">
+                                <span class="control-error"></span>
                             </div>
                             <div class="mb-3 col">
                                 <label for="item-name" class="col-form-label">Item Name:</label>
-                                <input type="text" class="form-control" placeholder="Cake" id="item-name">
+                                <input type="text" class="form-control" id="item-name">
+                                <span class="control-error"></span>
                             </div>
                         </div>
                         <div>
                             <label for="qty" class="col-form-label">QTY:</label>
-                            <input type="text" class="form-control" placeholder="100" id="qty">
+                            <input type="text" class="form-control" id="qty">
+                            <span class="control-error"></span>
                         </div>
                         <div>
                             <label for="price" class="col-form-label">Price:</label>
-                            <input type="text" placeholder="RS123.00" class="form-control" id="price">
+                            <input type="text" class="form-control" id="price">
+                            <span class="control-error"></span>
                         </div>
                     </form>
                 </div>
@@ -232,23 +236,23 @@
                         <div class="row">
                             <div class="mb-3 col">
                                 <label for="uitem-no" class="col-form-label">Item No:</label>
-                                <input type="text" class="form-control" list="updateItemOption" placeholder="I000" id="uitem-no">
-                                <datalist id="updateItemOption">
-
-                                </datalist>
+                                <select type="text" class="form-control"  id="uitem-no"></select>
                             </div>
                             <div class="mb-3 col">
                                 <label for="uitem-name" class="col-form-label">Item Name:</label>
                                 <input type="text" class="form-control" placeholder="Cake" id="uitem-name">
+                                <span class="control-error"></span>
                             </div>
                         </div>
                         <div>
                             <label for="uqty" class="col-form-label">QTY:</label>
                             <input type="text" class="form-control" placeholder="100" id="uqty">
+                            <span class="control-error"></span>
                         </div>
                         <div>
                             <label for="uprice" class="col-form-label">Price:</label>
                             <input type="text" placeholder="RS123.00" class="form-control" id="uprice">
+                            <span class="control-error"></span>
                         </div>
                     </form>
                 </div>
@@ -273,15 +277,12 @@
                         <div class="row">
                             <div class="mb-3 col">
                                 <label for="ditem-no" class="col-form-label">Item No:</label>
-                                <input type="text" list="deleteItemOptions" class="form-control" placeholder="ITS000" id="ditem-no">
-                                <datalist id="deleteItemOptions">
-
-                                </datalist>
+                                <select type="text" class="form-control" id="ditem-no"></select>
                             </div>
                             <div class="mb-3 col">
                                 <fieldset disabled>
                                     <label for="ditem-name" class="col-form-label">Item Name:</label>
-                                    <input type="text" class="form-control" placeholder="Cake" id="ditem-name">
+                                    <input type="text" class="form-control" id="ditem-name" disabled>
                                 </fieldset>
                             </div>
                         </div>
@@ -486,8 +487,8 @@
                         <div class="col-2">
                             <div class="form-group">
                                 <label class="form-label" for="txtitemID">Item No:</label>
-                                <input  class="form-control" id="txtitemID" type="text">
-                                <span class="control-error" id="order-item-id"></span>
+                                <select  class="form-control" id="txtitemID" type="text"></select>
+
                             </div>
                         </div>
                         <div class="col-5">
@@ -529,7 +530,7 @@
                         <div class="col-3">
                             <div class="form-group">
                                 <label class="form-label" for="orderCustomerID">Customer ID</label>
-                                <input class="form-control" id="orderCustomerID" type="text">
+                                <select class="form-control" id="orderCustomerID" type="text"></select>
                             </div>
                         </div>
                         <div class="col-6">

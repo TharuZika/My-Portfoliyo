@@ -1,7 +1,7 @@
 
 // Place order function
 
-$("#txtitemID").on('keyup' , function () {
+$("#txtitemID").on('click' , function () {
         let typedId = $("#txtitemID").val();
         let item = searchItem(typedId);
         if (item != null) {
@@ -122,7 +122,7 @@ function qtyChange() {
 
 }
 
-$("#orderCustomerID").on('keyup' , function () {
+$("#orderCustomerID").on('click' , function () {
         let typedId = $("#orderCustomerID").val();
         let customer = searchCustomer(typedId);
         if (customer != null) {

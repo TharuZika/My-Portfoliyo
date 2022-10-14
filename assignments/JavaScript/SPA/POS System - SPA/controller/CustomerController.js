@@ -38,12 +38,16 @@ function loadAllCustomers() {
     $("#tblCustomer").empty();
     $("#ucust-no").empty();
     $("#dcust-no").empty();
+    $("#orderCustomerID").empty();
+
+
     for (var customer of customers) {
         var row = `<tr><td>${customer.id}</td><td>${customer.name}</td><td>${customer.address}</td><td>${customer.contact}</td></tr>`;
         var cmbData = `<option>${customer.id}</option>`
         $("#tblCustomer").append(row);
         $("#ucust-no").append(cmbData);
         $("#dcust-no").append(cmbData);
+        $("#orderCustomerID").append(cmbData);
     }
     customersCard();
 }
