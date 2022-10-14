@@ -49,18 +49,75 @@
         main{
             padding: 10px;
             display: flex;
-            flex-direction: row;
+            flex-direction: column;
         }
 
-        main>div{
-            border: 2px solid red;
-            width: 300px;
-            height: 300px;
+        main>section>div{
+            background-color: rgba(70, 156, 224, 0.66);
+            border-radius: 10px;
+            width: 64%;
+            height: 100%;
+            display: flex;
+            position: relative;
+            flex-direction: column;
+            transform: translate(20%, 80px);
         }
 
-        main>div>img{
+        main>section>div>img{
             width: 100%;
+            border-radius: 7px;
         }
+
+        .naviLink{
+            text-decoration: none;
+            font-family: Arkhip;
+            color: white;
+            font-size: 20px;
+            padding: 10px;
+        }
+
+        .navigation{
+            display: flex;
+            flex-direction: row;
+            width: 500px;
+        }
+
+        #basicContent{
+            display: grid;
+            position: relative;
+            grid-template-rows: repeat(3, 1fr);
+            grid-template-columns: repeat(4, 1fr);
+            grid-gap: 20px;
+            transform: translate(0px, -62px);
+        }
+
+        #transitionsContent{
+            display: grid;
+            position: relative;
+            grid-template-rows: repeat(2, 1fr);
+            grid-template-columns: repeat(2, 1fr);
+            grid-gap: 20px;
+            transform: translate(0px, -62px);
+        }
+
+        #animesContent{
+            display: grid;
+            position: relative;
+            grid-template-rows: repeat(2, 1fr);
+            grid-template-columns: repeat(4, 1fr);
+            grid-gap: 20px;
+            transform: translate(0px, -62px);
+        }
+
+        .caseTitle{
+            color: white;
+        }
+
+
+        .title{
+            color: white;
+        }
+
     </style>
 
 </head>
@@ -74,21 +131,78 @@
         <h1>Assignments</h1>
     </a>
 
+    <nav class="navigation">
+        <a href="#" class="naviLink">CSS</a>
+        <a href="#" class="naviLink">JavaScript</a>
+    </nav>
+
 </header>
 
 <main>
-    <div>
-        <img src="../assets/images/certificate.jpg" alt="">
-    </div>
-    <div>
+    <h1 class="title">Basic</h1>
+    <section id="basicContent">
+        <div id="basic1">
+            <img src="assets/images/basic/basic 1.png" alt="Basic 01">
+            <a href="CSS/Basics/Case-01/Case-01.html" target="_blank"><h2 class="caseTitle">Case 01</h2></a>
+        </div>
 
-    </div>
-    <div>
+        <div id="basic2">
+            <img src="assets/images/basic/basic 2.png" alt="Basic 02">
+            <a href="CSS/Basics/Case-01/Case-01.html" target="_blank"><h2 class="caseTitle">Case 02</h2></a>
+        </div>
+        <div id="basic3">
+            <img src="assets/images/basic/basic 3.png" alt="Basic 03">
+            <a href="CSS/Basics/Case-01/Case-01.html" target="_blank"><h2 class="caseTitle">Case 03</h2></a>
+        </div>
+        <div id="basic4">
+            <img src="assets/images/basic/basic 4.png" alt="Basic 04">
+            <a href="CSS/Basics/Case-01/Case-01.html" target="_blank"><h2 class="caseTitle">Case 04</h2></a>
+        </div>
+        <div id="basic5">
+            <img src="assets/images/basic/basic 5.png" alt="Basic 05">
+            <a href="CSS/Basics/Case-01/Case-01.html" target="_blank"><h2 class="caseTitle">Case 05</h2></a>
+        </div>
+        <div id="basic6">
+            <img src="assets/images/basic/basic 6.png" alt="Basic 06">
+            <a href="CSS/Basics/Case-01/Case-01.html" target="_blank"><h2 class="caseTitle">Case 06</h2></a>
+        </div>
+    </section>
+    <h1 class="title">Transitions</h1>
+    <section id="transitionsContent">
+        <div id="transitions1">
+            <img src="assets/images/transitions/trans 1.png" alt="Basic 01">
+            <a href="CSS/Transitions/Case 02/Case 2.html" target="_blank"><h2 class="caseTitle">Case 01</h2></a>
+        </div>
 
-    </div>
-    <div>
+        <div id="transitions2">
+            <img src="assets/images/transitions/trans 2.png" alt="Basic 02">
+            <a href="CSS/Transitions/Case 01/Case 1.html" target="_blank"><h2 class="caseTitle">Case 02</h2></a>
+        </div>
+    </section>
 
-    </div>
+    <h1 class="title">Animation</h1>
+    <section id="animesContent">
+        <div id="anime1">
+            <img src="assets/images/transitions/trans 1.png" alt="Basic 01">
+            <a href="CSS/Transitions/Case 02/Case 2.html" target="_blank"><h2 class="caseTitle">Case 01</h2></a>
+        </div>
+
+        <div id="anime2">
+            <img src="assets/images/transitions/trans 2.png" alt="Basic 02">
+            <a href="CSS/Transitions/Case 01/Case 1.html" target="_blank"><h2 class="caseTitle">Case 02</h2></a>
+        </div>
+
+        <div id="anime3">
+            <img src="assets/images/transitions/trans 2.png" alt="Basic 02">
+            <a href="CSS/Transitions/Case 01/Case 1.html" target="_blank"><h2 class="caseTitle">Case 02</h2></a>
+        </div>
+
+        <div id="anime4">
+            <img src="assets/images/transitions/trans 2.png" alt="Basic 02">
+            <a href="CSS/Transitions/Case 01/Case 1.html" target="_blank"><h2 class="caseTitle">Case 02</h2></a>
+        </div>
+    </section>
+
 </main>
 
 </body>
