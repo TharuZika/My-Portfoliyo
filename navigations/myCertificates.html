@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="assets/fonts/css/all.min.css">
+    <link rel="stylesheet" href="assets/css/normalize.css">
     <title>TharuZika/About Me</title>
 
     <meta
@@ -97,7 +99,6 @@
             width: 100%;
             display: flex;
             flex-direction: row;
-            justify-content: space-around;
         }
 
         main>section>div{
@@ -118,8 +119,8 @@
         }
 
         main>section>div>img{
-            height: 210px;
-            width: 300px;
+            height: 80%;
+            width: 100%;
             border-radius: 20px;
         }
 
@@ -132,6 +133,17 @@
             color: white;
             padding-top: 10px;
             padding-bottom: 10px;
+        }
+
+        main>section>a{
+            text-decoration: none;
+            align-text: center;
+            color: white;
+            font-size: 50px;
+            padding: 50px;
+        }
+        main>section>a:hover{
+            color: #0088ff;
         }
 
         @media all and (max-width: 768px) {
@@ -152,6 +164,7 @@
                 flex-direction: column;
                 justify-content: space-around;
             }
+
 
         }
 
@@ -175,21 +188,27 @@
 </header>
 <main class="wrapper">
     <section id="contain">
-        <div>
+        <a href="#">
+        <i class="fa-solid fa-chevron-left"></i>
+        </a>
+        <div id="ceti1">
             <img src="images/certificate.jpg" alt="Cetificate 1">
             <h1>Certificate 1</h1>
             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
         </div>
-        <div>
+        <div id="ceti2">
             <img src="images/certificate.jpg" alt="Cetificate 2">
             <h1>Certificate 2</h1>
             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
         </div>
-        <div>
+        <div id="ceti3">
             <img src="images/certificate.jpg" alt="Cetificate 3">
             <h1>Certificate 3</h1>
             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
         </div>
+        <a href="#">
+            <i class="fa-solid fa-chevron-right"></i>
+        </a>
 
     </section>
 </main>
