@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>The Game</title>
+        <link rel="stylesheet" href="assets/css/normalize.css">
+
+        <style>
+            .body{
+                cursor: crosshair;
+                overflow: hidden;
+            }
+
+            .background{
+                width: 100%;
+                height: 100vh;
+                background-image: url("assets/images/background.jpg");
+                background-size: cover;
+                position: relative;
+            }
+            .character{
+                height: 170px;
+                bottom: 20px;
+                position: absolute;
+
+            }
+            .breath{
+                margin: 20px;
+            }
+
+            .header{
+                width: 100vw;
+                height: 50px;
+                background: rgba(0, 136, 255, 0);
+                position: absolute;
+                z-index: 1;
+            }
+
+            .score{
+                font-family: "Arial Black";
+                margin: 50px;
+                color: white;
+            }
+
+            #enemy1{
+                height: 200px;
+                top: 10px;
+                left: 500px;
+                position: absolute;
+            }
+            #enemy2{
+                height: 200px;
+                top: 120px;
+                right: 900px;
+                position: absolute;
+            }
+            #enemy3{
+                height: 200px;
+                top: 20px;
+                right: 200px;
+                position: absolute;
+            }
+            #enemy4{
+                height: 200px;
+                top: 20px;
+                right: 500px;
+                position: absolute;
+            }
+            #enemy5{
+                height: 200px;
+                top: 300px;
+                right: 600px;
+                position: absolute;
+            }
+
+        </style>
+
+    </head>
+    <body class="body" id="body">
+    <div class="header">
+        <h3 class="score" id="score">Score: 0</h3>
+    </div>
+
+        <div class="background">
+<!--            <img class="character" src="assets/objects/character/ninja/Idle__000.png" id="soldier">-->
+            <img class="character" src="assets/objects/ships/playerShip.png" id="soldier">
+            <img class="enemy" src="assets/objects/ships/enemyShip.png" id="enemy1">
+            <img class="enemy" src="assets/objects/ships/enemyShip.png" id="enemy2">
+            <img class="enemy" src="assets/objects/ships/enemyShip.png" id="enemy3">
+            <img class="enemy" src="assets/objects/ships/enemyShip.png" id="enemy4">
+            <img class="enemy" src="assets/objects/ships/enemyShip.png" id="enemy5">
+
+        </div>
+
+        <script src="assets/js/jquery-3.6.1.min.js"></script>
+        <script>
+
+
+        var en1 =  $("#enemy1");
+        var en2 =  $("#enemy2");
+        var en3 =  $("#enemy3");
+        var en4 =  $("#enemy4");
+        var en5 =  $("#enemy5");
+
+
+            document.addEventListener('mousemove', function (e){
+                var x = e.pageX-87;
+                var el = $("#soldier");
+                el.css('position', 'absolute');
+                    el.css("left", x);
+
+
+            })
+
+            $(document).ready(function() {
+                $(this).on("click", function(e) {
+                    $("#score").text("Score: "+10);
+                    console.log(e)
+                });
+            });
+
+
+
+           en1.on('click', function (){
+               en1.src = "assets/images/explode.gif";
+            })
+
+        </script>
+
+    </body>
+</html>
