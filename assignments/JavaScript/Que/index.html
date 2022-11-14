@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JS - Queue</title>
+  <link href="assets/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+  <style>
+    section>div{
+      width: 100px;
+      height: 80px;
+      border: 2px solid black;
+      display: inline-block;
+      margin: 10px;
+    }
+  </style>
+</head>
+<body class="bg-dark">
+<main class="container-fluid ">
+  <section class="mt-5 col-12 form-group" id="addForm">
+    <input class="col-2 form-control m-3" id="custName" type="text">
+    <input class="col-2 form-control m-3" id="custBgColor" type="color">
+    <button class="col-1 form-control m-3" id="addCust">Add</button>
+  </section>
+  <section class="col-12" id="queForm">
+  </section>
+</main>
+<script src="assets/js/jquery-3.6.1.min.js"></script>
+<script>
+  var customer = [
+    {name:"Saman", colr:"red"},
+    {name:"Nimal", colr:"deeppink"},
+    {name:"Kamal", colr:"green"},
+  ]
+
+  addCustBox();
+  setInterval(flowQueue, 900);
+
+  function addCustBox(){
+    $("#queForm").empty();
+    for (let i = 0; i < customer.length; i++) {
+      $("#queForm").append(`<div style="background:`+customer[i].colr+`">`+customer[i].name+`</div>`);
+    }
+  }
+
+  function flowQueue(){
+    var lastCust = customer.pop();
+    customer.unshift(lastCust);
+    addCustBox();
+  }
+
+  $("#addCust").click(function (){
+    var tempCust = $("#custName").val();
+    var tempColor = $("#custBgColor").val();
+
+    var person = {
+      name: tempCust,
+      colr: tempColor
+    }
+    customer.push(person);
+
+  })
+
+
+
+</script>
+<script src="assets/bootstrap/js/bootstrap.min.js"></script>
+</body>
+</html>

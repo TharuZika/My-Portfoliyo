@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JS - KITT</title>
+  <style>
+    #kitt{
+      width: 90vw;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-evenly;
+    }
+
+    #kitt>div{
+      height: 40px;
+      width: 100%;
+    }
+    button{
+      margin: 20px;
+      width: 80px;
+      height: 50px;
+      border: none;
+      box-shadow: 1px 1px 4px 0px rgba(0, 0, 0, 0.3);
+    }
+
+    button:hover{
+      box-shadow: 1px 1px 4px 0px black;
+      background: #8e0404;
+      color: white;
+    }
+
+    #container{
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+  </style>
+</head>
+<body>
+<main id="container">
+  <section id="kitt">
+  </section>
+  <section>
+    <button id="btnStart">Start</button>
+    <button id="btnStop">Stop</button>
+  </section>
+</main>
+<script src="assets/js/jquery-3.6.1.min.js"></script>
+
+<script>
+
+  var color = ["white","white","white","white","white","#f7cbcb","#fa6161","#f75959", "#fa2525","#fc0303"]
+  var revColor = ["white","white","white","white","white","#fc0303","#fa2525","#f75959","#fa6161","#f7cbcb"]
+  genLight();
+  function genLight(){
+    $("#kitt").empty();
+    for (let i = 0; i < color.length/2; i++) {
+      $("#kitt").append(`<div style="background: `+color[i]+`"></div>`)
+    }
+  }
+  function genRevLight(){
+    $("#kitt").empty();
+    for (let i = 0; i < revColor.length/2; i++) {
+      $("#kitt").append(`<div style="background: `+revColor[i]+`"></div>`)
+    }
+  }
+  var running;
+  $("#btnStart").click(function () {
+    clearInterval(running);
+    running = setInterval(runLight, 100);
+  });
+
+  $("#btnStop").click(function () {
+    clearInterval(running);
+  });
+
+  var count=0;
+
+  function runLight(){
+    if (count<color.length) {
+      count++;
+      var lastCol = color.pop();
+      color.unshift(lastCol);
+      genLight();
+    }
+    if (count>=color.length){
+      var firstCol = revColor.shift();
+      revColor.push(firstCol);
+      genRevLight();
+      count++;
+    }
+    if (count==color.length*2){
+      count=0;
+    }
+  }
+
+</script>
+
+</body>
+</html>
