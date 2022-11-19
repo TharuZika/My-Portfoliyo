@@ -77,20 +77,11 @@
 
     </head>
     <body class="body" id="body">
-    <div class="header">
-        <h3 class="score" id="score">Score: 0</h3>
-    </div>
-
-        <div class="background">
-<!--            <img class="character" src="assets/objects/character/ninja/Idle__000.png" id="soldier">-->
-            <img class="character" src="assets/objects/ships/playerShip.png" id="soldier">
-            <img class="enemy" src="assets/objects/ships/enemyShip.png" id="enemy1">
-            <img class="enemy" src="assets/objects/ships/enemyShip.png" id="enemy2">
-            <img class="enemy" src="assets/objects/ships/enemyShip.png" id="enemy3">
-            <img class="enemy" src="assets/objects/ships/enemyShip.png" id="enemy4">
-            <img class="enemy" src="assets/objects/ships/enemyShip.png" id="enemy5">
-
+    <main class="background" id="main">
+        <div class="header">
+            <h3 class="score" id="score">Score: 0</h3>
         </div>
+    </main>
 
         <script src="assets/js/jquery-3.6.1.min.js"></script>
         <script>
@@ -102,8 +93,28 @@
         var en4 =  $("#enemy4");
         var en5 =  $("#enemy5");
 
+        loadImages();
 
-            document.addEventListener('mousemove', function (e){
+        function loadImages(){
+            enemyImage = new Image();
+            shipImage = new Image();
+            laserImage = new Image();
+            worldImage = new Image();
+
+            enemyImage.src = "assets/objects/enemyShip.png";
+            shipImage.src = "assets/objects/playerShip.png"
+            laserImage.src = "assets/objects/laser.png"
+            worldImage.src = "assets/objects/world.png"
+        }
+
+        contain = $("#main");
+
+        pen = contain.getContext('2d');
+
+        pen.drawImage(shipImage, 300, 150, 50, 50);
+
+
+        document.addEventListener('mousemove', function (e){
                 var x = e.pageX-87;
                 var el = $("#soldier");
                 el.css('position', 'absolute');
