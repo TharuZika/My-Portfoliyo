@@ -1,126 +1,175 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <title>The Game</title>
-        <link rel="stylesheet" href="assets/css/normalize.css">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="assets/css/normalize.css">
+    <title>The Fractured Galaxy</title>
+    <link rel="shortcut icon" href="#" />
+    <link href="https://fonts.cdnfonts.com/css/robus" rel="stylesheet">
+    <style>
+        h1 {
+            margin: 0px;
+            margin-bottom: 10px;
+            font-size: 2.9em;
+            font-family: "Helvetica";
+        }
+        body {
+            cursor: crosshair;
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+            padding: 0px;
+            margin: 0px;
+            height: 100vh;
+            background-image: url("assets/images/background.jpg");
+            background-size: cover;
+            background-position: center;
+            text-align: center;
+            overflow: hidden;
+            position: relative;
 
-        <style>
-            .body{
-                cursor: crosshair;
-                overflow: hidden;
+        }
+
+        #game{
+            margin-top: 100px;
+            position: absolute;
+            border-radius: 50px;
+            background-image: url("assets/images/background.jpg");
+            background-size: cover;
+            background-position: center;
+        }
+
+        #imgAsteroid{
+            position: absolute;
+            z-index: 2;
+            width: 50px;
+            animation: astroidRotate 3s linear infinite, astroidFlow 7s  infinite;
+        }
+
+        #imgAsteroid2{
+            position: absolute;
+            z-index: 2;
+            width: 80px;
+            left: 20px;
+            animation: astroidRotate 5s linear infinite, astroidFlow 20s  infinite;
+        }
+
+        #imgAsteroid3{
+            position: absolute;
+            z-index: 2;
+            width: 100px;
+            right: 60px;
+            animation: astroidRotate 1s linear infinite, astroidFlow 10s  infinite;
+            /*animation: astroidFlow 10s linear infinite;*/
+        }
+
+        @keyframes astroidRotate {
+            100%{
+                transform: rotate(360deg);
             }
+        }
 
-            .background{
-                width: 100%;
-                height: 100vh;
-                background-image: url("assets/images/background.jpg");
-                background-size: cover;
-                position: relative;
+        @keyframes astroidFlow {
+            100%{
+                transform: translatey(2400px);
             }
-            .character{
-                height: 170px;
-                bottom: 20px;
-                position: absolute;
+        }
 
-            }
+        #imgWorld{
+            margin-top: -120px;
+            margin-left: 900px;
+            width: 300px;
+            z-index: 1;
+            animation: astroidRotate 50s linear infinite;
+        }
 
-            .enemy{
-                height: 200px;
-                bottom: 35px;
-                position: absolute;
-            }
+        #gameOver{
+            display: none;
+            position: absolute;
+            height: 100vh;
+            width: 100vw;
+            background: rgba(0, 59, 255, 0.47);
+            z-index: 5;
+        }
 
+        #gameStart{
+            display: block;
+            position: absolute;
+            height: 100vh;
+            width: 100vw;
+            background-image: url("assets/images/gameStartBG.jpg");
+            background-size: cover;
+            background-position: center;
+            z-index: 5;
+        }
+        #gameStart>h1{
+            font-family: 'Dark Ministry', Sans-serif;
+            font-size: 220px;
+        }
 
+        h1,h2,h3{
+            color: white;
+            font-family: "Arial Black";
+            margin: 0;
+        }
 
-            .header{
-                width: 100vw;
-                height: 50px;
-                background: rgba(0, 136, 255, 0);
-                position: absolute;
-                z-index: 1;
-            }
+        h2{
+            /*right: 0;*/
+            /*margin: auto;*/
+        }
 
-            .score{
-                font-family: "Arial Black";
-                margin: 50px;
-                color: white;
-            }
+        #txtOver{
+            font-size: 100px;
+            margin: 50px;
+        }
 
+        .instruction{
+            margin: 20px;
+        }
 
-        </style>
+        .startImage{
+            margin-top: 150px;
+        }
 
-    </head>
-    <body class="body" id="body">
-    <main class="background" id="canvas">
-<!--        <canvas id="canvas">-->
-
-<!--        </canvas>-->
-        <img src="assets/objects/playerShip.png" alt="" id="myShip" class="character">
-        <div class="header">
-            <h3 class="score" id="score">Score: 0</h3>
-        </div>
-    </main>
-
-        <script src="assets/js/jquery-3.6.1.min.js"></script>
-        <script>
-
-            count = 0;
-
-            const cWidth = $("#canvas").width;
-            const cHeight =  $("#canvas").height;
-
-            function spawnEnemy(){
-                count++;
-                if (count == 1){
-                    $("#canvas").append("<img src=\"assets/objects/enemyShip.png\" alt=\"\" id=\"enemy\" class=\"enemy\">");
-                }
-            }
-
-
-
-            document.addEventListener('mousemove', function (e){
-                    var x = e.pageX-87;
-                    var el = $("#myShip");
-                    el.css('position', 'absolute');
-                        el.css("left", x);
-                })
-
-                $(document).ready(function() {
-                    $(this).on("click", function(e) {
-                        $("#score").text("Score: "+10);
-                        spawnEnemy();
-                        console.log(e)
-                    });
-                });
-
-                temWidth = cWidth;
-                direction = "left";
+        #btnStart{
+            margin-top: 220px;
+            text-decoration: none;
+            font-size: 120px;
+            background: none;
+            border: none;
+            color: rgb(0, 65, 255);
+            font-family: "Arial Black";
+            cursor: pointer;
+        }
 
 
-                function enemyMove() {
-
-                    if (direction == "left") {
-                        $("#enemy").css("left", temWidth - 1);
-                    }
-                    if (direction == "right") {
-                        $("#enemy").css("left", temWidth + 1);
-                    }
-
-                    if (temWidth == cWidth) {
-                        direction = "left";
-                    }
-                    if (temWidth == 0) {
-                        direction = "right";
-                    }
-                }
-
-                setInterval(enemyMove, 1000/60);
+    </style>
 
 
 
+</head>
+<body>
+<img class="universe" id="imgAsteroid" src="assets/images/asteroid1.png" alt="">
+<img class="universe" id="imgAsteroid2" src="assets/images/asteroid2.png" alt="">
+<img class="universe" id="imgAsteroid3" src="assets/images/asteroid1.png" alt="">
+<img class="universe" id="imgWorld" src="assets/images/world.png" alt="">
+<div id="gameOver">
+    <h1 id="txtOver">Game Over</h1>
+    <h1 id="txtScoreOver">Your Score : 00</h1>
+    <button id="btnReStart">Retry</button>
+</div>
+<div id="gameStart">
+    <h1>The Fractured Galaxy</h1>
+    <h3 class="instruction">Use Mouse or Arrow Keys to control</h3>
+    <h3 class="instruction">Click Mouse right button or "Space" to shoot</h3>
+    <button id="btnStart">Start</button>
+</div>
+<h1>Space Invaders</h1>
 
-        </script>
-
-    </body>
+<canvas id="game"></canvas>
+<script src="assets/js/jquery-3.6.1.min.js"></script>
+<script type="module" src="assets/js/game.js"></script>
+</body>
 </html>
