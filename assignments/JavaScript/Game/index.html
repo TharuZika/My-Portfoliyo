@@ -5,153 +5,193 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="assets/css/normalize.css">
+    <link rel="stylesheet" href="assets/css/index.css">
     <title>The Fractured Galaxy</title>
     <link rel="shortcut icon" href="#" />
     <link href="https://fonts.cdnfonts.com/css/robus" rel="stylesheet">
+
     <style>
-        h1 {
-            margin: 0px;
-            margin-bottom: 10px;
-            font-size: 2.9em;
-            font-family: "Helvetica";
-        }
-        body {
-            cursor: crosshair;
-            display: flex;
-            align-items: center;
-            flex-direction: column;
-            padding: 0px;
-            margin: 0px;
-            height: 100vh;
-            background-image: url("assets/images/background.jpg");
-            background-size: cover;
-            background-position: center;
-            text-align: center;
-            overflow: hidden;
-            position: relative;
+        /*h1 {*/
+        /*    margin: 0px;*/
+        /*    margin-bottom: 10px;*/
+        /*    font-size: 2.9em;*/
+        /*    font-family: "Helvetica";*/
+        /*}*/
+        /*body {*/
+        /*    cursor: crosshair;*/
+        /*    display: flex;*/
+        /*    align-items: center;*/
+        /*    flex-direction: column;*/
+        /*    padding: 0px;*/
+        /*    margin: 0px;*/
+        /*    height: 100vh;*/
+        /*    background-image: url("assets/images/background.jpg");*/
+        /*    background-size: cover;*/
+        /*    background-position: center;*/
+        /*    text-align: center;*/
+        /*    overflow: hidden;*/
+        /*    position: relative;*/
 
-        }
+        /*}*/
 
-        #game{
+        /*#game{*/
 
-            margin-top: 100px;
-            position: absolute;
-            border-radius: 50px;
-            background-image: url("assets/images/background.jpg");
-            background-size: cover;
-            background-position: center;
-        }
+        /*    margin-top: 100px;*/
+        /*    position: absolute;*/
+        /*    border-radius: 50px;*/
+        /*    background-image: url("assets/images/background.jpg");*/
+        /*    background-size: cover;*/
+        /*    background-position: center;*/
+        /*}*/
 
-        #imgAsteroid{
-            position: absolute;
-            z-index: 2;
-            width: 50px;
-            animation: astroidRotate 3s linear infinite, astroidFlow 7s  infinite;
-        }
+        /*#imgAsteroid{*/
+        /*    position: absolute;*/
+        /*    z-index: 2;*/
+        /*    width: 50px;*/
+        /*    animation: astroidRotate 3s linear infinite, astroidFlow 7s  infinite;*/
+        /*}*/
 
-        #imgAsteroid2{
-            position: absolute;
-            z-index: 2;
-            width: 80px;
-            left: 20px;
-            animation: astroidRotate 5s linear infinite, astroidFlow 20s  infinite;
-        }
+        /*#imgAsteroid2{*/
+        /*    position: absolute;*/
+        /*    z-index: 2;*/
+        /*    width: 80px;*/
+        /*    left: 20px;*/
+        /*    animation: astroidRotate 5s linear infinite, astroidFlow 20s  infinite;*/
+        /*}*/
 
-        #imgAsteroid3{
-            position: absolute;
-            z-index: 2;
-            width: 100px;
-            right: 60px;
-            animation: astroidRotate 1s linear infinite, astroidFlow 10s  infinite;
-            /*animation: astroidFlow 10s linear infinite;*/
-        }
+        /*#imgAsteroid3{*/
+        /*    position: absolute;*/
+        /*    z-index: 2;*/
+        /*    width: 100px;*/
+        /*    right: 60px;*/
+        /*    animation: astroidRotate 1s linear infinite, astroidFlow 10s  infinite;*/
+        /*    !*animation: astroidFlow 10s linear infinite;*!*/
+        /*}*/
 
-        @keyframes astroidRotate {
-            100%{
-                transform: rotate(360deg);
-            }
-        }
+        /*@keyframes astroidRotate {*/
+        /*    100%{*/
+        /*        transform: rotate(360deg);*/
+        /*    }*/
+        /*}*/
 
-        @keyframes astroidFlow {
-            100%{
-                transform: translatey(2400px);
-            }
-        }
+        /*@keyframes astroidFlow {*/
+        /*    100%{*/
+        /*        transform: translatey(2400px);*/
+        /*    }*/
+        /*}*/
 
-        #imgWorld{
-            margin-top: -120px;
-            margin-left: 900px;
-            width: 300px;
-            z-index: 1;
-            animation: astroidRotate 50s linear infinite;
-        }
+        /*#imgWorld{*/
+        /*    margin-top: -120px;*/
+        /*    margin-left: 900px;*/
+        /*    width: 300px;*/
+        /*    z-index: 1;*/
+        /*    animation: astroidRotate 50s linear infinite;*/
+        /*    -webkit-filter: drop-shadow(2px 2px 12px #ffb803);*/
+        /*    filter: drop-shadow(2px 2px 12px #ff5900);*/
+        /*}*/
 
-        #gameOver{
-            display: none;
-            position: absolute;
-            height: 100vh;
-            width: 100vw;
-            background: rgba(0, 59, 255, 0.47);
-            z-index: 5;
-        }
+        /*#gameOver{*/
+        /*    display: none;*/
+        /*    position: absolute;*/
+        /*    height: 100vh;*/
+        /*    width: 100vw;*/
+        /*    background: rgba(0, 59, 255, 0.47);*/
+        /*    z-index: 5;*/
+        /*}*/
 
-        #gameStart{
-            display: block;
-            position: absolute;
-            height: 100vh;
-            width: 100vw;
-            background-image: url("assets/images/gameStartBG.jpg");
-            background-size: cover;
-            background-position: center;
-            z-index: 5;
-        }
-        #gameStart>h1{
-            font-family: 'Dark Ministry', Sans-serif;
-            font-size: 220px;
-        }
+        /*#gameStart{*/
+        /*    display: block;*/
+        /*    position: absolute;*/
+        /*    height: 100vh;*/
+        /*    width: 100vw;*/
+        /*    background-image: url("assets/images/gameStartBG.jpg");*/
+        /*    background-size: cover;*/
+        /*    background-position: center;*/
+        /*    z-index: 5;*/
+        /*}*/
+        /*#gameStart>h1{*/
+        /*    font-family: 'Dark Ministry', Sans-serif;*/
+        /*    font-size: 220px;*/
+        /*    animation: colorchange 20s infinite;*/
+        /*}*/
 
-        h1,h2,h3{
-            color: white;
-            font-family: "Arial Black";
-            margin: 0;
-        }
+        /*@keyframes colorchange {*/
+        /*    0% {*/
+        /*        text-shadow: 5px 8px 20px  red;*/
+        /*        -webkit-text-stroke: 1px rgba(191, 27, 27, 0.51);*/
+        /*    }*/
+        /*    45% {*/
+        /*        text-shadow: 5px 8px 20px green;*/
+        /*        -webkit-text-stroke: 1px rgba(71, 191, 27, 0.51);*/
+        /*    }*/
+        /*    90% {*/
+        /*        text-shadow: 5px 8px 20px blue;*/
+        /*        -webkit-text-stroke: 1px rgba(27, 93, 191, 0.51);*/
+        /*    }*/
+        /*    100% {*/
+        /*        text-shadow: 5px 8px 20px red;*/
+        /*        -webkit-text-stroke: 1px rgba(191, 27, 27, 0.51);*/
+        /*    }*/
 
-        h2{
-            /*right: 0;*/
-            /*margin: auto;*/
-        }
 
-        #txtOver{
-            font-size: 100px;
-            margin: 50px;
-        }
+        /*}*/
 
-        .instruction{
-            margin: 20px;
-        }
+        /*h1,h2,h3{*/
+        /*    color: white;*/
+        /*    font-family: "Arial Black";*/
+        /*    margin: 0;*/
+        /*}*/
 
-        .startImage{
-            margin-top: 150px;
-        }
+        /*h2{*/
+        /*    !*right: 0;*!*/
+        /*    !*margin: auto;*!*/
+        /*}*/
 
-        #btnStart{
-            margin-top: 220px;
-            text-decoration: none;
-            font-size: 120px;
-            background: none;
-            border: none;
-            color: rgb(0, 65, 255);
-            font-family: "Arial Black";
-            cursor: pointer;
-        }
+        /*#txtOver{*/
+        /*    font-size: 100px;*/
+        /*    margin: 50px;*/
+        /*}*/
+
+        /*.instruction{*/
+        /*    margin: 20px;*/
+        /*}*/
+
+        /*.startImage{*/
+        /*    margin-top: 150px;*/
+        /*}*/
+
+        /*#btnStart{*/
+        /*    text-decoration: none;*/
+        /*    font-size: 120px;*/
+        /*    background: none;*/
+        /*    border: none;*/
+        /*    color: rgb(0, 65, 255);*/
+        /*    font-family: "Arial Black";*/
+        /*    cursor: pointer;*/
+        /*}*/
+
+        /*#imgStartEarth{*/
+        /*    position: absolute;*/
+        /*    top: -120px;*/
+        /*    right: 100px;*/
+        /*    width: 300px;*/
+        /*    animation: astroidRotate 120s linear infinite;*/
+        /*    -webkit-filter: drop-shadow(5px 5px 10px #03ffe9);*/
+        /*    filter: drop-shadow(5px 5px 10px #0092ff);*/
+        /*}*/
+
+        /*#imgStartShip3{*/
+        /*    margin-top: 20px;*/
+        /*    width: 350px;*/
+        /*}*/
 
 
     </style>
 
 
-
 </head>
 <body>
+<audio id="startSong" src="assets/sounds/start.wav" muted></audio>
 <img class="universe" id="imgAsteroid" src="assets/images/asteroid1.png" alt="">
 <img class="universe" id="imgAsteroid2" src="assets/images/asteroid2.png" alt="">
 <img class="universe" id="imgAsteroid3" src="assets/images/asteroid1.png" alt="">
@@ -162,12 +202,15 @@
     <button id="btnReStart">Retry</button>
 </div>
 <div id="gameStart">
+    <img class="universe" id="imgStartShip3" src="assets/images/startShip3.gif" alt="">
     <h1>The Fractured Galaxy</h1>
     <h3 class="instruction">Use Mouse or Arrow Keys to control</h3>
     <h3 class="instruction">Click Mouse right button or "Space" to shoot</h3>
     <button id="btnStart">Start</button>
+    <img class="universe" id="imgStartEarth" src="assets/images/StartEarth.png" alt="">
 </div>
 <canvas id="game"></canvas>
+<audio id="audioBackground" src="assets/sounds/start.wav" autoplay="true" muted="false"></audio>
 <script src="assets/js/jquery-3.6.1.min.js"></script>
 <script type="module" src="index.js"></script>
 </body>
