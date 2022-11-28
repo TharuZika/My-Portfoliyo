@@ -81,7 +81,9 @@ body {
     position: absolute;
     height: 100vh;
     width: 100vw;
-    background: rgba(0, 59, 255, 0.47);
+    background-image: url("../images/gameStartBG.jpg");
+    background-size: cover;
+    background-position: center;
     z-index: 5;
 }
 
@@ -147,7 +149,7 @@ h2{
     margin-top: 150px;
 }
 
-#btnStart{
+#btnStart,#btnReStart{
     text-decoration: none;
     font-size: 120px;
     background: none;
@@ -155,6 +157,10 @@ h2{
     color: rgb(0, 65, 255);
     font-family: "Arial Black";
     cursor: pointer;
+}
+
+#btnReStart{
+    margin-top: 50px;
 }
 
 
@@ -172,4 +178,9 @@ h2{
 #imgStartShip3{
     margin-top: 20px;
     width: 350px;
+}
+
+#score{
+    color: white;
+    z-index: 10;
 }

@@ -4,10 +4,7 @@ import MovingDirection from "./MovingDirection.js";
 export default class EnemyController{
 
     enemyMap = [
-        [1,1,1,1,1,1,1],
-        [0,1,1,1,1,1,0],
-        [0,0,1,1,1,0,0],
-        [0,0,0,1,0,0,0]
+        [1,1,1]
     ];
 
     enemyRows = [];
@@ -15,21 +12,62 @@ export default class EnemyController{
     currentDirection = MovingDirection.right;
     xVelocity = 0;
     yVelocity = 0;
-    defaultXVelocity = 7;
+    defaultXVelocity = 5;
     defaultYVelocity = 1;
     moveDownTimerDefault = 1;
     moveDownTimer = this.moveDownTimerDefault;
+    fireBulletTimerDefault = 100;
+    fireBulletTimer = this.fireBulletTimerDefault;
 
-    constructor(canvas) {
+    constructor(canvas, enemyBulletController, playerBulletController, level) {
         this.canvas = canvas;
+        this.enemyBulletController = enemyBulletController;
+        this.playerBulletController = playerBulletController;
+        this.enemyExplodeSound = new Audio('assets/sounds/enemy-death.wav');
+        this.enemyExplodeSound.volume = 0.5;
         this.createEnemies();
+        this.level = level;
     }
+
 
     draw(ctx){
         this.decrementMoveDownTimer();
         this.updateVelocityAndDirection();
+        this.collisionDetection();
         this.drawEnemies(ctx);
         this.resetMoveDownTimer();
+        this.fireBullet();
+        this.enemyChange();
+    }
+
+    collisionDetection(){
+        this.enemyRows.forEach(enemyRow =>{
+            enemyRow.forEach((enemy,enemyIndex)=>{
+                if (this.playerBulletController.collidenWith(enemy)){
+                    this.enemyExplodeSound.currentTime = 0;
+                    this.enemyExplodeSound.play();
+                    enemyRow.splice(enemyIndex, 1);
+                }
+            });
+        });
+        this.enemyRows = this.enemyRows.filter((enemyRow) => enemyRow.length>0);
+    }
+
+    fireBullet(){
+        this.fireBulletTimer--;
+        if (this.fireBulletTimer<=0){
+            this,this.fireBulletTimer = this.fireBulletTimerDefault;
+            const allEnemies = this.enemyRows.flat();
+            const enemyIndex = Math.floor(Math.random()*allEnemies.length);
+            const enemy = allEnemies[enemyIndex];
+            if (this.enemyRows.length != 0){
+                this.enemyBulletController.shoot(enemy.x,enemy.y,-3);
+            }
+        }
+    }
+
+    enemyChange(){
+        this.enemyMap = [[1,1,1,1,1,1,1]];
     }
 
     resetMoveDownTimer(){
