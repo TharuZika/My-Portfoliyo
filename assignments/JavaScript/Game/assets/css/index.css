@@ -76,6 +76,17 @@ body {
     filter: drop-shadow(2px 2px 12px #ff5900);
 }
 
+#gameWin{
+    display: none;
+    position: absolute;
+    height: 100vh;
+    width: 100vw;
+    background-image: url("../images/gameStartBG.jpg");
+    background-size: cover;
+    background-position: center;
+    z-index: 5;
+}
+
 #gameOver{
     display: none;
     position: absolute;
@@ -149,7 +160,7 @@ h2{
     margin-top: 150px;
 }
 
-#btnStart,#btnReStart{
+#btnStart,#btnReStart,#btnReload{
     text-decoration: none;
     font-size: 120px;
     background: none;

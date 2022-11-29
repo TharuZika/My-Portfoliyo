@@ -1,9 +1,9 @@
 export default class Enemy{
-    constructor(x,y,imageNumber) {
+    constructor(x,y) {
         this.x = x;
         this.y = y;
-        this.width = 130;
-        this.height = 100;
+        this.width = 180;
+        this.height = 150;
 
         this.image = new Image();
         this.image.src = 'assets/images/enemyShip.png';
@@ -13,8 +13,8 @@ export default class Enemy{
         ctx.drawImage(this.image, this.x, this.y, this.width, this.height);
     }
 
-    move(xVelocity,yVelocity){
-        this.x += xVelocity;
-        this.y += yVelocity;
+    move(xMove,yMove){
+        this.x += xMove;
+        this.y += yMove;
     }
 }

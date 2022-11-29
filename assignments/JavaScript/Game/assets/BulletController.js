@@ -3,10 +3,10 @@ import Bullet from "./Bullet.js";
 export default class BulletController{
     bullets = [];
     timeTillNextBulletAllowed = 0;
-    constructor(canvas,maxBulletAtATime,bulletColor, soundEnabled) {
+    constructor(canvas,maxBulletAtATime,bulletType, soundEnabled) {
         this.canvas = canvas;
         this.maxBulletAtATime = maxBulletAtATime;
-        this.bulletColor = bulletColor;
+        this.bulletType = bulletType;
         this.soundEnabled = soundEnabled;
 
         this.shootSound = new Audio("assets/sounds/shoot.wav");
@@ -30,9 +30,9 @@ export default class BulletController{
         return false;
     }
 
-    shoot(x,y,velocity,timeTillNextBulletAllowed = 0){
+    shoot(x,y,move,timeTillNextBulletAllowed = 0){
         if (this.timeTillNextBulletAllowed <=0 && this.bullets.length < this.maxBulletAtATime){
-            const bullet = new Bullet(this.canvas, x,y,velocity, this.bulletColor);
+            const bullet = new Bullet(this.canvas, x,y,move, this.bulletType);
             this.bullets.push(bullet);
             if (this.soundEnabled){
                 this.shootSound.currentTime = 0;

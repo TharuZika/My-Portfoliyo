@@ -202,8 +202,14 @@
 
 <div id="gameOver">
     <h1 id="txtOver">Game Over</h1>
-    <h1 id="txtScoreOver">Your Score : 00</h1>
+    <h1 id="score">Your Score : 00</h1>
     <button id="btnReStart">Retry</button>
+</div>
+
+<div id="gameWin">
+    <h1 id="txtWin">Wow! You Win</h1>
+    <h1 id="winScore">Your Score : 00</h1>
+    <button id="btnReload">Play Again</button>
 </div>
 
 
@@ -214,10 +220,11 @@
     <h3 class="instruction">Click Mouse right button or "Space" to shoot</h3>
     <button id="btnStart">Start</button>
     <img class="universe" id="imgStartEarth" src="assets/images/StartEarth.png" alt="">
+    <audio src="assets/sounds/start.wav" id="backgroundMusic"></audio>
 </div>
 <!--<h3 id="score">Score: 00</h3>-->
 <canvas id="game"></canvas>
-<audio id="audioBackground" src="assets/sounds/start.wav" autoplay="true" muted="false"></audio>
+<audio src="assets/sounds/start.wav"></audio>
 <script src="assets/js/jquery-3.6.1.min.js"></script>
 <script type="module" src="index.js"></script>
 </body>
