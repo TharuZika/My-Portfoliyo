@@ -35,11 +35,11 @@ function gameLoop(){
     $("#winScore").text("Your Score: "+enemyController.score);
     $("#txtLevel").text("Level: 0"+enemyController.level);
     checkGameOver();
-    levelChecker();
     if (gameOver){
         if (gameLoop!=null){
         }
         $("#gameOver").css('display', 'block');
+        backgroundMusic.pause();
     }else {
         ctx.drawImage(background,0,0,canvas.width,canvas.height);
         enemyController.draw(ctx);
@@ -59,12 +59,12 @@ function checkGameOver(){
         gameOver = true;
         playerDeath.currentTime = 0;
         playerDeath.play();
+        backgroundMusic.pause();
     }
 }
 
 $("#btnStart").click(function (){
     gameOver = false;
-    $("#audioBackground").stop();
     gameStart();
 });
 
@@ -80,14 +80,10 @@ $("#btnReload").click(function (){
 function gameStart(){
     $("#gameStart").css('display', 'none');
     $("#gameOver").css('display', 'none');
-    backgroundMusic.pause();
+    backgroundMusic.currentTime = 0;
+    backgroundMusic.loop = true;
+    backgroundMusic.play();
     setInterval(gameLoop, 1000/75);
-}
-
-function levelChecker(){
-    if (enemyController.level == 2){
-        enemyController.enemyMap = [1,1,1,1,1,1];
-    }
 }
 
 
