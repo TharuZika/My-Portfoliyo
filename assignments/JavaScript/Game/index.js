@@ -10,7 +10,7 @@ let level = 1;
 
 const backgroundMusic = new Audio('assets/sounds/start.wav');
 const playerDeath = new Audio('assets/sounds/death-player.wav');
-backgroundMusic.volume = 0.2;
+backgroundMusic.volume = 0.05;
 playerDeath.volume = 0.8;
 
 const background = new Image();
@@ -21,7 +21,7 @@ canvas.height = 800;
 
 
 
-const playerBulletController = new BulletController(canvas,20,"player",true);
+const playerBulletController = new BulletController(canvas,5,"player",true);
 const enemyBulletController = new BulletController(canvas,4,"enemy",false);
 const enemyController = new EnemyController(canvas, enemyBulletController,playerBulletController,level);
 const player = new Player(canvas, 10, playerBulletController);
@@ -33,7 +33,9 @@ const player = new Player(canvas, 10, playerBulletController);
 function gameLoop(){
     $("#score").text("Your Score: "+enemyController.score);
     $("#winScore").text("Your Score: "+enemyController.score);
-    $("#txtLevel").text("Level: 0"+enemyController.level);
+    $("#txtLevel").text("Level: "+enemyController.level);
+    $("#liveLevel").text("Level "+enemyController.level);
+    $("#liveScore").text("Score "+enemyController.score);
     checkGameOver();
     if (gameOver){
         if (gameLoop!=null){

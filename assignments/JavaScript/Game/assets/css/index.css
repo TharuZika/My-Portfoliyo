@@ -88,6 +88,10 @@ body {
     z-index: 5;
 }
 
+#gameWin>h1{
+    margin:100px;
+}
+
 #gameOver{
     display: none;
     position: absolute;
@@ -195,4 +199,23 @@ h2{
 #score{
     color: white;
     z-index: 10;
+}
+
+
+#scoreBoard{
+    position: absolute;
+    left:0;
+    display: flex;
+    width: 150px;
+    border: 2px solid #ffffff;
+    z-index: 10;
+    padding: 10px;
+    margin: 10px;
+    border-radius: 20px;
+    background-color: rgba(10, 88, 202, 0.55);
+}
+
+#liveScore,#liveLevel{
+    color: white;
+    padding: 10px;
 }

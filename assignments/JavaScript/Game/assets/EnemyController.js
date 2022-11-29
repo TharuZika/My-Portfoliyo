@@ -21,13 +21,17 @@ export default class EnemyController{
 
     constructor(canvas, enemyBulletController, playerBulletController, level) {
         this.canvas = canvas;
+
         this.enemyBulletController = enemyBulletController;
         this.playerBulletController = playerBulletController;
+
         this.enemyExplodeSound = new Audio('assets/sounds/death.mp3');
         this.enemyShootSound = new Audio('assets/sounds/enemy-shoot.mp3');
         this.enemyShootSound.volume = 0.5;
         this.enemyExplodeSound.volume = 0.5;
+
         this.createEnemies();
+
         this.score = 0;
         this.level = 1;
     }
