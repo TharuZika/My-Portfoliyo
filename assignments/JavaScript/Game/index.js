@@ -33,6 +33,7 @@ const player = new Player(canvas, 10, playerBulletController);
 function gameLoop(){
     $("#score").text("Your Score: "+enemyController.score);
     $("#winScore").text("Your Score: "+enemyController.score);
+    $("#txtLevel").text("Level: 0"+enemyController.level);
     checkGameOver();
     levelChecker();
     if (gameOver){
