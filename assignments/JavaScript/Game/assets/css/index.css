@@ -114,8 +114,7 @@ body {
     z-index: 5;
 }
 #gameStart>h1{
-    font-family: 'Dark Ministry', Sans-serif;
-    font-size: 220px;
+    font-size: 120px;
     animation: colorchange 20s infinite;
 }
 
@@ -173,6 +172,25 @@ h2{
     color: rgb(0, 65, 255);
     font-family: "Arial Black";
     cursor: pointer;
+}
+
+#btnStart:hover,#btnReStart:hover,#btnReload:hover{
+    animation: btnShadowHover 2s linear infinite;
+}
+
+@keyframes btnShadowHover {
+    0%{
+        -webkit-filter: drop-shadow(5px 5px 10px rgba(3, 255, 37, 0.28));
+        filter: drop-shadow(5px 5px 10px rgba(0, 255, 42, 0.27));
+    }
+    70%{
+        -webkit-filter: drop-shadow(5px 5px 10px #03a7ff);
+        filter: drop-shadow(5px 5px 10px #0066ff);
+    }
+    100%{
+        -webkit-filter: drop-shadow(5px 5px 10px rgba(3, 255, 234, 0.28));
+        filter: drop-shadow(5px 5px 10px rgba(0, 255, 217, 0.27));
+    }
 }
 
 #btnReStart{
